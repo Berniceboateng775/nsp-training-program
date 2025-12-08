@@ -1,0 +1,1245 @@
+company,typename,inches,ram,weight,price,screen_type,screen_width,screen_height,touchscreen,cpu_name,cpu_brand,cpu_speed,hdd,ssd,hybrid,flash_storage,gpu_brand,operating_system
+apple,ultrabook,13.3,8,1.37,71378.6832,ips panel retina display,2560,1600,0,intel core i5,intel core i5,2.3,0,128,0,0,intel iris,mac
+apple,ultrabook,13.3,8,1.34,47895.5232,standard,1440,900,0,intel core i5,intel core i5,1.8,0,0,0,128,intel hd,mac
+hp,notebook,15.6,8,1.86,30636.0,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,others/no os
+apple,ultrabook,15.4,16,1.83,135195.336,ips panel retina display,2880,1800,0,intel core i7,intel core i7,2.7,0,512,0,0,amd radeon,mac
+apple,ultrabook,13.3,8,1.37,96095.808,ips panel retina display,2560,1600,0,intel core i5,intel core i5,3.1,0,256,0,0,intel iris,mac
+acer,notebook,15.6,4,2.1,21312.0,standard,1366,768,0,amd a9-series 9420,amd processor,3.0,500,0,0,0,amd radeon,windows
+apple,ultrabook,15.4,16,2.04,114017.6016,ips panel retina display,2880,1800,0,intel core i7,intel core i7,2.2,0,0,0,256,intel iris,mac
+apple,ultrabook,13.3,8,1.34,61735.536,standard,1440,900,0,intel core i5,intel core i5,1.8,0,0,0,256,intel hd,mac
+asus,ultrabook,14.0,16,1.3,79653.6,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,512,0,0,nvidia geforce,windows
+acer,ultrabook,14.0,8,1.6,41025.6,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+hp,notebook,15.6,4,1.86,20986.992,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,others/no os
+hp,notebook,15.6,4,1.86,18381.0672,full hd,1920,1080,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,others/no os
+apple,ultrabook,15.4,16,1.83,130001.6016,ips panel retina display,2880,1800,0,intel core i7,intel core i7,2.8,0,256,0,0,amd radeon,mac
+dell,notebook,15.6,4,2.2,26581.392,full hd,1920,1080,0,intel core i3,intel core i3,2.0,0,256,0,0,amd radeon,windows
+apple,ultrabook,12.0,8,0.92,67260.672,ips panel retina display,2304,1440,0,intel core m,other intel processor,1.2,0,256,0,0,intel hd,mac
+apple,ultrabook,13.3,8,1.37,80908.344,ips panel retina display,2560,1600,0,intel core i5,intel core i5,2.3,0,256,0,0,intel iris,mac
+dell,notebook,15.6,8,2.2,39693.6,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,amd radeon,windows
+apple,ultrabook,15.4,16,1.83,152274.24,ips panel retina display,2880,1800,0,intel core i7,intel core i7,2.9,0,512,0,0,amd radeon,mac
+lenovo,notebook,15.6,8,2.2,26586.72,full hd,1920,1080,0,intel core i3,intel core i3,2.4,1000,0,0,0,nvidia geforce,others/no os
+dell,ultrabook,13.3,8,1.22,52161.12,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.6,0,128,0,0,intel uhd,windows
+lenovo,gaming,15.6,8,2.5,53226.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,1.86,13746.24,standard,1366,768,0,amd e-series e2-9000e,amd processor,1.5,500,0,0,0,amd radeon,others/no os
+dell,2 in 1 convertible,13.3,8,1.62,43636.32,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+hp,ultrabook,15.6,8,1.91,35111.52,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.3,22305.1392,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+apple,ultrabook,13.3,8,1.35,58554.72,standard,1440,900,0,intel core i5,intel core i5,1.6,0,0,0,128,intel hd,mac
+dell,notebook,15.6,8,2.2,42624.0,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,amd radeon,windows
+dell,ultrabook,15.6,8,1.88,69157.44,full hd,1920,1080,0,intel core i7,intel core i7,1.9,0,256256,0,0,intel uhd,windows
+hp,notebook,17.3,8,2.5,47738.88,full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,0,0,0,nvidia geforce,windows
+chuwi,notebook,15.6,4,1.89,13053.0672,full hd,1920,1080,0,intel atom x5-z8300,other intel processor,1.44,0,0,0,64,intel hd,windows
+asus,notebook,14.0,2,1.65,10602.72,standard,1366,768,0,amd e-series e2-6110,amd processor,1.5,0,0,0,32,amd radeon,windows
+hp,notebook,17.3,4,2.71,23389.92,full hd,1920,1080,0,amd a6-series 9220,amd processor,2.5,500,0,0,0,amd radeon,windows
+dell,ultrabook,13.3,16,1.2,99580.32,touchscreen / quad hd+,3200,1800,1,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+apple,ultrabook,13.3,8,1.35,53173.44,standard,1440,900,0,intel core i5,intel core i5,1.6,0,0,0,256,intel hd,mac
+lenovo,notebook,14.0,4,1.44,13266.72,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,0,0,64,intel hd,windows
+acer,notebook,15.6,4,2.1,19553.76,standard,1366,768,0,intel core i3,intel core i3,2.7,1000,0,0,0,intel hd,linux
+dell,notebook,17.3,8,2.8,52161.12,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,128,0,0,amd radeon,windows
+hp,notebook,15.6,4,1.86,26037.4032,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+hp,notebook,15.6,8,2.1,46833.12,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,nvidia geforce,windows
+asus,notebook,15.6,4,2.0,20725.92,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,linux
+dell,gaming,15.6,16,2.65,79866.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+asus,notebook,15.6,8,2.3,27864.9072,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,linux
+acer,notebook,15.6,4,2.2,36336.96,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+dell,2 in 1 convertible,17.3,12,2.77,53226.72,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.6,1000,0,0,0,nvidia geforce,windows
+apple,ultrabook,13.3,8,1.37,75604.32,ips panel retina display,2560,1600,0,intel core i5,intel core i5,2.0,0,256,0,0,intel iris,mac
+asus,gaming,17.3,8,3.2,69210.72,full hd,1920,1080,0,amd ryzen 1700,amd processor,3.0,1000,256,0,0,amd radeon,windows
+dell,notebook,15.6,4,2.3,34045.92,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,amd radeon,windows
+asus,notebook,17.3,4,2.8,24828.48,standard,1366,768,0,intel pentium quad,other intel processor,1.1,1000,0,0,0,nvidia geforce,windows
+acer,notebook,15.6,8,2.2,44808.48,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,1.86,21231.5472,full hd,1920,1080,0,amd a6-series 9220,amd processor,2.5,0,256,0,0,amd radeon,windows
+hp,notebook,13.3,8,1.49,58767.84,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+acer,notebook,15.6,4,2.4,20459.52,standard,1366,768,0,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+dell,notebook,15.6,8,2.13,40908.384,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,amd radeon,windows
+hp,notebook,15.6,4,1.91,23389.92,full hd,1920,1080,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,windows
+asus,notebook,15.6,4,2.0,31232.2032,standard,1366,768,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+msi,gaming,17.3,16,2.43,130482.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,2000,256,0,0,nvidia geforce,windows
+asus,notebook,15.6,4,2.0,22111.2,full hd,1920,1080,0,intel core i3,intel core i3,2.0,0,256,0,0,intel hd,linux
+dell,notebook,17.3,16,2.8,69210.72,full hd,1920,1080,0,intel core i7,intel core i7,1.8,2000,256,0,0,amd radeon,windows
+dell,ultrabook,14.0,8,1.7,46833.12,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+lenovo,notebook,14.0,8,1.7,31914.72,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.7,0,256,0,0,intel hd,others/no os
+asus,notebook,14.0,8,1.4,50136.48,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+hp,notebook,15.6,8,1.86,36763.2,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+asus,ultrabook,15.6,16,1.8,105654.24,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,1.86,23373.4032,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,amd radeon,windows
+hp,notebook,14.0,4,1.44,12201.12,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,32,0,0,intel hd,windows
+lenovo,notebook,15.6,4,1.9,29250.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+asus,gaming,17.3,12,3.0,50562.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,linux
+microsoft,ultrabook,13.5,4,1.252,58021.92,touchscreen,2256,1504,1,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+dell,ultrabook,13.3,64,1.4,50882.4,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,amd radeon,windows
+dell,notebook,15.6,8,2.2,46353.6,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,amd radeon,windows
+msi,gaming,17.3,8,2.7,58341.6,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+acer,notebook,14.0,8,2.1,20725.92,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+asus,gaming,15.6,8,2.2,50562.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.2,27652.32,full hd,1920,1080,0,intel core i5,intel core i5,2.5,2000,0,0,0,intel hd,others/no os
+dell,notebook,15.6,8,2.02,45554.4,full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,128,0,0,intel uhd,windows
+acer,notebook,15.6,4,2.2,28238.4,full hd,1920,1080,0,intel core i3,intel core i3,2.7,1000,0,0,0,nvidia geforce,windows
+hp,notebook,17.3,8,2.5,52054.56,full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,128,0,0,nvidia geforce,windows
+dell,ultrabook,15.6,8,1.88,58403.4048,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+apple,ultrabook,12.0,8,0.92,80452.8,ips panel retina display,2304,1440,0,intel core i5,intel core i5,1.3,0,512,0,0,intel hd,mac
+hp,notebook,14.0,8,1.63,45820.8,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,21258.72,full hd,1920,1080,0,amd a6-series 9220,amd processor,2.5,0,128,0,0,amd r4,windows
+acer,notebook,15.6,4,2.1,21045.6,standard,1366,768,0,amd a9-series 9420,amd processor,3.0,1000,0,0,0,amd radeon,windows
+dell,gaming,15.6,16,2.65,71874.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+hp,ultrabook,15.6,8,1.83,37242.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,1.96,31914.1872,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+asus,gaming,15.6,16,2.2,77202.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+dell,ultrabook,13.3,8,1.21,87858.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+asus,gaming,15.6,8,2.45,37242.72,full hd,1920,1080,0,amd fx 9830p,amd processor,3.0,1000,0,0,0,amd radeon,windows
+acer,notebook,15.6,2,2.2,36709.92,full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,0,0,0,nvidia geforce,windows
+hp,notebook,13.3,16,1.49,63776.16,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+dell,gaming,15.6,8,2.65,63669.6,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+asus,ultrabook,14.0,8,1.25,55890.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+acer,2 in 1 convertible,13.3,8,1.5,45128.16,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+dell,notebook,15.6,8,2.2,31962.672,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,amd radeon,linux
+dell,notebook,15.6,4,2.2,25840.8,full hd,1920,1080,0,intel core i3,intel core i3,2.0,0,256,0,0,amd radeon,linux
+asus,notebook,15.6,6,2.0,30742.56,full hd,1920,1080,0,intel core i3,intel core i3,2.4,0,256,0,0,nvidia geforce,windows
+hp,gaming,15.6,12,2.62,66546.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,1.91,38308.32,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,amd radeon,windows
+hp,notebook,15.6,4,2.1,18594.72,full hd,1920,1080,0,amd e-series e2-9000e,amd processor,1.5,500,0,0,0,amd radeon,windows
+dell,notebook,15.6,8,2.2,34472.16,full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,0,0,0,amd radeon,linux
+hp,ultrabook,13.3,8,1.38,59620.32,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+microsoft,ultrabook,13.5,8,1.252,71395.2,touchscreen,2256,1504,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,notebook,14.0,6,1.58,35111.52,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,1.85,22105.872,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+asus,ultrabook,14.0,8,1.3,63563.04,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+msi,gaming,15.6,16,2.2,69210.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,notebook,14.0,8,1.58,78854.4,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+asus,ultrabook,15.6,16,1.5,67239.36,full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,256,0,0,nvidia geforce,windows
+dell,ultrabook,13.3,8,1.23,73473.12,quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,2.4,0,256,0,0,intel iris,windows
+lenovo,2 in 1 convertible,13.3,8,1.37,74538.72,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,notebook,14.0,4,1.63,38468.16,ips panel,1366,768,0,intel core i5,intel core i5,1.6,500,0,0,0,intel uhd,windows
+dell,ultrabook,13.3,8,1.21,86793.12,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+hp,notebook,14.0,8,1.63,57755.52,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+dell,notebook,15.6,8,2.16,60223.9824,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,256,0,0,nvidia geforce,windows
+asus,notebook,17.3,4,2.0,30049.92,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,nvidia geforce,windows
+asus,notebook,15.6,8,1.7,59567.04,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,6,2.1,25521.12,ips panel full hd / touchscreen,1920,1080,1,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+msi,gaming,15.6,16,1.8,119427.12,full hd,1920,1080,0,intel core i7,intel core i7,2.8,2000,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.2,33513.12,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,others/no os
+hp,notebook,17.3,16,2.5,67718.88,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,512,0,0,nvidia geforce,windows
+acer,notebook,15.6,4,2.1,24029.28,standard,1366,768,0,amd a9-series 9420,amd processor,3.0,0,256,0,0,amd radeon,windows
+hp,notebook,14.0,8,1.63,43263.36,full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,0,0,0,intel uhd,windows
+asus,notebook,14.0,4,1.65,14811.3072,standard,1366,768,0,amd e-series 6110,amd processor,1.5,0,64,0,0,amd radeon,windows
+dell,notebook,17.3,16,2.8,74378.88,full hd,1920,1080,0,intel core i7,intel core i7,1.8,2000,256,0,0,amd radeon,windows
+hp,notebook,17.3,8,2.5,49443.84,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+dell,notebook,15.6,8,2.36,34045.3872,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,amd radeon,windows
+dell,notebook,15.6,4,2.2,23922.72,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,windows
+acer,ultrabook,14.0,8,1.6,47099.52,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+acer,notebook,15.6,4,7.2,30476.16,full hd,1920,1080,0,intel core i3,intel core i3,2.7,0,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,2.05,31861.44,standard,1366,768,0,intel core i7,intel core i7,2.7,1000,0,0,0,intel hd,windows
+hp,notebook,14.0,8,1.63,52640.64,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+lenovo,notebook,15.6,4,1.9,13445.7408,standard,1366,768,0,intel celeron dual,other intel processor,1.1,1000,0,0,0,intel hd,others/no os
+asus,gaming,17.3,8,3.0,49976.64,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,2.2,26586.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,others/no os
+hp,notebook,13.3,4,1.32,37242.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+acer,notebook,17.3,4,3.0,34898.4,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.7,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,14.0,8,1.75,59461.5456,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,amd radeon,windows
+lenovo,gaming,15.6,8,2.4,46300.32,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,others/no os
+toshiba,notebook,15.6,4,2.1,32074.56,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+hp,notebook,15.6,4,1.86,19660.32,standard,1366,768,0,amd a6-series 9220,amd processor,2.5,0,256,0,0,amd radeon,windows
+asus,ultrabook,14.0,8,1.25,58554.72,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+hp,ultrabook,12.5,8,0.97,107305.92,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core m,other intel processor,1.2,0,512,0,0,intel hd,windows
+asus,notebook,15.6,4,2.0,18328.32,full hd,1920,1080,0,intel celeron dual,other intel processor,1.1,1000,0,0,0,intel hd,windows
+acer,notebook,15.6,4,2.1,23816.16,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+dell,gaming,15.6,16,2.56,66560.5728,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+dell,gaming,15.6,8,2.62,47898.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,0,1000,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,1.9,26533.44,standard,1366,768,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+msi,gaming,17.3,16,2.8,100699.2,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+hp,ultrabook,14.0,4,1.48,57648.96,full hd,1920,1080,0,intel core i5,intel core i5,2.7,0,256,0,0,intel hd,windows
+hp,notebook,15.6,6,1.91,32980.32,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,amd radeon,windows
+lenovo,2 in 1 convertible,14.0,4,1.74,33513.12,ips panel full hd / touchscreen,1920,1080,1,intel core i3,intel core i3,2.4,0,256,0,0,intel hd,windows
+asus,2 in 1 convertible,13.3,8,1.1,70063.2,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.6,0,256,0,0,intel hd,windows
+dell,2 in 1 convertible,15.6,8,1.56,55890.72,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+toshiba,notebook,15.6,4,2.1,23816.16,standard,1366,768,0,intel core i3,intel core i3,2.2,500,0,0,0,intel hd,windows
+asus,notebook,15.6,4,2.03,21471.84,standard,1366,768,0,amd a9-series 9420,amd processor,3.0,1000,0,0,0,amd radeon,windows
+acer,notebook,17.3,4,3.0,42890.4,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.13,38787.84,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,amd radeon,windows
+lenovo,gaming,15.6,16,2.5,57489.12,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,4,2.1,18541.44,standard,1366,768,0,intel celeron dual,other intel processor,1.1,1000,0,0,0,intel hd,windows
+msi,gaming,15.6,16,2.4,95850.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,4,2.1,19367.8128,standard,1366,768,0,intel pentium quad,other intel processor,1.1,1000,0,0,0,intel hd,windows
+dell,gaming,15.6,8,2.56,56502.9072,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+acer,notebook,17.3,8,3.0,45501.12,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,nvidia geforce,windows
+hp,notebook,13.3,4,1.49,40173.12,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,500,0,0,0,intel uhd,windows
+huawei,ultrabook,13.0,8,1.05,71874.72,ips panel full hd,2160,1440,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,notebook,17.3,6,2.71,37242.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,2000,0,0,0,amd radeon,windows
+lenovo,notebook,15.6,4,2.2,16463.52,standard,1366,768,0,amd a6-series 9220,amd processor,2.9,500,0,0,0,amd radeon,others/no os
+toshiba,notebook,15.6,4,5.4,26053.92,standard,1366,768,0,intel core i3,intel core i3,2.4,500,0,0,0,intel hd,windows
+hp,notebook,17.3,8,2.5,49177.44,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.3,24455.52,standard,1366,768,0,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+acer,notebook,15.6,4,2.1,23922.72,standard,1366,768,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,windows
+msi,gaming,18.4,32,4.4,149130.72,full hd,1920,1080,0,intel core i7,intel core i7,2.9,1000,512,0,0,nvidia gtx,windows
+lenovo,notebook,15.6,8,1.9,43316.64,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,amd r17m-m1-70,windows
+hp,2 in 1 convertible,13.3,8,1.29,79866.72,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+dell,notebook,15.6,16,2.02,55890.72,full hd,1920,1080,0,intel core i7,intel core i7,1.8,2000,256,0,0,amd radeon,linux
+dell,ultrabook,13.3,8,1.23,74538.72,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+lenovo,2 in 1 convertible,13.9,16,1.4,98514.72,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+toshiba,notebook,15.6,8,2.0,42251.04,standard,1366,768,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+xiaomi,notebook,15.6,8,1.95,63882.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,nvidia geforce,others/no os
+dell,notebook,17.3,16,2.77,82530.72,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.8,0,512,0,0,nvidia geforce,windows
+dell,notebook,15.6,16,2.06,127712.16,4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+lenovo,gaming,15.6,8,2.4,41505.12,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,others/no os
+acer,ultrabook,13.3,8,1.12,52693.92,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.2,0,256,0,0,intel hd,windows
+dell,notebook,17.3,8,2.8,57808.8,full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,128,0,0,amd radeon,windows
+vero,notebook,14.0,4,1.3,13852.8,ips panel full hd,1920,1080,0,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+xiaomi,ultrabook,13.3,8,1.3,53274.672,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,others/no os
+lenovo,notebook,17.3,8,2.8,37189.44,standard,1600,900,0,intel core i5,intel core i5,1.6,0,256,0,0,nvidia geforce,others/no os
+dell,2 in 1 convertible,13.3,8,1.62,44701.92,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.8,1000,0,0,0,intel uhd,windows
+hp,notebook,17.3,8,2.5,48697.92,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,0,0,0,nvidia geforce,windows
+razer,gaming,17.3,32,3.49,324954.72,4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,2.9,0,1000,0,0,nvidia geforce,windows
+hp,notebook,13.3,8,1.49,51095.52,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,512,0,0,intel uhd,windows
+hp,gaming,17.3,16,3.35,73473.12,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+hp,notebook,17.3,8,2.5,55677.6,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,nvidia geforce,windows
+dell,gaming,15.6,16,2.65,98301.6,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.8,1000,512,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,2.1,26267.04,standard,1366,768,0,intel core i5,intel core i5,2.3,0,128,0,0,intel hd,windows
+acer,notebook,15.6,8,2.23,39533.76,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,windows
+lenovo,gaming,15.6,16,3.2,93186.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,512,0,0,nvidia geforce,windows
+dell,workstation,15.6,16,2.8,162770.4,4k ultra hd,3840,2160,0,intel xeon e3-1505m,other intel processor,3.0,1000,256,0,0,nvidia quadro,windows
+lenovo,gaming,15.6,16,2.4,74485.44,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,others/no os
+dell,notebook,15.6,6,2.3,23389.92,touchscreen,1366,768,1,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+dell,ultrabook,13.3,8,1.21,103842.72,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+dell,ultrabook,13.3,8,1.2,77202.72,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+acer,notebook,15.6,8,2.4,41505.12,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,linux
+asus,gaming,17.3,16,2.9,74964.96,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,2.1,18594.72,full hd,1920,1080,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,others/no os
+lenovo,notebook,15.6,8,2.2,29250.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,others/no os
+huawei,ultrabook,13.0,8,1.05,79866.72,ips panel full hd,2160,1440,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+dell,ultrabook,13.3,8,1.4,49650.5664,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,amd radeon,windows
+lenovo,notebook,17.3,8,2.8,31381.92,standard,1600,900,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,others/no os
+hp,notebook,14.0,8,1.63,54931.68,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,nvidia geforce,windows
+dell,ultrabook,14.0,8,1.6,61218.72,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+dell,2 in 1 convertible,13.3,16,1.62,68145.12,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+dell,notebook,15.6,8,2.2,36089.208,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,amd radeon,linux
+lenovo,2 in 1 convertible,14.0,8,1.74,47898.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+toshiba,ultrabook,13.3,8,1.2,72620.64,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+hp,notebook,15.6,8,2.1,42304.32,full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,0,0,0,intel uhd,windows
+dell,gaming,17.3,16,4.42,130873.7952,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,8,2.2,44328.96,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,16,2.3,45768.0528,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,1000,0,0,0,amd radeon,windows
+asus,notebook,15.6,8,2.0,40972.32,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+asus,notebook,17.3,8,2.69,47472.48,full hd,1920,1080,0,intel core i5,intel core i5,2.5,500,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,1.9,67612.32,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,amd firepro,windows
+asus,notebook,15.6,4,2.37,21258.1872,standard,1366,768,0,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+hp,notebook,15.6,4,2.1,17582.4,standard,1366,768,0,amd e-series 9000e,amd processor,1.5,500,0,0,0,amd radeon,windows
+lenovo,gaming,15.6,16,3.2,79866.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+dell,notebook,14.0,8,1.6,45767.52,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+acer,2 in 1 convertible,13.3,8,1.6,36709.92,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+dell,notebook,15.6,16,2.36,47898.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,amd radeon,linux
+acer,notebook,15.6,4,2.1,20779.2,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,linux
+asus,notebook,15.6,4,2.2,30636.0,full hd,1920,1080,0,amd a10-series a10-9620p,amd processor,2.5,1000,128,0,0,amd radeon,windows
+asus,gaming,17.3,32,4.7,207259.2,full hd,1920,1080,0,intel core i7,intel core i7,2.9,1000,512,0,0,nvidia geforce,windows
+acer,gaming,15.6,8,2.5,45074.88,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,7.2,31381.92,standard,1366,768,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,windows
+asus,notebook,17.3,8,2.1,61005.6,full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,128,0,0,nvidia geforce,windows
+asus,notebook,17.3,8,2.69,47365.92,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,128,0,0,nvidia geforce,others/no os
+dell,gaming,15.6,8,2.56,46833.12,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+lenovo,2 in 1 convertible,13.9,8,1.38,57489.12,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+dell,notebook,15.6,8,2.2,52480.8,full hd,1920,1080,0,intel core i7,intel core i7,1.8,2000,128,0,0,amd radeon,windows
+hp,notebook,15.6,8,2.04,29783.52,touchscreen,1366,768,1,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+asus,gaming,17.3,16,3.6,159786.72,full hd,1920,1080,0,intel core i7,intel core i7,2.9,0,256,0,0,nvidia geforce,windows
+hp,notebook,13.3,4,1.49,35964.0,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,500,0,0,0,intel uhd,windows
+apple,ultrabook,13.3,8,1.37,108691.2,ips panel retina display,2560,1600,0,intel core i5,intel core i5,3.1,0,512,0,0,intel iris,mac
+dell,2 in 1 convertible,15.6,8,2.08,43636.32,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.8,1000,0,0,0,intel uhd,windows
+asus,gaming,17.3,16,4.3,95850.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+asus,notebook,15.6,4,1.68,24988.32,standard,1366,768,0,amd a9-series 9420,amd processor,3.0,1000,0,0,0,amd radeon,windows
+lenovo,2 in 1 convertible,13.9,8,1.37,98514.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+acer,notebook,17.3,4,3.0,37402.56,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.7,0,256,0,0,nvidia geforce,windows
+dell,ultrabook,13.3,8,1.41,50562.72,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+hp,notebook,15.6,8,1.91,23757.552,standard,1366,768,0,amd a6-series a6-9220,amd processor,2.5,0,128,0,0,amd radeon,windows
+hp,notebook,17.3,16,2.9,56423.52,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,0,0,0,nvidia geforce,windows
+msi,gaming,17.3,16,4.14,133146.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,512,0,0,nvidia geforce,windows
+lenovo,2 in 1 convertible,15.6,8,2.0,90522.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+dell,notebook,17.3,8,2.8,60845.76,full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,128,0,0,amd radeon,windows
+lenovo,notebook,15.6,4,2.2,23656.32,full hd,1920,1080,0,intel core i3,intel core i3,2.0,0,256,0,0,intel hd,others/no os
+hp,notebook,15.6,4,2.1,38468.16,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,500,0,0,0,intel hd,windows
+dell,notebook,15.6,4,2.18,35004.96,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+dell,notebook,15.6,8,2.24,30103.2,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,amd radeon,windows
+dell,2 in 1 convertible,15.6,8,2.67,42570.72,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+asus,2 in 1 convertible,13.3,8,4.1,79866.72,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.8,0,512512,0,0,intel uhd,windows
+hp,notebook,17.3,8,2.5,54239.04,full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.05,46886.4,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+apple,ultrabook,13.3,8,1.37,104370.192,ips panel retina display,2560,1600,0,intel core i5,intel core i5,2.9,0,512,0,0,intel iris,mac
+asus,gaming,17.3,16,3.2,82530.72,full hd,1920,1080,0,amd ryzen 1700,amd processor,3.0,1000,256,0,0,amd radeon,windows
+dell,notebook,15.6,8,2.14,39164.5296,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,amd radeon,linux
+lenovo,2 in 1 convertible,14.0,16,1.36,133146.72,touchscreen,2560,1440,1,intel core i7,intel core i7,2.6,0,512,0,0,intel hd,windows
+toshiba,notebook,15.6,8,2.2,43263.36,standard,1366,768,0,intel core i7,intel core i7,2.5,500,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,12,2.3,37992.3696,standard,1366,768,0,intel core i7,intel core i7,2.7,1000,0,0,0,intel hd,windows
+dell,notebook,17.3,8,2.8,58554.72,full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,128,0,0,amd radeon,linux
+acer,notebook,15.6,8,2.2,39693.6,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,17.3,4,2.8,26053.92,standard,1600,900,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+lenovo,notebook,17.3,8,2.8,45234.72,full hd,1920,1080,0,intel core i7,intel core i7,1.8,2000,0,0,0,nvidia geforce,others/no os
+lenovo,notebook,17.3,6,2.8,45767.52,standard,1600,900,0,intel core i7,intel core i7,2.7,1000,128,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.25,22803.84,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,linux
+lenovo,gaming,15.6,8,2.5,44169.12,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,6,2.2,30849.12,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+acer,notebook,15.6,8,3.0,50669.28,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,12,2.15,35111.52,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,1000,0,0,0,intel hd,windows
+lenovo,notebook,15.6,8,1.95,58448.16,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+asus,ultrabook,15.6,8,1.7,52054.56,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+lenovo,gaming,15.6,16,2.5,62817.12,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.2,35112.0528,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,others/no os
+acer,notebook,15.6,2,2.19,10602.72,standard,1366,768,0,intel celeron dual,other intel processor,1.5,0,16,0,0,intel hd,others/no os
+asus,gaming,17.3,8,3.0,63243.36,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,windows
+hp,notebook,17.3,8,2.54,26053.92,standard,1600,900,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+dell,notebook,15.6,8,2.0,97449.12,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.05,39373.92,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+lenovo,gaming,15.6,8,3.2,69210.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,windows
+acer,notebook,15.6,8,2.5,52161.12,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,linux
+dell,workstation,17.3,16,3.42,153705.3408,full hd,1920,1080,0,intel core i7,intel core i7,2.9,0,256,0,0,nvidia quadro,windows
+lenovo,notebook,15.6,6,2.4,26586.72,full hd,1920,1080,0,amd a10-series 9600p,amd processor,2.4,1000,0,0,0,amd radeon,windows
+asus,ultrabook,15.6,16,1.63,78215.04,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,nvidia geforce,windows
+asus,notebook,14.0,4,1.3,27119.52,standard,1366,768,0,intel core i3,intel core i3,2.4,0,128,0,0,intel hd,windows
+asus,gaming,17.3,16,2.9,113060.16,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,notebook,17.3,6,5.8,34578.72,standard,1600,900,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.2,29250.72,standard,1366,768,0,intel core i5,intel core i5,2.5,2000,0,0,0,nvidia geforce,others/no os
+asus,gaming,15.6,8,2.5,67399.2,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,2.2,19180.2672,standard,1366,768,0,intel pentium quad,other intel processor,1.1,1000,0,0,0,intel hd,others/no os
+hp,2 in 1 convertible,13.3,16,1.28,105228.0,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.8,0,256,0,0,intel hd,windows
+toshiba,notebook,15.6,8,2.2,55571.04,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.3,43636.32,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,1.86,24988.32,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+lenovo,notebook,13.3,8,1.1,53226.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,ultrabook,13.3,16,1.21,133146.72,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,1.8,0,1000,0,0,intel uhd,windows
+msi,gaming,15.6,16,2.8,111834.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,8,2.23,24988.32,full hd,1920,1080,0,amd a8-series 7410,amd processor,2.2,0,256,0,0,amd radeon,windows
+asus,2 in 1 convertible,11.6,2,1.1,14652.0,touchscreen,1366,768,1,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+dell,notebook,15.6,8,2.33,44968.32,full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,128,0,0,amd radeon,windows
+hp,2 in 1 convertible,13.3,16,1.29,130482.72,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,1.8,0,1000,0,0,intel uhd,windows
+lenovo,notebook,13.3,4,1.45,24503.472,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,16,intel hd,others/no os
+hp,notebook,14.0,8,1.95,52214.4,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+acer,notebook,11.6,4,1.4,25840.8,standard,1366,768,0,intel pentium quad,other intel processor,1.6,0,0,0,128,intel hd,windows
+hp,notebook,14.0,8,1.48,68837.76,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+lenovo,notebook,17.3,4,2.79,31381.92,standard,1600,900,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,windows
+asus,notebook,14.0,8,2.0,58288.32,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+hp,notebook,15.6,8,2.1,48058.56,ips panel full hd,1366,768,0,intel core i7,intel core i7,1.8,1000,0,0,0,intel uhd,windows
+acer,notebook,15.6,8,2.2,35111.52,standard,1366,768,0,amd a12-series 9720p,amd processor,2.7,0,256,0,0,amd radeon,windows
+lenovo,notebook,14.0,4,1.44,15557.76,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+acer,notebook,15.6,6,8.23,29250.72,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+asus,ultrabook,15.6,8,1.7,55938.672,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+hp,ultrabook,12.5,8,1.26,71128.8,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+dell,notebook,15.6,32,2.06,140605.92,4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,2.8,0,1000,0,0,nvidia geforce,windows
+msi,gaming,17.3,8,2.7,63882.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+toshiba,notebook,15.6,8,2.0,50243.04,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+asus,notebook,14.0,8,2.0,71075.52,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,1.85,23922.72,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+asus,gaming,15.6,8,2.5,53226.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,windows
+hp,notebook,14.0,8,1.48,67559.04,full hd,1920,1080,0,intel core i5,intel core i5,2.6,0,256,0,0,intel hd,windows
+hp,notebook,15.6,8,1.84,60952.32,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+asus,notebook,15.6,4,2.0,14651.4672,standard,1366,768,0,intel celeron dual,other intel processor,1.1,1000,0,0,0,intel hd,linux
+dell,notebook,15.6,8,2.0,60885.72,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.2,14646.672,standard,1366,768,0,intel celeron dual,other intel processor,1.6,500,0,0,0,intel hd,linux
+lenovo,notebook,15.6,12,2.2,47898.72,full hd,1920,1080,0,amd a12-series 9720p,amd processor,3.6,2000,0,0,0,amd radeon,windows
+hp,notebook,15.6,8,2.1,38148.48,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.4,1000,0,0,0,nvidia geforce,windows
+lenovo,2 in 1 convertible,13.9,16,1.4,111834.72,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+dell,ultrabook,13.3,8,1.2,84129.12,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+lenovo,gaming,15.6,16,2.4,60153.12,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,2000,256,0,0,nvidia geforce,windows
+hp,notebook,14.0,2,1.44,14865.12,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,windows
+dell,ultrabook,15.6,16,1.88,85672.1088,full hd,1920,1080,0,intel core i7,intel core i7,1.9,0,512256,0,0,intel uhd,windows
+asus,2 in 1 convertible,11.6,4,1.5,19980.0,touchscreen,1366,768,1,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+dell,ultrabook,15.6,8,2.04,35324.64,full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,0,0,0,amd radeon,windows
+hp,notebook,15.6,8,1.84,69477.12,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+msi,gaming,17.3,8,2.7,75071.52,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+hp,workstation,15.6,8,2.6,92615.0256,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia quadro,windows
+toshiba,notebook,15.6,16,2.4,74751.84,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,512,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.02,51729.552,full hd,1920,1080,0,intel core i7,intel core i7,1.8,2000,128,0,0,amd radeon,windows
+lenovo,notebook,15.6,4,2.2,17155.6272,standard,1366,768,0,intel celeron dual,other intel processor,1.1,1000,0,0,0,intel hd,others/no os
+dell,gaming,15.6,8,2.65,53226.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.36,29696.6736,touchscreen,1366,768,1,intel core i5,intel core i5,2.5,2000,0,0,0,intel hd,windows
+dell,notebook,14.0,8,1.36,76030.56,full hd,1920,1080,0,intel core i5,intel core i5,2.6,0,256,0,0,intel hd,windows
+hp,notebook,15.6,4,1.86,23389.92,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,windows
+asus,notebook,14.0,8,2.0,50349.6,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,17.3,6,2.8,38308.32,standard,1600,900,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,1.86,34045.92,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+lenovo,notebook,15.6,8,2.2,26586.72,standard,1366,768,0,intel core i3,intel core i3,2.0,0,256,0,0,nvidia geforce,others/no os
+hp,notebook,15.6,8,2.04,20725.92,standard,1366,768,0,intel pentium quad,other intel processor,1.6,2000,0,0,0,intel hd,windows
+dell,notebook,17.3,8,2.8,57808.8,full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,128,0,0,amd radeon,windows
+lenovo,gaming,15.6,8,2.4,43103.52,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,others/no os
+dell,notebook,15.6,8,2.33,47898.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,amd radeon,windows
+hp,ultrabook,14.0,8,1.36,93240.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+asus,2 in 1 convertible,15.6,12,2.26,58554.72,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,2000,512,0,0,nvidia geforce,windows
+acer,notebook,15.6,4,2.1,22697.28,standard,1366,768,0,amd a9-series 9420,amd processor,3.0,0,128,0,0,amd radeon,windows
+asus,gaming,17.3,16,3.25,117162.72,ips panel full hd,1920,1080,0,amd ryzen 1700,amd processor,3.0,1000,256,0,0,amd radeon,windows
+lenovo,notebook,17.3,4,2.6,26053.92,standard,1600,900,0,amd a8-series 7410,amd processor,2.2,0,128,0,0,amd radeon,windows
+dell,2 in 1 convertible,13.3,8,1.62,46300.8528,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+hp,notebook,15.6,4,1.91,26053.3872,full hd,1920,1080,0,amd a9-series 9420,amd processor,3.0,0,256,0,0,amd radeon,windows
+lenovo,netbook,11.6,4,1.59,29463.84,ips panel,1366,768,0,intel celeron quad,other intel processor,1.1,0,128,0,0,intel hd,windows
+dell,notebook,15.6,4,1.8,16463.52,standard,1366,768,0,intel celeron dual,other intel processor,1.6,500,0,0,0,intel hd,windows
+asus,notebook,14.0,4,1.5,15238.08,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+acer,notebook,15.6,8,2.4,45074.88,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,linux
+hp,gaming,17.3,8,3.35,63456.48,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,1.85,21498.48,full hd,1920,1080,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,others/no os
+asus,gaming,15.6,8,2.3,88178.4,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+lenovo,notebook,14.0,8,1.5,58554.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+asus,ultrabook,13.3,16,1.1,93181.392,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+lenovo,ultrabook,14.0,8,1.13,121584.96,ips panel,2560,1440,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+lenovo,notebook,13.3,4,1.5,29250.72,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.4,0,128,0,0,intel hd,windows
+dell,workstation,15.6,8,2.23,72940.32,full hd,1920,1080,0,intel core i5,intel core i5,2.6,500,0,0,0,amd firepro,windows
+dell,workstation,15.6,8,2.0,113752.8,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia quadro,windows
+lenovo,2 in 1 convertible,14.0,16,1.42,133679.52,touchscreen,2560,1440,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+asus,gaming,17.3,8,3.0,55357.92,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,windows
+asus,gaming,17.3,16,3.0,84768.48,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,12,2.2,36975.7872,ips panel,1366,768,0,intel core i5,intel core i5,1.6,1000,0,0,0,nvidia geforce,windows
+msi,gaming,17.3,8,2.7,71874.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.33,41498.1936,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,amd radeon,linux
+hp,ultrabook,15.6,4,1.91,26586.72,full hd,1920,1080,0,amd a9-series 9420,amd processor,3.0,0,256,0,0,amd radeon,windows
+lenovo,notebook,15.6,8,2.1,65510.9568,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,amd radeon,windows
+lenovo,notebook,14.0,8,1.9,49976.64,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,workstation,15.6,8,1.78,144495.36,4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,2.8,0,256,0,0,nvidia quadro,windows
+lenovo,ultrabook,14.0,16,1.13,139860.0,ips panel,2560,1440,0,intel core i7,intel core i7,2.7,0,1000,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,16303.68,standard,1366,768,0,intel celeron dual,other intel processor,1.1,1000,0,0,0,intel hd,windows
+asus,gaming,17.3,16,2.9,81465.12,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,notebook,25.6,8,2.1,60978.96,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,256,0,0,amd radeon,windows
+acer,notebook,15.6,8,2.5,46833.12,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,linux
+msi,gaming,17.3,16,2.8,119826.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+asus,ultrabook,14.0,8,1.1,99793.44,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+toshiba,ultrabook,13.3,16,1.2,93080.16,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,512,0,0,intel hd,windows
+dell,ultrabook,14.0,8,1.36,89510.4,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,512,0,0,intel hd,windows
+lenovo,notebook,35.6,4,2.2,21791.52,full hd,1920,1080,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,windows
+lenovo,notebook,11.6,2,1.15,16221.096,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+lenovo,workstation,15.6,8,2.67,102564.0,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia quadro,windows
+lenovo,ultrabook,14.0,8,1.7,103523.04,ips panel full hd,2560,1440,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,2.1,24988.32,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,windows
+acer,2 in 1 convertible,13.3,8,1.6,42038.4528,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+asus,2 in 1 convertible,13.3,8,1.27,49443.84,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.3,31909.392,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,amd radeon,linux
+dell,notebook,13.3,4,1.65,36709.92,standard,1366,768,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,windows
+hp,ultrabook,14.0,8,1.43,79920.0,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+dell,notebook,15.6,8,2.14,28768.536,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+lenovo,ultrabook,14.0,8,1.75,64755.4464,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,amd radeon,windows
+lenovo,2 in 1 convertible,15.6,16,2.0,101178.72,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+chuwi,notebook,12.3,6,1.4,23922.72,ips panel retina display,2736,1824,0,intel celeron quad,other intel processor,1.1,0,0,0,64,intel hd,windows
+hp,notebook,15.6,8,2.31,76030.56,full hd,1920,1080,0,intel core i7,intel core i7,2.9,0,256,0,0,intel hd,windows
+asus,notebook,35.6,8,2.3,31808.16,full hd,1920,1080,0,intel core i3,intel core i3,2.4,1000,0,0,0,nvidia geforce,linux
+dell,gaming,27.3,16,4.42,149130.72,ips panel,2560,1440,0,intel core i7,intel core i7,2.9,1000,256,0,0,nvidia geforce,windows
+dell,gaming,15.6,8,2.62,61751.52,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.02,60867.072,full hd,1920,1080,0,intel core i7,intel core i7,1.8,2000,256,0,0,amd radeon,windows
+dell,ultrabook,14.0,8,1.6,58554.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,intel hd,linux
+hp,gaming,17.3,12,3.35,106506.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+mediacom,2 in 1 convertible,11.6,4,1.16,15930.72,ips panel full hd / touchscreen,1920,1080,1,intel celeron dual,other intel processor,1.1,0,32,0,0,intel hd,windows
+samsung,netbook,11.6,4,1.15,14332.32,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,16,intel hd,others/no os
+lenovo,notebook,13.3,8,1.4,53812.8,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+lenovo,notebook,14.0,4,1.7,31914.72,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.7,0,128,0,0,intel hd,windows
+lenovo,workstation,15.6,16,2.3,130269.6,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,16,2.5,130482.72,full hd,1920,1080,0,intel core i7,intel core i7,2.9,0,512,0,0,nvidia quadro,windows
+asus,gaming,17.3,8,3.2,90309.6,full hd,1920,1080,0,amd ryzen 1600,amd processor,3.2,1000,256,0,0,amd radeon,windows
+hp,notebook,15.6,4,2.1,18488.16,standard,1366,768,0,intel celeron dual,other intel processor,1.6,500,0,0,0,intel hd,windows
+google,ultrabook,12.3,16,1.1,117162.72,touchscreen,2400,1600,1,intel core i7,intel core i7,1.3,0,512,0,0,intel hd,others/no os
+lenovo,ultrabook,24.0,24,1.32,126912.96,standard,2560,1440,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+asus,notebook,15.6,4,2.0,29783.52,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,linux
+lenovo,notebook,17.3,8,2.8,27652.32,standard,1600,900,0,amd a6-series 9220,amd processor,2.5,1000,0,0,0,amd radeon,windows
+dell,notebook,15.6,4,2.2,39906.72,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,amd radeon,windows
+lenovo,ultrabook,12.5,8,1.36,76137.12,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,18594.72,full hd,1920,1080,0,intel pentium quad,other intel processor,1.1,0,128,0,0,intel hd,windows
+hp,gaming,15.6,8,2.2,58554.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+dell,notebook,14.0,8,1.64,62817.12,full hd,1920,1080,0,intel core i5,intel core i5,2.8,0,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,4,2.4,23539.104,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,linux
+dell,workstation,15.6,8,2.23,106187.04,full hd,1920,1080,0,intel xeon e3-1505m,other intel processor,3.0,1000,0,0,64,nvidia quadro,windows
+msi,gaming,15.6,8,2.2,54757.9872,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+microsoft,ultrabook,13.5,16,1.25,137941.92,touchscreen,2256,1504,1,intel core i7,intel core i7,2.5,0,512,0,0,intel iris,windows
+hp,notebook,15.6,8,1.91,31381.92,standard,1366,768,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+dell,workstation,15.6,16,2.17,105228.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia quadro,windows
+hp,workstation,15.6,8,2.31,81731.52,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.9,0,512,0,0,intel hd,windows
+lenovo,notebook,14.0,8,1.65,71661.6,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,notebook,15.6,8,2.36,52161.12,full hd,1920,1080,0,intel core i7,intel core i7,1.8,1000,128,0,0,amd radeon,windows
+dell,2 in 1 convertible,11.6,4,1.47,25521.12,touchscreen,1366,768,1,intel pentium quad,other intel processor,1.6,500,0,0,0,intel hd,windows
+dell,notebook,17.3,8,4.42,109010.88,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,windows
+microsoft,ultrabook,13.5,4,1.252,52693.92,touchscreen,2256,1504,1,intel core m,other intel processor,2.2,0,128,0,0,intel hd,windows
+microsoft,ultrabook,33.5,8,1.25,95850.72,touchscreen,2256,1504,1,intel core i7,intel core i7,2.5,0,256,0,0,intel iris,windows
+hp,notebook,17.3,8,2.5,34093.872,standard,1600,900,0,intel core i3,intel core i3,2.0,0,256,0,0,intel hd,windows
+acer,notebook,15.6,4,2.23,28984.32,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,nvidia geforce,windows
+acer,netbook,11.6,4,1.4,23176.8,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,128,0,0,intel hd,windows
+asus,notebook,15.6,8,2.37,39906.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+lenovo,notebook,14.0,8,1.5,42570.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,amd radeon,others/no os
+lenovo,notebook,15.6,8,2.67,111355.2,full hd,1920,1080,0,intel core i7,intel core i7,2.9,0,256,0,0,nvidia quadro,windows
+asus,notebook,15.6,4,2.0,16197.12,standard,1366,768,0,intel pentium quad,other intel processor,1.1,500,0,0,0,intel hd,windows
+acer,notebook,15.6,4,2.2,24988.32,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.02,40439.52,full hd,1920,1080,0,intel core i5,intel core i5,1.6,2000,0,0,0,amd radeon,windows
+hp,gaming,17.3,12,3.78,90522.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,windows
+lenovo,ultrabook,14.0,12,1.4,98994.24,ips panel quad hd+,2560,1440,0,intel core i7,intel core i7,2.6,0,256,0,0,intel hd,windows
+hp,2 in 1 convertible,13.3,8,1.29,106506.72,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+hp,notebook,15.6,8,1.9,61485.12,full hd,1920,1080,0,intel core i5,intel core i5,2.5,500,0,0,0,amd firepro,windows
+google,ultrabook,12.3,8,1.1,67932.0,touchscreen,2400,1600,1,intel core i5,intel core i5,1.2,0,128,0,0,intel hd,others/no os
+dell,ultrabook,13.3,8,1.42,98133.768,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+asus,notebook,15.6,12,2.06,69210.72,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.6,1000,128,0,0,intel hd,windows
+dell,notebook,14.0,8,1.79,39427.2,standard,1366,768,0,intel core i3,intel core i3,2.3,0,128,0,0,intel hd,windows
+dell,workstation,15.6,8,1.78,128298.24,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia quadro,windows
+lenovo,notebook,14.0,8,1.7,72673.92,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,180,0,0,intel hd,windows
+toshiba,notebook,13.3,8,1.05,89084.16,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,notebook,15.6,8,2.16,67239.36,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,512,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.18,31254.048,standard,1366,768,0,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+hp,notebook,13.3,4,1.49,38681.28,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,128,0,0,intel uhd,windows
+chuwi,notebook,15.6,4,1.89,13261.392,full hd,1920,1080,0,intel atom x5-z8350,other intel processor,1.44,0,0,0,64,intel hd,windows
+lenovo,notebook,15.6,4,2.3,30103.2,standard,1366,768,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,windows
+lenovo,notebook,14.0,8,1.75,55890.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+dell,workstation,15.6,16,2.17,124568.64,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,nvidia quadro,windows
+dell,notebook,15.6,16,2.06,101178.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+lenovo,ultrabook,12.5,16,1.36,95797.44,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+asus,ultrabook,12.5,16,0.91,103896.0,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+lenovo,notebook,15.6,8,2.3,53918.8272,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+toshiba,ultrabook,13.3,32,1.05,149130.72,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+asus,gaming,15.6,8,1.99,71928.0,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+acer,notebook,15.6,8,2.2,30849.12,standard,1366,768,0,amd a10-series 9620p,amd processor,2.5,1000,0,0,0,amd radeon,windows
+asus,gaming,17.3,24,4.33,67612.32,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.6,1000,256,0,0,nvidia geforce,windows
+lenovo,ultrabook,12.5,8,1.3,58554.72,ips panel,1366,768,0,intel core i5,intel core i5,2.3,0,180,0,0,intel hd,windows
+lenovo,notebook,15.6,8,2.17,47893.392,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+hp,notebook,14.0,8,1.48,93186.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,1000,0,0,intel hd,windows
+lenovo,notebook,13.3,8,1.4,50562.72,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.4,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,8,2.3,48538.08,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+asus,netbook,11.6,4,1.2,18115.2,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,0,0,64,intel hd,windows
+hp,notebook,15.6,8,1.91,32979.7872,standard,1366,768,0,intel core i5,intel core i5,2.5,0,256,0,0,amd radeon,windows
+lenovo,2 in 1 convertible,13.9,8,1.4,85194.72,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+lenovo,notebook,14.0,4,2.1,15930.72,standard,1366,768,0,intel celeron dual,other intel processor,1.1,500,0,0,0,intel hd,windows
+lenovo,netbook,11.6,4,1.25,14119.2,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,16,0,0,intel hd,others/no os
+lenovo,notebook,13.3,8,1.44,50562.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+asus,notebook,15.6,8,2.0,65214.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,256,0,0,intel hd,windows
+acer,notebook,15.6,4,2.2,32660.64,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,0,0,0,nvidia geforce,windows
+hp,ultrabook,13.3,8,1.34,70489.44,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+lenovo,gaming,15.6,8,2.4,61218.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,others/no os
+dell,ultrabook,13.3,8,1.29,47898.72,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+acer,notebook,15.6,4,2.2,34045.92,full hd,1920,1080,0,intel core i7,intel core i7,2.7,500,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.18,44542.08,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+dell,notebook,15.6,16,2.2,64961.1072,full hd,1920,1080,0,intel core i7,intel core i7,1.8,2000,256,0,0,amd radeon,windows
+xiaomi,notebook,15.6,16,1.95,74589.336,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,nvidia geforce,others/no os
+asus,netbook,11.6,2,1.1,13053.6,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+hp,notebook,15.6,4,2.04,27783.9216,touchscreen,1366,768,1,intel core i5,intel core i5,1.6,1000,0,0,0,intel uhd,windows
+asus,gaming,15.6,24,2.24,158135.04,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,2.04,47365.92,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+asus,gaming,17.3,16,3.0,80133.12,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,gaming,15.6,8,3.2,74538.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+hp,ultrabook,13.3,8,1.32,74538.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+dell,notebook,14.0,8,1.64,68184.0144,full hd,1920,1080,0,intel core i5,intel core i5,2.6,0,256,0,0,intel hd,windows
+hp,notebook,15.6,4,1.63,36709.92,standard,1366,768,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,windows
+dell,notebook,17.3,8,2.8,47365.92,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,128,0,0,amd radeon,linux
+lenovo,notebook,24.0,8,2.02,71395.2,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,42570.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.2,24455.52,standard,1366,768,0,intel core i3,intel core i3,2.0,2000,0,0,0,nvidia geforce,others/no os
+dell,notebook,15.6,4,2.3,31168.8,full hd,1920,1080,0,intel core i5,intel core i5,2.5,500,0,0,0,amd radeon,windows
+dell,notebook,15.6,8,1.9,73366.56,full hd,1920,1080,0,intel core i5,intel core i5,2.8,0,256,0,0,intel hd,windows
+dell,gaming,17.3,16,4.42,160520.3856,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+toshiba,notebook,15.6,8,2.0,45820.8,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+asus,notebook,15.6,8,2.0,69210.72,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.7,1000,256,0,0,nvidia geforce,windows
+mediacom,notebook,13.3,4,1.2,19660.32,ips panel full hd,1920,1080,0,intel celeron quad,other intel processor,1.1,0,32,0,0,intel hd,windows
+asus,gaming,15.6,8,2.3,87858.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,1.93,72940.32,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.2,42486.0048,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,amd radeon,windows
+hp,notebook,15.6,4,1.86,21258.1872,full hd,1920,1080,0,intel pentium quad,other intel processor,1.6,0,256,0,0,intel hd,windows
+hp,gaming,17.3,12,2.62,95850.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,14.0,8,1.87,45767.52,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+dell,ultrabook,13.3,8,1.2,74538.72,quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,1.8,0,256,0,0,intel uhd,windows
+dell,notebook,14.0,4,1.6,39207.1536,full hd,1920,1080,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,windows
+hp,ultrabook,13.3,8,1.34,61005.6,ips panel quad hd+,3200,1800,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+acer,gaming,15.6,8,2.4,42517.44,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,linux
+asus,notebook,15.6,4,2.0,18594.72,standard,1366,768,0,amd e-series 7110,amd processor,1.8,500,0,0,0,amd radeon,windows
+hp,notebook,15.6,4,2.1,37589.04,full hd,1920,1080,0,intel core i3,intel core i3,2.4,0,128,0,0,intel hd,windows
+lenovo,notebook,14.0,4,1.87,41824.8,full hd,1920,1080,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.15,24634.008,full hd,1920,1080,0,intel core i5,intel core i5,2.3,1000,0,0,0,intel hd,others/no os
+hp,notebook,15.6,4,1.86,21152.16,full hd,1920,1080,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,windows
+lenovo,notebook,15.6,8,1.99,92121.12,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,26586.72,full hd,1920,1080,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,windows
+dell,notebook,15.6,8,1.9,59513.2272,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,gaming,17.3,16,4.42,143802.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+hp,notebook,17.3,8,2.65,28992.312,standard,1600,900,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+hp,notebook,17.3,8,2.63,68198.4,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,windows
+asus,notebook,15.6,4,2.0,11934.72,standard,1366,768,0,intel celeron dual,other intel processor,1.1,500,0,0,0,intel hd,linux
+mediacom,notebook,13.3,4,1.35,13586.4,ips panel full hd,1920,1080,0,intel atom x5-z8350,other intel processor,1.44,0,0,0,32,intel hd,windows
+lenovo,notebook,17.3,6,2.8,50562.72,standard,1600,900,0,intel core i7,intel core i7,2.7,1000,128,0,0,nvidia geforce,windows
+hp,notebook,15.6,6,1.91,30310.992,ips panel full hd,1920,1080,0,amd a10-series a10-9620p,amd processor,2.5,0,128,0,0,amd radeon,windows
+dell,notebook,15.6,4,2.18,32921.712,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,windows
+acer,2 in 1 convertible,11.6,4,1.25,18594.72,ips panel full hd / touchscreen,1920,1080,1,intel celeron dual,other intel processor,2.0,0,0,0,32,intel hd,windows
+lenovo,notebook,15.6,4,2.05,33566.4,full hd,1920,1080,0,intel core i3,intel core i3,2.7,0,128,0,0,intel hd,windows
+hp,ultrabook,13.3,16,1.16,104695.2,ips panel quad hd+ / touchscreen,3200,1800,1,intel core m,other intel processor,1.2,0,512,0,0,intel hd,windows
+lenovo,notebook,17.3,8,3.4,159786.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia quadro,windows
+asus,notebook,15.6,8,2.5,44701.92,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+dell,ultrabook,13.3,8,1.21,85194.72,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core i5,intel core i5,1.6,0,128,0,0,intel uhd,windows
+dell,notebook,15.6,4,1.93,51095.52,standard,1366,768,0,intel core i5,intel core i5,2.6,500,0,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,18328.32,full hd,1920,1080,0,intel pentium quad,other intel processor,1.1,500,0,0,0,intel hd,windows
+lenovo,notebook,14.0,4,2.02,52747.2,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+hp,workstation,17.3,8,3.14,99153.5472,standard,1600,900,0,intel core i5,intel core i5,2.8,500,0,0,0,nvidia quadro,windows
+hp,notebook,14.0,8,1.94,20725.92,standard,1366,768,0,intel pentium quad,other intel processor,1.6,2000,0,0,0,intel hd,windows
+hp,notebook,15.6,6,1.95,34578.72,ips panel full hd,1920,1080,0,amd a9-series a9-9420,amd processor,3.0,0,256,0,0,amd radeon,windows
+lenovo,notebook,15.6,8,2.3,44222.4,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.05,36496.8,full hd,1920,1080,0,intel core i5,intel core i5,1.6,500,0,0,0,intel hd,windows
+mediacom,notebook,14.0,4,1.4,13266.72,full hd,1920,1080,0,intel atom x5-z8350,other intel processor,1.44,0,32,0,0,intel hd,windows
+toshiba,ultrabook,14.0,16,1.24,99367.2,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+lenovo,gaming,17.3,32,4.6,141884.64,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,256,0,0,nvidia geforce,windows
+msi,gaming,17.3,16,4.14,145401.12,full hd,1920,1080,0,intel core i7,intel core i7,2.9,1000,512,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.2,39907.2528,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,amd radeon,linux
+mediacom,notebook,14.0,4,1.45,20725.92,ips panel full hd,1920,1080,0,intel celeron quad,other intel processor,1.1,0,32,0,0,intel hd,windows
+dell,notebook,15.6,8,1.9,53733.9456,standard,1366,768,0,intel core i5,intel core i5,2.6,500,0,0,0,intel hd,windows
+hp,notebook,13.3,4,1.49,38308.32,full hd,1920,1080,0,intel core i3,intel core i3,2.4,0,128,0,0,intel hd,windows
+dell,notebook,15.6,16,1.93,81912.1392,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,windows
+dell,netbook,11.6,4,1.26,15717.6,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,16,intel hd,others/no os
+msi,gaming,17.3,16,4.5,125154.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,128,0,0,nvidia geforce,windows
+hp,gaming,17.3,16,3.78,79813.44,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,ultrabook,14.0,12,8.4,89137.44,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,12,2.2,32447.52,touchscreen,1366,768,1,intel core i7,intel core i7,1.8,1000,0,0,0,intel hd,windows
+asus,gaming,17.3,8,2.73,94305.6,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+asus,2 in 1 convertible,15.6,8,2.2,39373.92,touchscreen,1366,768,1,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+lenovo,notebook,15.6,12,2.2,50562.72,full hd,1920,1080,0,amd a12-series 9720p,amd processor,3.6,0,512,0,0,amd radeon,windows
+dell,2 in 1 convertible,31.6,4,1.39,32127.84,touchscreen,1366,768,1,intel core m,other intel processor,1.0,0,128,0,0,intel hd,windows
+samsung,notebook,15.6,16,2.5,90522.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+lenovo,notebook,17.3,4,2.8,28185.12,full hd,1920,1080,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,others/no os
+lenovo,notebook,15.6,8,2.29,24455.52,standard,1366,768,0,intel core i3,intel core i3,2.3,1000,0,0,0,intel hd,windows
+lenovo,2 in 1 convertible,13.3,8,1.37,107892.0,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+lenovo,notebook,14.0,8,1.7,78534.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,2 in 1 convertible,12.5,8,1.34,88977.6,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,workstation,15.6,8,2.06,93932.64,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.8,0,256,0,0,nvidia quadro,windows
+hp,notebook,15.6,8,1.84,64948.32,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+hp,notebook,15.6,4,2.1,35616.6144,standard,1366,768,0,intel core i3,intel core i3,2.4,500,0,0,0,intel hd,windows
+acer,notebook,14.0,4,1.6,17529.12,full hd,1920,1080,0,intel celeron quad,other intel processor,1.1,0,0,0,32,intel hd,windows
+msi,gaming,17.3,16,4.14,117162.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,128,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.18,24775.2,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,linux
+msi,gaming,15.6,16,1.8,122490.72,4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.8,2000,256,0,0,nvidia geforce,windows
+toshiba,notebook,15.6,8,2.2,74538.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,6,2.4,30049.92,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+lenovo,2 in 1 convertible,15.6,8,2.0,69210.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.8,0,256,0,0,intel hd,windows
+acer,notebook,14.0,4,1.6,18594.72,standard,1366,768,0,intel pentium quad,other intel processor,1.6,0,0,0,128,intel hd,windows
+lenovo,notebook,15.6,32,2.5,261018.72,ips panel 4k ultra hd,3840,2160,0,intel xeon e3-1535m,other intel processor,3.1,0,1000,0,0,nvidia quadro,windows
+dell,gaming,15.6,16,2.59,46833.6528,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.18,23650.992,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,linux
+dell,notebook,15.6,4,2.25,19127.52,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,linux
+dell,notebook,15.6,4,1.93,46300.32,standard,1366,768,0,intel core i5,intel core i5,2.6,500,0,0,0,intel hd,linux
+asus,gaming,17.3,8,3.0,62231.04,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+hp,ultrabook,15.6,8,1.84,74005.92,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+msi,gaming,15.6,16,2.94,120831.5808,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+acer,2 in 1 convertible,11.6,4,1.25,20193.12,ips panel touchscreen,1366,768,1,intel celeron quad,other intel processor,1.6,0,0,0,32,intel hd,others/no os
+hp,notebook,14.0,8,2.31,59886.72,standard,1366,768,0,intel core i5,intel core i5,2.6,0,256,0,0,intel hd,windows
+lenovo,notebook,14.0,8,1.65,78055.2,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.2,41345.28,full hd,1920,1080,0,intel core i5,intel core i5,1.6,1000,0,0,0,amd radeon,windows
+fujitsu,notebook,15.6,8,2.2,42570.72,standard,1366,768,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,notebook,15.6,4,1.88,49656.96,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+mediacom,notebook,14.0,2,1.4,12733.92,full hd,1920,1080,0,intel atom x5-z8350,other intel processor,1.44,0,0,0,32,intel hd,windows
+lenovo,notebook,15.6,4,2.2,24935.04,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,others/no os
+asus,2 in 1 convertible,13.3,6,1.5,34046.4528,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+asus,ultrabook,14.0,16,11.1,101232.0,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+dell,gaming,15.6,16,2.62,78801.12,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,1.8,44169.12,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+lenovo,notebook,15.6,4,2.2,30849.12,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,nvidia geforce,windows
+asus,notebook,15.6,8,2.0,21258.72,standard,1366,768,0,intel celeron dual,other intel processor,1.1,1000,0,0,0,intel hd,windows
+asus,notebook,15.6,8,1.99,48304.7136,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,windows
+dell,ultrabook,13.3,8,1.23,99580.32,quad hd+ / touchscreen,3200,1800,1,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+lenovo,notebook,14.0,2,1.42,13266.72,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,windows
+lenovo,2 in 1 convertible,13.3,8,1.37,93635.3376,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+dell,notebook,15.6,16,2.06,127818.72,4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,2.8,0,1000,0,0,nvidia geforce,windows
+lenovo,gaming,15.6,8,2.5,59087.52,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+hp,notebook,17.0,8,2.6,27753.552,standard,1600,900,0,amd a9-series 9420,amd processor,3.0,1000,0,0,0,amd radeon,windows
+lenovo,ultrabook,14.0,16,1.14,130536.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+asus,gaming,15.6,8,2.5,62284.32,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,others/no os
+acer,notebook,15.6,4,2.4,23976.0,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,windows
+lenovo,notebook,14.0,4,1.43,14598.72,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,windows
+acer,ultrabook,14.0,8,1.8,48964.32,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel graphics,windows
+razer,gaming,14.0,16,1.95,138474.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,windows
+toshiba,notebook,13.3,8,1.2,64628.64,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+lenovo,ultrabook,12.5,8,1.36,84395.52,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+asus,gaming,17.3,32,3.8,149130.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,nvidia geforce,windows
+acer,gaming,15.6,8,2.4,37775.52,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,linux
+dell,ultrabook,13.3,8,1.2,77250.672,full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+msi,gaming,15.6,8,2.2,63499.104,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,1.86,19441.872,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,others/no os
+toshiba,notebook,15.6,8,2.0,56689.92,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+dell,notebook,15.6,8,6.2,48964.32,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,256,0,0,amd radeon,windows
+dell,notebook,15.6,16,2.2,60472.8,full hd,1920,1080,0,intel core i7,intel core i7,1.8,2000,256,0,0,amd radeon,windows
+lenovo,gaming,15.6,8,3.31,63722.88,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+dell,gaming,17.3,32,4.42,167691.8736,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.8,1000,512,0,0,nvidia geforce,windows
+dell,notebook,14.0,8,1.56,65481.12,full hd,1920,1080,0,intel core i5,intel core i5,2.4,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,22324.32,standard,1366,768,0,intel celeron dual,other intel processor,1.1,500,0,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,28504.8,full hd,1920,1080,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+hp,notebook,15.6,6,2.04,28717.92,standard,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,windows
+msi,gaming,17.3,8,2.7,79215.1056,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+toshiba,notebook,15.6,4,2.1,26533.44,standard,1366,768,0,intel core i3,intel core i3,2.1,0,128,0,0,intel hd,windows
+hp,notebook,15.6,8,2.1,39693.6,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,amd radeon,windows
+toshiba,notebook,15.6,8,2.0,67026.24,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+acer,notebook,15.6,4,2.1,21951.36,standard,1366,768,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,linux
+microsoft,ultrabook,13.5,8,1.252,99519.048,touchscreen,2256,1504,1,intel core i7,intel core i7,2.8,0,256,0,0,intel iris,windows
+lenovo,notebook,15.6,8,1.9,43580.376,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,amd radeon,windows
+lenovo,2 in 1 convertible,13.3,8,1.3,55091.52,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,35.6,4,2.2,18594.72,standard,1366,768,0,amd e-series e2-9000,amd processor,2.2,0,128,0,0,amd radeon,windows
+hp,2 in 1 convertible,14.0,4,1.63,37242.72,ips panel full hd / touchscreen,1920,1080,1,intel core i3,intel core i3,2.4,0,128,0,0,nvidia geforce,windows
+msi,gaming,15.6,16,2.4,68944.32,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+asus,ultrabook,14.0,8,1.1,60472.8,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,2 in 1 convertible,11.6,8,1.4,26373.6,touchscreen,1366,768,1,intel celeron dual,other intel processor,1.1,0,0,0,64,intel hd,others/no os
+lg,ultrabook,15.6,8,1.09,122490.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,512,0,0,intel hd,windows
+acer,gaming,15.6,16,2.5,69210.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+msi,gaming,15.6,8,2.2,53168.112,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+asus,notebook,15.6,4,1.86,22324.32,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,128,0,0,intel hd,windows
+dell,gaming,15.6,16,3.21,109277.28,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+hp,notebook,17.3,4,2.5,37242.72,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.0,0,256,0,0,amd radeon,windows
+lenovo,2 in 1 convertible,13.3,8,1.19,79866.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+dell,gaming,15.6,16,3.49,149916.6,full hd,1920,1080,0,intel core i7,intel core i7,2.9,1000,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,1.86,32639.8608,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,amd radeon,windows
+dell,notebook,15.6,4,2.2,29073.2976,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,windows
+hp,notebook,17.3,6,2.65,30316.32,ips panel full hd,1920,1080,0,amd a10-series 9600p,amd processor,2.4,2000,0,0,0,amd radeon,windows
+lenovo,notebook,15.6,4,2.1,16943.04,standard,1366,768,0,intel celeron dual,other intel processor,1.6,500,0,0,0,intel hd,windows
+acer,notebook,14.0,4,1.45,19980.0,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,others/no os
+lenovo,notebook,14.0,4,1.7,37242.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,workstation,17.3,8,3.14,101657.7072,full hd,1920,1080,0,intel core i7,intel core i7,2.8,500,0,0,0,nvidia quadro,windows
+lenovo,2 in 1 convertible,14.0,8,1.42,137995.2,touchscreen,2560,1440,1,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+toshiba,notebook,13.3,8,1.5,51841.44,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+acer,netbook,11.6,4,1.4,14332.32,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,windows
+lenovo,2 in 1 convertible,14.0,16,1.38,93186.72,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+asus,2 in 1 convertible,12.5,4,1.2,35644.32,full hd / touchscreen,1920,1080,1,intel core m,other intel processor,0.9,0,0,0,64,intel hd,others/no os
+toshiba,ultrabook,13.3,16,1.36,100006.56,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.5,0,512,0,0,intel hd,windows
+dell,gaming,15.6,8,2.56,43636.32,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,2.2,21258.72,full hd,1920,1080,0,amd a9-series 9420,amd processor,2.9,0,256,0,0,amd radeon,windows
+lenovo,notebook,15.6,8,2.2,22857.12,standard,1366,768,0,amd a12-series 9720p,amd processor,3.6,1000,0,0,0,amd radeon,windows
+lenovo,notebook,15.6,4,2.1,33110.856,full hd,1920,1080,0,intel core i5,intel core i5,2.5,10001000,0,0,0,intel hd,windows
+lenovo,notebook,15.6,4,1.9,23976.0,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,others/no os
+dell,notebook,15.6,8,2.18,42357.6,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+acer,2 in 1 convertible,13.3,1,1.6,53226.72,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.6,0,256,0,0,intel uhd,windows
+lenovo,workstation,15.6,16,2.18,98834.4,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,512,0,0,nvidia quadro,windows
+lenovo,notebook,14.0,8,1.8,63456.48,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+hp,notebook,17.3,6,2.71,34898.9328,ips panel full hd,1920,1080,0,amd a10-series 9620p,amd processor,2.5,2000,0,0,0,amd radeon,windows
+lenovo,gaming,15.6,8,2.5,66546.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+dell,notebook,14.0,8,1.64,58021.92,full hd,1920,1080,0,intel core i5,intel core i5,2.8,0,256,0,0,nvidia geforce,linux
+dell,notebook,15.6,8,1.98,38681.28,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,linux
+asus,notebook,14.0,4,1.5,15877.44,full hd,1920,1080,0,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+dell,notebook,15.6,16,1.93,76012.4448,full hd,1920,1080,0,intel core i5,intel core i5,2.6,0,512,0,0,intel hd,windows
+lenovo,notebook,14.0,8,1.87,45664.6896,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,1.9,62817.12,full hd,1920,1080,0,intel core i5,intel core i5,2.6,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.19,15877.44,standard,1366,768,0,amd a6-series 7310,amd processor,2.0,500,0,0,0,amd radeon,windows
+mediacom,notebook,14.0,4,1.4,14119.2,ips panel full hd,1920,1200,0,intel atom z8350,other intel processor,1.92,32,0,0,0,intel hd,windows
+hp,notebook,17.3,8,2.63,63936.0,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+lenovo,ultrabook,14.0,64,1.17,89864.1792,ips panel quad hd+,2560,1440,0,intel core i7,intel core i7,2.5,0,512,0,0,intel hd,windows
+hp,2 in 1 convertible,13.3,8,1.58,44574.048,ips panel touchscreen,1366,768,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,ultrabook,14.0,8,1.32,79866.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,gaming,17.3,32,4.36,194972.832,4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.8,1000,1000,0,0,nvidia geforce,windows
+msi,gaming,17.3,8,2.7,71847.0144,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,1.9,26101.872,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,others/no os
+dell,2 in 1 convertible,13.3,4,1.71,34578.72,full hd / touchscreen,1920,1080,1,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+dell,notebook,15.6,8,2.32,31409.6256,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,amd radeon,linux
+hp,notebook,15.6,4,2.1,26053.92,full hd,1920,1080,0,amd a9-series 9420,amd processor,3.0,1000,0,0,0,amd radeon,windows
+acer,gaming,17.3,16,4.2,103096.8,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+dell,notebook,15.6,12,2.25,34578.72,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+hp,notebook,15.6,6,2.1,34632.0,full hd,1920,1080,0,amd a9-series a9-9420,amd processor,3.0,1000,128,0,0,amd radeon,windows
+acer,notebook,15.6,4,2.4,29783.52,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+lenovo,notebook,13.3,8,1.44,51148.8,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,1.85,41505.12,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,intel hd,windows
+hp,workstation,15.6,16,2.6,128884.32,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia quadro,windows
+dell,2 in 1 convertible,13.3,8,1.55,35111.52,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.6,1000,0,0,0,intel uhd,windows
+msi,gaming,15.6,16,1.8,111593.8944,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,4,2.4,21887.424,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,windows
+dell,notebook,15.6,8,2.0,64308.96,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,128,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.0,35431.2,standard,1366,768,0,intel core i3,intel core i3,2.0,0,256,0,0,intel hd,windows
+toshiba,notebook,14.0,8,1.25,81784.8,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,2 in 1 convertible,14.0,8,1.7,53226.72,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,workstation,15.6,16,2.5,175770.72,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.8,0,1000,0,0,nvidia quadro,windows
+acer,notebook,14.0,2,1.68,17582.4,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,others/no os
+samsung,ultrabook,13.3,16,0.81,87858.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+dell,notebook,14.0,8,1.6,60031.1088,standard,1366,768,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,workstation,17.3,16,3.0,233845.92,ips panel full hd,1920,1080,0,intel xeon e3-1535m,other intel processor,2.9,0,256,0,0,nvidia quadro,windows
+lenovo,netbook,11.6,4,1.4,25308.0,touchscreen,1366,768,1,intel celeron dual,other intel processor,1.6,0,128,0,0,intel hd,windows
+hp,notebook,15.6,8,1.84,101232.0,full hd,1920,1080,0,intel core i5,intel core i5,2.4,0,256,0,0,intel hd,windows
+asus,notebook,15.6,4,2.45,30849.12,standard,1366,768,0,intel core i5,intel core i5,2.3,1000,0,0,0,nvidia geforce,others/no os
+asus,notebook,15.6,4,2.37,45282.672,standard,1366,768,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+lenovo,2 in 1 convertible,13.3,8,1.3,63882.72,ips panel quad hd+ / touchscreen,3200,1800,1,intel core i5,intel core i5,1.8,0,256,0,0,intel hd,windows
+hp,notebook,15.6,8,2.2,58554.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+hp,workstation,15.6,8,2.59,83170.08,full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,nvidia quadro,windows
+dell,gaming,15.6,16,4.42,152859.7872,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,4,2.1,31914.72,standard,1366,768,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,gaming,15.6,8,2.5,55837.44,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+dell,ultrabook,12.5,16,1.18,99047.52,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,intel hd,windows
+google,ultrabook,12.3,8,1.1,83063.52,touchscreen,2400,1600,1,intel core i5,intel core i5,1.2,0,256,0,0,intel hd,others/no os
+asus,ultrabook,13.3,8,1.2,60153.12,ips panel quad hd+,3200,1800,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,notebook,13.3,4,1.65,45234.72,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,windows
+acer,notebook,13.3,4,1.6,34898.4,standard,1366,768,0,intel core i5,intel core i5,2.3,0,128,0,0,intel hd,windows
+asus,notebook,17.3,4,2.8,25059.7152,standard,1366,768,0,intel pentium quad,other intel processor,1.1,1000,0,0,0,nvidia geforce,windows
+dell,gaming,15.6,16,2.72,58554.72,ips panel touchscreen / 4k ultra hd,3840,2160,1,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+samsung,ultrabook,13.3,8,1.31,85194.72,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+acer,notebook,15.6,4,2.1,15877.44,standard,1366,768,0,intel pentium quad,other intel processor,1.1,1000,0,0,0,intel hd,linux
+dell,notebook,15.6,16,2.3,62938.0656,full hd,1920,1080,0,intel core i7,intel core i7,2.7,2000,0,0,0,amd radeon,windows
+samsung,2 in 1 convertible,15.0,16,1.71,95850.72,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,256,0,0,amd radeon,windows
+toshiba,notebook,14.0,4,1.75,54345.6,ips panel,1366,768,0,intel core i5,intel core i5,2.3,0,128,0,0,intel hd,windows
+dell,gaming,15.6,8,2.62,58554.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,windows
+asus,2 in 1 convertible,15.6,12,2.3,44701.92,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,2000,0,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,16,2.5,126273.6,4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.7,0,512,0,0,nvidia quadro,windows
+acer,notebook,14.0,4,1.8,33886.08,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.4,0,128,0,0,intel hd,windows
+razer,gaming,14.0,16,1.95,154458.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+asus,notebook,15.6,8,2.0,31003.632,standard,1920,1080,0,intel pentium dual,other intel processor,1.1,0,128,0,0,intel hd,windows
+dell,gaming,17.3,32,4.42,191211.264,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,1000,0,0,nvidia geforce,windows
+asus,gaming,17.3,16,4.3,125208.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,256,0,0,nvidia geforce,windows
+toshiba,ultrabook,14.0,16,1.47,93985.92,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,512,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.2,17529.12,standard,1366,768,0,intel celeron quad,other intel processor,1.6,1000,0,0,0,intel hd,others/no os
+lenovo,ultrabook,14.0,16,1.7,122490.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+msi,gaming,14.0,16,1.6,100752.48,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+msi,gaming,15.6,8,2.2,58021.92,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+lenovo,gaming,15.6,4,2.4,53226.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,windows
+acer,gaming,17.3,16,4.2,122490.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+dell,gaming,15.6,8,2.62,52480.8,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+asus,gaming,15.6,8,2.24,71341.92,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+vero,notebook,14.0,4,1.22,10810.512,standard,1920,1080,0,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+lenovo,2 in 1 convertible,13.3,8,1.37,104961.6,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+lenovo,2 in 1 convertible,15.6,8,2.08,51095.52,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,amd radeon,windows
+apple,ultrabook,12.0,8,0.92,62071.2,ips panel retina display,2304,1440,0,intel core m,other intel processor,1.2,0,0,0,512,intel hd,mac
+lenovo,2 in 1 convertible,14.0,8,1.42,124142.4,ips panel touchscreen,2560,1440,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+asus,notebook,14.0,4,1.63,15930.72,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+dell,notebook,15.6,8,1.95,43156.8,standard,1366,768,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+lenovo,2 in 1 convertible,13.9,8,1.38,71874.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+dell,notebook,15.6,8,2.0,39373.92,full hd,1920,1080,0,intel core i3,intel core i3,2.0,0,256,0,0,amd radeon,windows
+hp,workstation,15.6,8,3.14,110017.872,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia quadro,windows
+asus,notebook,15.6,8,2.37,58554.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,ultrabook,13.3,8,1.29,79866.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,notebook,15.6,8,2.06,93186.72,4k ultra hd / touchscreen,3840,2160,1,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+dell,netbook,11.6,4,1.63,39640.32,standard,1366,768,0,intel pentium quad,other intel processor,1.1,0,128,0,0,intel hd,windows
+hp,netbook,12.5,8,1.26,74005.92,standard,1366,768,0,intel core i5,intel core i5,2.6,0,256,0,0,intel hd,windows
+toshiba,notebook,15.6,4,2.1,41558.4,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+hp,notebook,15.6,8,2.04,33513.12,standard,1366,768,0,amd a12-series 9700p,amd processor,2.5,2000,0,0,0,amd radeon,windows
+dell,gaming,15.6,16,2.62,89457.12,4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,2.4,32447.52,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,windows
+hp,gaming,17.3,12,3.74,93186.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,amd radeon,windows
+msi,gaming,17.3,16,2.9,128671.2,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,512,0,0,nvidia geforce,windows
+samsung,ultrabook,13.3,8,0.81,79866.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,notebook,15.6,8,1.98,51202.08,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.18,42081.0768,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,amd radeon,windows
+lenovo,ultrabook,14.0,8,1.32,99047.52,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+razer,ultrabook,12.5,16,1.29,95850.72,ips panel 4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,2.5,0,512,0,0,intel hd,windows
+hp,netbook,11.6,4,1.23,20512.8,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,16,intel hd,others/no os
+dell,gaming,17.3,16,4.36,133467.4656,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+dell,notebook,14.0,4,1.76,40226.4,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.1,26101.872,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,windows
+toshiba,ultrabook,14.0,4,1.25,58075.2,standard,1366,768,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+lenovo,ultrabook,14.0,8,1.13,133146.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+msi,gaming,15.6,8,2.4,63882.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+lenovo,ultrabook,14.0,8,1.13,99900.0,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,0,0,256,intel hd,windows
+toshiba,notebook,14.0,4,1.75,26586.72,standard,1366,768,0,intel pentium dual,other intel processor,2.1,0,128,0,0,intel hd,windows
+asus,2 in 1 convertible,13.3,8,1.1,72354.24,touchscreen / full hd,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,notebook,14.0,4,1.76,31168.8,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,windows
+acer,netbook,11.6,4,1.35,18914.4,ips panel,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,others/no os
+acer,notebook,14.0,8,1.5,32980.32,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.4,0,128,0,0,intel hd,windows
+razer,gaming,17.3,32,3.49,292986.72,4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,2.9,0,512,0,0,nvidia geforce,windows
+lenovo,ultrabook,14.0,16,1.1,111834.72,ips panel quad hd+,2560,1440,0,intel core i7,intel core i7,2.6,0,512,0,0,intel hd,windows
+asus,notebook,15.6,4,2.1,27652.32,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,linux
+lenovo,notebook,14.0,8,1.7,63190.08,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+lenovo,notebook,14.0,8,1.32,87912.0,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.6,0,256,0,0,intel hd,windows
+dell,gaming,15.6,16,3.21,147832.2864,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+asus,gaming,17.3,16,2.9,128884.32,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+toshiba,notebook,15.6,4,2.0,35644.32,standard,1366,768,0,intel core i3,intel core i3,2.4,500,0,0,0,intel hd,windows
+lenovo,notebook,14.0,4,1.5,17316.0,standard,1366,768,0,intel celeron quad,other intel processor,1.6,0,0,0,16,intel hd,others/no os
+asus,notebook,15.6,8,2.3,31435.2,full hd,1920,1080,0,intel core i5,intel core i5,2.5,128,0,0,0,intel hd,windows
+asus,gaming,17.3,16,2.73,95850.72,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,512,0,0,nvidia geforce,windows
+dell,gaming,17.3,32,4.42,163723.5792,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,512,0,0,nvidia geforce,windows
+hp,notebook,17.3,8,2.63,48484.8,standard,1600,900,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.18,38041.3872,standard,1366,768,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+hp,ultrabook,14.0,8,1.54,99633.6,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,512,0,0,intel hd,windows
+dell,notebook,15.6,4,2.18,39373.92,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,amd radeon,windows
+hp,2 in 1 convertible,11.6,4,1.4,32767.2,touchscreen,1366,768,1,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,others/no os
+asus,ultrabook,13.3,8,1.45,54665.28,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,512,0,0,nvidia geforce,windows
+hp,2 in 1 convertible,13.3,8,1.28,121318.56,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,ultrabook,14.0,8,1.54,78215.04,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,512,0,0,intel hd,windows
+hp,notebook,15.6,4,1.86,15930.72,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,128,0,0,intel hd,others/no os
+asus,gaming,15.6,16,2.1,101178.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+dell,notebook,17.3,8,2.83,46087.2,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,amd radeon,linux
+lenovo,ultrabook,14.0,8,1.96,101391.84,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,nvidia geforce,windows
+asus,notebook,15.6,8,2.3,41931.36,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,1.9,50349.6,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+asus,notebook,15.6,4,2.0,23922.72,standard,1366,768,0,intel pentium quad,other intel processor,1.1,1000,0,0,0,intel hd,windows
+hp,2 in 1 convertible,13.3,8,1.28,136343.52,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.8,0,256,0,0,intel hd,windows
+dell,notebook,13.3,8,1.62,34578.72,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.3,1000,0,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,24988.32,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,others/no os
+lenovo,notebook,15.6,8,2.3,45323.1648,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+hp,notebook,15.6,8,1.84,71874.72,full hd,1920,1080,0,intel core i5,intel core i5,2.6,0,256,0,0,amd radeon,windows
+toshiba,notebook,13.3,4,1.05,68464.8,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+lenovo,gaming,15.6,8,2.5,54185.76,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,others/no os
+dell,ultrabook,13.3,16,1.29,119347.2,quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,2.5,0,512,0,0,intel iris,windows
+hp,notebook,15.6,4,2.07,48484.8,full hd,1920,1080,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+toshiba,ultrabook,13.3,8,1.2,58341.6,standard,1366,768,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+lenovo,2 in 1 convertible,13.3,8,1.37,103896.0,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+acer,notebook,14.0,8,1.56,48058.56,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,workstation,15.6,8,2.23,94731.84,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia quadro,windows
+lenovo,notebook,15.6,4,2.38,56210.4,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,25521.12,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,others/no os
+toshiba,notebook,15.6,8,2.0,73952.64,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+lenovo,notebook,13.3,4,1.44,39160.8,ips panel full hd,1920,1080,0,intel core i3,intel core i3,2.4,0,180,0,0,intel hd,windows
+samsung,ultrabook,15.0,16,1.23,98514.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+dell,ultrabook,12.5,8,1.6,90043.2,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,intel hd,windows
+asus,notebook,15.6,4,2.0,21258.1872,standard,1366,768,0,intel pentium quad,other intel processor,1.1,1000,0,0,0,intel hd,linux
+xiaomi,ultrabook,13.3,8,1.28,49816.8,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.18,48618.0,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,2.04,44701.92,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,2 in 1 convertible,13.3,4,1.28,90576.0,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,2 in 1 convertible,15.6,4,2.3,36486.144,touchscreen,1366,768,1,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+asus,notebook,14.1,4,1.65,18541.44,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+lenovo,notebook,15.6,8,2.2,35644.32,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.5,1000,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.2,19660.32,standard,1366,768,0,intel pentium quad,other intel processor,1.6,500,0,0,0,intel hd,windows
+hp,2 in 1 convertible,13.3,4,1.28,95850.72,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.18,24279.696,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,linux
+asus,gaming,17.3,12,2.2,72988.272,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+acer,netbook,11.6,4,1.25,15824.16,ips panel,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,others/no os
+lenovo,notebook,17.3,4,2.8,20193.12,standard,1600,900,0,amd a4-series 7210,amd processor,2.2,500,0,0,0,amd radeon,windows
+hp,notebook,14.0,4,1.95,67399.2,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+hp,2 in 1 convertible,13.3,16,1.42,74538.72,quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+samsung,ultrabook,15.0,8,1.17,90522.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+lenovo,ultrabook,14.0,8,1.32,95850.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+msi,gaming,17.3,16,2.43,141138.72,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.6,2000,512,0,0,nvidia geforce,windows
+toshiba,notebook,13.3,8,1.05,78588.0,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,gaming,15.6,8,2.62,49497.12,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,linux
+hp,notebook,15.6,8,2.04,47952.0,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.18,32713.92,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,windows
+dell,notebook,15.6,8,1.9,49816.8,full hd,1920,1080,0,intel core i5,intel core i5,2.6,500,0,0,0,intel hd,windows
+dell,2 in 1 convertible,13.3,8,1.24,107257.968,quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,1.3,0,512,0,0,intel hd,windows
+asus,gaming,17.3,32,3.58,68145.12,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256256,0,0,nvidia geforce,windows
+dell,2 in 1 convertible,13.3,16,1.22,87858.72,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.3,0,256,0,0,intel hd,windows
+lenovo,ultrabook,14.0,8,1.13,109170.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,0,0,256,intel hd,windows
+lenovo,notebook,15.6,8,1.95,104588.1072,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,512,0,0,intel hd,windows
+lg,ultrabook,15.6,16,1.08,111834.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+hp,netbook,12.5,8,1.26,79014.24,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+acer,notebook,15.6,4,2.2,19127.52,ips panel full hd,1920,1080,0,intel celeron dual,other intel processor,1.5,0,0,0,16,intel hd,others/no os
+lenovo,notebook,15.6,8,2.6,42037.92,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.3,1000,128,0,0,nvidia geforce,windows
+lg,ultrabook,14.0,8,0.98,101178.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+dell,notebook,14.0,8,1.6,64202.4,full hd,1920,1080,0,intel core i5,intel core i5,2.8,0,256,0,0,intel hd,windows
+hp,ultrabook,12.5,8,1.09,165168.0,4k ultra hd / touchscreen,3840,2160,1,intel core m,other intel processor,1.2,0,240,0,0,intel hd,windows
+lenovo,notebook,15.6,6,2.2,42037.92,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,2.04,54291.7872,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+acer,notebook,15.6,4,2.4,26586.72,full hd,1920,1080,0,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+lenovo,notebook,13.3,4,1.44,46939.68,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+hp,notebook,13.3,8,1.49,51148.8,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+msi,gaming,17.3,16,2.7,85194.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+dell,gaming,15.6,16,2.6,71874.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+msi,gaming,15.6,8,2.2,59668.8048,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.18,36496.2672,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,amd radeon,windows
+hp,ultrabook,15.6,8,1.84,69103.6272,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,amd radeon,windows
+lenovo,2 in 1 convertible,13.3,8,1.37,97236.0,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,512,0,0,intel hd,windows
+dell,notebook,15.6,4,1.95,38889.072,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+lenovo,ultrabook,12.5,8,1.36,87912.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+hp,notebook,15.6,8,2.31,62071.2,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.18,37725.4368,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+hp,notebook,14.0,4,1.95,61218.72,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,16463.52,standard,1366,768,0,intel pentium quad,other intel processor,1.1,1000,0,0,0,intel hd,windows
+hp,ultrabook,12.5,4,1.26,84129.12,full hd,1920,1080,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+hp,notebook,15.6,4,1.86,15392.592,standard,1366,768,0,intel celeron dual,other intel processor,1.6,1000,0,0,0,intel hd,others/no os
+lenovo,2 in 1 convertible,13.3,16,1.3,95850.72,ips panel quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,2.2,0,1000,0,0,intel iris,windows
+toshiba,notebook,14.0,4,1.47,58874.4,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,128,0,0,intel hd,windows
+hp,netbook,12.5,8,1.26,88924.32,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.18,29762.208,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+msi,gaming,15.6,8,2.2,63882.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+dell,gaming,17.3,16,4.36,146946.24,standard,2560,1440,0,intel core i7,intel core i7,2.7,1000,512,0,0,nvidia geforce,windows
+hp,gaming,17.3,8,2.75,74538.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.3,1000,128,0,0,nvidia geforce,windows
+asus,notebook,17.3,4,2.8,28238.4,standard,1600,900,0,intel pentium quad,other intel processor,1.6,1000,0,0,0,nvidia geforce,windows
+acer,notebook,15.6,4,2.23,32980.32,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+toshiba,notebook,15.6,8,2.2,59620.32,standard,1366,768,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+lenovo,2 in 1 convertible,11.3,8,1.1,69210.72,ips panel full hd / touchscreen,1920,1080,1,intel core m,other intel processor,1.2,0,256,0,0,intel hd,windows
+lenovo,gaming,15.6,16,2.5,53226.72,ips panel full hd,1920,1080,0,amd fx 8800p,amd processor,2.1,1000,512,0,0,amd radeon,windows
+dell,ultrabook,12.5,8,1.36,78438.816,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,8,2.2,36496.8,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,others/no os
+dell,notebook,17.3,4,2.36,35111.52,standard,1600,900,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,windows
+acer,notebook,14.0,4,1.68,18594.72,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,others/no os
+hp,workstation,15.6,8,2.0,119826.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,8,0,0,nvidia quadro,windows
+dell,ultrabook,14.0,8,1.36,94572.0,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,256,0,0,intel hd,windows
+toshiba,notebook,13.3,8,1.2,77788.8,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+asus,2 in 1 convertible,12.5,8,1.2,61751.52,full hd,1920,1080,0,intel core m,other intel processor,1.2,0,0,0,64,intel hd,others/no os
+lenovo,ultrabook,14.0,8,1.7,79333.3872,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,intel hd,windows
+dell,gaming,17.3,16,4.36,168045.12,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.8,1000,512,0,0,nvidia geforce,windows
+dell,2 in 1 convertible,13.3,8,1.24,101178.72,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,1.2,0,256,0,0,intel hd,windows
+hp,2 in 1 convertible,11.6,4,1.45,41292.0,touchscreen,1366,768,1,intel pentium quad,other intel processor,1.1,0,256,0,0,intel hd,windows
+dell,ultrabook,13.3,8,1.3,67559.04,quad hd+,3200,1800,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+acer,2 in 1 convertible,11.6,4,1.25,20725.92,ips panel touchscreen,1366,768,1,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,others/no os
+toshiba,notebook,13.3,8,1.2,81784.8,full hd,1920,1080,0,intel core i5,intel core i5,2.4,0,256,0,0,intel hd,windows
+lenovo,ultrabook,12.5,8,1.36,93772.8,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.6,0,256,0,0,intel hd,windows
+acer,notebook,15.6,12,2.4,53759.52,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,windows
+toshiba,ultrabook,12.5,8,1.1,95371.2,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+hp,notebook,15.6,8,2.04,45101.52,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.25,24808.2336,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,linux
+dell,notebook,15.6,4,1.9,43956.0,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+hp,notebook,15.6,4,2.04,36496.8,full hd,1920,1080,0,intel core i3,intel core i3,2.4,500,0,0,0,intel hd,windows
+dell,gaming,17.3,32,4.42,167778.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,6,2.4,37029.6,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+dell,2 in 1 convertible,13.3,16,1.22,101178.72,quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,1.3,0,512,0,0,intel hd,windows
+dell,ultrabook,14.0,8,1.5,104587.5744,touchscreen,2560,1440,1,intel core i7,intel core i7,2.6,0,256,0,0,intel hd,windows
+dell,gaming,17.3,32,4.42,149184.0,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,256,0,0,nvidia geforce,windows
+toshiba,notebook,14.0,8,1.95,62870.4,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+asus,gaming,17.3,16,2.73,109218.672,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,2.04,52161.12,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.7,1000,128,0,0,nvidia geforce,windows
+lenovo,notebook,14.0,4,1.7,53386.56,standard,1366,768,0,intel core i5,intel core i5,2.3,0,0,508,0,intel hd,windows
+asus,2 in 1 convertible,15.6,16,2.3,95850.72,4k ultra hd / touchscreen,3840,2160,1,intel core i7,intel core i7,2.7,2000,512,0,0,nvidia geforce,windows
+asus,gaming,17.3,16,2.99,93186.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+dell,2 in 1 convertible,15.6,12,2.19,69210.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+toshiba,notebook,13.3,4,1.2,63669.6,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,128,0,0,intel hd,windows
+lenovo,notebook,15.6,6,2.2,29250.72,full hd,1920,1080,0,amd a12-series 9720p,amd processor,3.6,0,256,0,0,amd radeon,windows
+fujitsu,notebook,15.6,4,2.3,34578.72,standard,1366,768,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+toshiba,notebook,14.0,4,1.75,48751.2,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+dell,notebook,15.6,4,2.25,31914.72,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,amd radeon,windows
+hp,notebook,15.6,8,2.04,42943.68,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+lenovo,gaming,15.6,8,2.5,63349.92,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.36,39906.72,standard,1366,768,0,intel core i7,intel core i7,2.7,1000,0,0,0,amd radeon,windows
+dell,notebook,14.0,8,1.6,59620.32,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,128,0,0,intel hd,windows
+hp,netbook,12.5,8,0.97,101658.24,full hd,1920,1080,0,intel core m,other intel processor,1.2,0,512,0,0,intel hd,windows
+hp,notebook,15.6,4,2.1,26586.72,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,128,0,0,amd radeon,windows
+lenovo,notebook,15.6,4,1.9,14418.6336,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,128,0,0,intel hd,others/no os
+lenovo,notebook,15.6,8,2.3,71874.72,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+asus,notebook,13.3,8,1.4,61272.0,quad hd+,3200,1800,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,ultrabook,13.3,8,1.11,71874.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+acer,notebook,15.6,4,2.4,20246.4,standard,1366,768,0,intel pentium quad,other intel processor,1.1,500,0,0,0,intel hd,windows
+asus,gaming,15.6,16,2.5,95850.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+hp,ultrabook,14.0,8,1.48,111301.92,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+acer,gaming,15.6,8,2.7,67132.8,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+hp,notebook,13.3,8,1.34,63349.92,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.18,29144.16,standard,1366,768,0,intel core i3,intel core i3,2.4,0,128,0,0,intel hd,windows
+hp,notebook,14.0,4,1.64,41505.12,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+toshiba,notebook,13.3,4,1.2,63669.6,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,128,0,0,intel hd,windows
+hp,notebook,14.0,4,1.48,58607.4672,standard,1366,768,0,intel core i5,intel core i5,2.4,0,256,0,0,intel hd,windows
+hp,notebook,14.0,4,1.95,64202.4,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,ultrabook,14.0,8,1.43,77202.72,full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,intel hd,windows
+hp,notebook,14.0,8,1.64,55904.5728,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+hp,notebook,14.0,4,1.64,36443.52,standard,1366,768,0,intel core i3,intel core i3,2.4,500,0,0,0,intel hd,windows
+dell,gaming,15.6,8,2.65,50562.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,0,1000,0,nvidia geforce,windows
+hp,ultrabook,12.5,4,1.26,81997.92,full hd,1920,1080,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+hp,notebook,14.0,4,1.48,84715.2,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,ultrabook,14.0,8,1.54,100550.5488,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+hp,notebook,13.3,4,1.49,42624.0,standard,1366,768,0,intel core i3,intel core i3,2.4,500,0,0,0,intel hd,windows
+toshiba,notebook,13.3,8,1.5,64468.8,standard,1366,768,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+hp,notebook,15.6,4,2.04,41025.0672,standard,1366,768,0,intel core i3,intel core i3,2.4,0,256,0,0,intel hd,windows
+lenovo,notebook,17.3,16,2.4,158135.04,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.7,0,512,0,0,nvidia quadro,windows
+toshiba,notebook,14.0,8,1.47,79387.2,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+hp,notebook,14.0,8,1.43,118761.12,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+dell,2 in 1 convertible,15.6,4,2.08,42410.3472,ips panel full hd / touchscreen,1920,1080,1,intel core i3,intel core i3,2.3,1000,0,0,0,intel hd,windows
+toshiba,ultrabook,13.3,8,1.2,84715.2,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+hp,notebook,13.3,8,1.11,61218.72,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,notebook,14.0,8,1.64,63159.7104,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.09,55754.3232,full hd,1920,1080,0,intel core i5,intel core i5,2.4,500,0,0,0,intel hd,windows
+hp,ultrabook,12.5,4,1.26,83063.52,standard,1366,768,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,notebook,14.0,4,2.31,63349.92,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+hp,notebook,14.0,4,1.95,56476.8,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+dell,ultrabook,13.3,8,1.29,86526.72,quad hd+ / touchscreen,3200,1800,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,notebook,17.3,8,2.63,57542.4,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+hp,notebook,14.0,4,1.64,51841.44,standard,1366,768,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+acer,notebook,15.6,6,2.1,21791.52,standard,1366,768,0,amd a9-series 9420,amd processor,3.0,1000,0,0,0,amd radeon,windows
+msi,gaming,17.3,8,2.7,63499.104,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+hp,notebook,14.0,8,1.95,63669.6,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+hp,notebook,15.6,8,1.84,65480.5872,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+hp,ultrabook,12.5,8,1.26,71874.72,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+hp,notebook,15.6,4,2.04,39533.76,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+toshiba,ultrabook,14.0,8,1.47,91908.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,intel hd,windows
+dell,notebook,15.6,8,2.09,56633.976,full hd,1920,1080,0,intel core i5,intel core i5,2.4,0,256,0,0,intel hd,windows
+hp,notebook,14.0,8,1.64,53839.9728,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,2 in 1 convertible,15.6,4,1.8,45128.16,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+vero,notebook,14.0,2,1.45,11231.424,standard,1366,768,0,intel atom x5-z8350,other intel processor,1.44,0,0,0,32,intel hd,windows
+toshiba,notebook,15.6,16,2.4,75924.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.3,55922.688,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+hp,notebook,14.0,4,1.54,53280.0,full hd,1920,1080,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+hp,notebook,15.6,8,1.84,112065.9552,full hd,1920,1080,0,intel core i5,intel core i5,2.4,500,256,0,0,intel hd,windows
+hp,notebook,14.0,8,1.43,78268.32,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+msi,gaming,17.3,16,3.78,82351.6992,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,256,0,0,nvidia geforce,windows
+lenovo,gaming,17.3,16,4.6,122010.6672,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+asus,netbook,11.6,4,1.2,15339.312,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,16,intel hd,others/no os
+lenovo,notebook,14.0,16,1.1,139593.6,ips panel,2560,1440,0,intel core i7,intel core i7,2.6,0,256,0,0,intel hd,windows
+hp,notebook,15.6,8,1.91,52161.12,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,windows
+dell,2 in 1 convertible,15.6,8,2.3,58288.32,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.7,0,256,0,0,intel hd,windows
+hp,notebook,15.6,4,2.04,52161.12,standard,1366,768,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+dell,ultrabook,13.3,16,1.2,120093.12,quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,2.7,0,1000,0,0,intel hd,windows
+hp,notebook,15.6,4,2.31,37570.392,standard,1366,768,0,intel core i3,intel core i3,2.3,500,0,0,0,intel hd,windows
+hp,notebook,15.6,4,1.96,26586.72,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,others/no os
+acer,notebook,15.6,8,2.4,23922.72,standard,1366,768,0,amd a8-series 7410,amd processor,2.2,1000,0,0,0,amd radeon,windows
+dell,2 in 1 convertible,13.3,12,1.6,69210.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+msi,gaming,15.6,16,2.94,96916.32,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,256,0,0,nvidia geforce,windows
+asus,gaming,17.3,16,4.0,53173.44,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,0,0,0,nvidia geforce,others/no os
+dell,notebook,15.6,4,2.25,29783.52,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,windows
+dell,notebook,15.6,16,2.32,52746.6672,full hd,1920,1080,0,intel core i7,intel core i7,2.7,2000,0,0,0,amd radeon,windows
+msi,gaming,15.6,16,1.8,102777.12,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,256,0,0,nvidia geforce,windows
+dell,ultrabook,13.3,8,1.29,77682.24,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+asus,gaming,17.3,64,3.58,211788.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,1000,0,0,nvidia geforce,windows
+dell,2 in 1 convertible,13.3,8,1.62,42517.9728,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+dell,gaming,15.6,16,3.21,70809.12,4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.6,1000,256,0,0,nvidia geforce,windows
+apple,ultrabook,12.0,8,0.92,69264.0,ips panel retina display,2304,1440,0,intel core m,other intel processor,1.1,0,0,0,256,intel hd,mac
+dell,notebook,15.6,4,2.06,25679.8944,standard,1366,768,0,intel core i3,intel core i3,2.3,500,0,0,0,intel hd,windows
+hp,notebook,15.6,4,2.31,63882.72,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+hp,ultrabook,12.5,8,1.26,63882.72,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+hp,notebook,13.3,8,1.49,58075.2,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+lenovo,ultrabook,12.5,8,1.3,91294.7472,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,17.3,8,3.0,35111.52,standard,1600,900,0,intel core i5,intel core i5,2.3,1000,0,0,0,amd radeon,windows
+lenovo,notebook,15.6,4,2.3,52054.56,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.3,1000,0,0,0,nvidia geforce,windows
+msi,gaming,17.3,16,3.78,133146.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,2.1,28771.2,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+hp,notebook,15.6,4,2.31,50083.2,full hd,1920,1080,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+lenovo,ultrabook,12.5,8,0.99,74538.72,ips panel touchscreen,2560,1440,1,intel core m,other intel processor,1.2,0,512,0,0,intel hd,windows
+lenovo,gaming,17.3,32,4.6,172627.2,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,1000,0,nvidia geforce,windows
+lenovo,2 in 1 convertible,10.1,4,0.69,34433.2656,ips panel touchscreen,1920,1200,1,intel atom x5-z8550,other intel processor,1.44,0,0,0,64,intel hd,windows
+hp,ultrabook,13.3,16,1.3,109170.72,ips panel 4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+dell,notebook,15.6,8,2.18,39960.0,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,notebook,14.0,4,1.54,54931.1472,full hd,1920,1080,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+hp,workstation,15.6,8,1.9,79653.6,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,amd firepro,windows
+lenovo,notebook,14.0,8,1.7,63882.72,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,180,0,0,intel hd,windows
+hp,notebook,13.3,4,1.29,32767.2,quad hd+,3200,1800,0,intel pentium dual,other intel processor,1.5,0,0,0,32,intel hd,others/no os
+acer,notebook,15.6,4,2.4,20619.36,standard,1366,768,0,amd a8-series 7410,amd processor,2.2,500,0,0,0,amd radeon,windows
+dell,notebook,15.6,4,2.2,20965.1472,standard,1366,768,0,intel pentium quad,other intel processor,1.6,500,0,0,0,intel hd,linux
+hp,notebook,15.6,4,1.86,18434.3472,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,others/no os
+asus,gaming,17.3,8,2.7,85194.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+dell,ultrabook,13.3,4,1.4,43601.688,ips panel full hd,1920,1080,0,intel core i5,intel core i5,1.6,0,256,0,0,amd radeon,windows
+hp,netbook,12.5,4,2.4,85194.72,standard,1366,768,0,intel core i5,intel core i5,2.3,0,128,0,0,intel hd,windows
+acer,notebook,15.6,8,2.4,42570.72,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.36,34035.264,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,amd radeon,windows
+msi,gaming,17.3,8,2.6,85194.72,full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,1.96,26640.0,standard,1366,768,0,intel pentium quad,other intel processor,1.6,1000,0,0,0,intel hd,windows
+asus,gaming,17.3,16,4.3,122490.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+dell,ultrabook,12.5,4,1.5,60480.792,standard,1366,768,0,intel core i3,intel core i3,2.3,500,0,0,0,intel hd,windows
+dell,ultrabook,12.5,4,1.5,62176.1616,standard,1366,768,0,intel core i3,intel core i3,2.3,0,128,0,0,intel hd,windows
+acer,notebook,15.6,4,2.2,11135.52,standard,1366,768,0,intel celeron dual,other intel processor,1.5,0,16,0,0,intel hd,others/no os
+hp,workstation,17.3,8,3.0,154458.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,0,0,0,amd firepro,windows
+lenovo,gaming,15.6,16,2.4,63882.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,512,0,0,nvidia geforce,windows
+dell,ultrabook,12.5,8,1.5,75289.968,standard,1366,768,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+msi,gaming,17.3,8,2.9,80516.2032,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+lenovo,2 in 1 convertible,15.6,4,2.1,46193.76,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+hp,notebook,15.6,4,2.1,21205.44,full hd,1920,1080,0,amd a6-series 9220,amd processor,2.5,1000,0,0,0,amd radeon,windows
+asus,gaming,15.6,16,2.59,71341.92,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+hp,notebook,13.3,8,1.16,90522.72,quad hd+ / touchscreen,3200,1800,1,intel core m,other intel processor,1.1,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.24,40980.312,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,amd radeon,windows
+lenovo,notebook,15.6,4,2.1,22857.12,standard,1366,768,0,intel core i3,intel core i3,2.0,0,128,0,0,intel hd,windows
+hp,ultrabook,13.3,8,1.16,104908.32,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,512,0,0,intel hd,windows
+lenovo,2 in 1 convertible,10.1,4,0.69,29250.72,ips panel touchscreen,1920,1200,1,intel atom x5-z8550,other intel processor,1.44,0,0,0,64,intel hd,others/no os
+dell,ultrabook,13.3,8,1.23,73473.12,full hd,1920,1080,0,intel core i7,intel core i7,2.4,0,256,0,0,intel iris,windows
+lenovo,gaming,17.3,16,4.6,146519.4672,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,1000,0,nvidia geforce,windows
+razer,ultrabook,12.5,8,1.25,54825.12,touchscreen / 4k ultra hd,3840,2160,1,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+toshiba,ultrabook,13.3,16,1.05,118601.28,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+asus,gaming,17.3,8,3.52,69929.4672,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+vero,notebook,13.3,4,1.35,10442.88,full hd,1920,1080,0,intel atom x5-z8350,other intel processor,1.44,0,0,0,32,intel hd,windows
+hp,notebook,13.3,8,1.16,90043.2,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+hp,notebook,14.0,8,1.43,80612.64,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.09,27899.0064,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,linux
+asus,notebook,15.6,4,2.0,23176.8,standard,1366,768,0,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+lenovo,2 in 1 convertible,14.0,8,1.8,88924.32,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+lenovo,2 in 1 convertible,10.1,4,0.69,25521.12,ips panel touchscreen,1920,1200,1,intel atom x5-z8550,other intel processor,1.44,0,0,0,64,intel hd,windows
+hp,ultrabook,12.5,8,1.26,100965.6,standard,1366,768,0,intel core i5,intel core i5,2.4,0,256,0,0,intel hd,windows
+lenovo,gaming,15.6,8,2.4,52693.92,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,128,0,0,nvidia geforce,others/no os
+hp,gaming,17.3,8,3.35,60153.12,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.3,1000,128,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,2.04,33513.12,standard,1366,768,0,intel core i7,intel core i7,2.7,2000,0,0,0,intel hd,windows
+lenovo,2 in 1 convertible,14.0,8,1.8,109244.2464,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.6,0,512,0,0,nvidia quadro,windows
+asus,notebook,14.0,4,1.5,14811.84,standard,1366,768,0,intel celeron dual,other intel processor,1.1,0,0,0,32,intel hd,windows
+hp,ultrabook,15.6,8,1.84,40066.56,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+acer,notebook,15.6,4,2.23,32820.48,full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,16,2.5,58554.72,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,0,1000,0,amd radeon,windows
+hp,workstation,17.3,8,3.0,210424.032,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,nvidia quadro,windows
+dell,notebook,15.6,8,2.5,41771.52,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,amd radeon,windows
+msi,gaming,17.3,16,3.78,127818.72,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,256,0,0,nvidia geforce,windows
+hp,ultrabook,15.6,8,1.88,115709.2416,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+lenovo,2 in 1 convertible,14.0,16,2.8,130003.2,ips panel touchscreen,2560,1440,1,intel core i7,intel core i7,2.6,0,512,0,0,intel hd,windows
+msi,gaming,15.6,8,2.4,60888.384,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+hp,2 in 1 convertible,13.3,8,1.48,86793.12,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.4,0,256,0,0,intel hd,windows
+hp,workstation,15.6,8,2.59,118761.12,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,nvidia quadro,windows
+hp,2 in 1 convertible,13.3,8,1.48,95850.72,touchscreen,2560,1440,1,intel core i7,intel core i7,2.6,0,256,0,0,intel hd,windows
+hp,workstation,15.6,8,2.0,101178.72,full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,nvidia quadro,windows
+hp,ultrabook,12.5,8,1.26,122381.496,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+dell,notebook,15.6,8,2.18,53807.472,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,1.88,84129.12,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+lenovo,2 in 1 convertible,14.0,8,1.27,124621.92,ips panel touchscreen,2560,1440,1,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,1.9,18061.92,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,others/no os
+hp,notebook,15.6,4,1.86,15824.16,standard,1366,768,0,amd e-series 7110,amd processor,1.8,500,0,0,0,amd radeon,windows
+lenovo,notebook,15.6,8,2.32,31914.72,full hd,1920,1080,0,intel core i5,intel core i5,2.3,1000,0,0,0,amd radeon,others/no os
+dell,gaming,15.6,8,2.62,63882.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.04,119916.2304,ips panel touchscreen / 4k ultra hd,3840,2160,1,intel core i5,intel core i5,2.3,0,256,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,1.91,25515.2592,full hd,1920,1080,0,amd a6-series a6-9220,amd processor,2.5,0,256,0,0,amd radeon,windows
+msi,gaming,17.3,16,2.7,79536.384,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,ultrabook,14.0,12,1.4,122490.72,full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,512,0,0,intel hd,windows
+lenovo,notebook,15.6,8,2.5,42010.7472,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,0,1000,0,amd radeon,windows
+hp,2 in 1 convertible,13.3,8,1.48,108744.48,touchscreen,2560,1440,1,intel core i7,intel core i7,2.6,0,512,0,0,intel hd,windows
+lenovo,ultrabook,14.0,8,1.7,79866.72,full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,intel hd,windows
+msi,gaming,14.0,16,1.7,94252.32,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,256,0,0,nvidia geforce,windows
+hp,gaming,15.6,8,2.62,47898.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.2,24455.52,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+hp,notebook,15.6,4,2.1,25414.0272,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,others/no os
+dell,gaming,15.6,8,2.62,79813.44,4k ultra hd,3840,2160,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,1.95,74059.2,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,24935.04,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,nvidia geforce,windows
+hp,notebook,14.0,2,1.44,13266.72,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,windows
+msi,gaming,15.6,8,2.2,44701.92,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,windows
+hp,notebook,15.6,8,1.96,36177.12,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+hp,notebook,15.6,16,2.1,61751.52,full hd,1920,1080,0,intel core i7,intel core i7,1.8,0,512,0,0,intel uhd,windows
+asus,notebook,15.6,4,2.2,19660.32,standard,1366,768,0,intel celeron dual,other intel processor,1.6,500,0,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.1,21205.44,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,others/no os
+lenovo,notebook,15.6,8,2.2,37775.52,full hd,1920,1080,0,intel core i7,intel core i7,2.7,1000,0,0,0,nvidia geforce,others/no os
+asus,notebook,14.0,4,2.0,40972.32,full hd,1920,1080,0,intel core i3,intel core i3,2.4,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.32,43956.0,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,0,1000,0,intel hd,windows
+lenovo,gaming,15.6,16,3.31,69530.4,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,512,0,0,nvidia geforce,windows
+msi,gaming,15.6,16,1.91,114731.5536,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+hp,notebook,15.6,4,2.07,34632.0,standard,1366,768,0,intel core i3,intel core i3,2.3,500,0,0,0,intel hd,windows
+lenovo,2 in 1 convertible,14.0,8,1.36,87219.36,ips panel touchscreen,2560,1440,1,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+lenovo,ultrabook,15.6,6,1.54,44275.68,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,1.98,47686.1328,full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,256,0,0,nvidia geforce,linux
+acer,notebook,15.6,4,2.1,17742.24,standard,1366,768,0,intel celeron dual,other intel processor,2.0,500,0,0,0,intel hd,windows
+hp,notebook,15.6,6,2.18,42570.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,0,0,0,nvidia geforce,windows
+asus,gaming,15.6,8,2.591,48431.52,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,256,0,0,nvidia geforce,windows
+dell,2 in 1 convertible,15.6,16,2.09,62817.12,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+acer,notebook,15.6,4,2.23,36816.48,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,nvidia geforce,windows
+dell,ultrabook,13.3,8,1.23,58554.72,quad hd+ / touchscreen,3200,1800,1,intel core i5,intel core i5,2.4,0,256,0,0,intel hd,linux
+acer,gaming,17.3,16,4.2,138474.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+lenovo,gaming,15.6,8,2.4,43636.32,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,1000,0,0,0,nvidia geforce,windows
+samsung,2 in 1 convertible,12.3,4,1.15,35111.52,ips panel touchscreen,2400,1600,1,samsung cortex a72&a53,samsung processor,2.0,0,0,0,32,arm mali,others/no os
+hp,notebook,15.6,4,1.86,25840.8,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+apple,ultrabook,12.0,8,0.92,61964.64,ips panel retina display,2304,1440,0,intel core m,other intel processor,1.1,0,0,0,256,intel hd,mac
+dell,2 in 1 convertible,13.3,8,1.6,63882.72,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+hp,notebook,15.6,12,2.21,70702.56,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,4,1.9,19607.04,standard,1366,768,0,intel core i3,intel core i3,2.0,1000,0,0,0,amd radeon,others/no os
+asus,gaming,17.3,16,4.3,114552.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,512,0,0,nvidia geforce,windows
+acer,notebook,15.6,4,2.1,14492.16,standard,1366,768,0,intel celeron dual,other intel processor,2.0,1000,0,0,0,intel hd,linux
+msi,gaming,17.3,16,2.43,109165.392,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.3,26586.72,standard,1366,768,0,intel core i3,intel core i3,2.0,0,128,0,0,amd radeon,windows
+lenovo,notebook,15.6,8,2.2,33513.12,standard,1366,768,0,intel core i7,intel core i7,2.5,500,0,0,0,nvidia geforce,others/no os
+dell,ultrabook,13.3,16,1.2,142790.4,quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+asus,gaming,15.6,8,2.2,62284.32,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,0,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.36,47365.92,full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,amd radeon,windows
+hp,notebook,15.6,8,1.91,30849.12,standard,1366,768,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,4,2.2,15930.72,standard,1366,768,0,amd e-series 9000,amd processor,2.2,500,0,0,0,amd radeon,windows
+acer,notebook,17.3,8,3.3,33513.12,standard,1600,900,0,intel core i3,intel core i3,2.0,1000,0,0,0,nvidia geforce,windows
+asus,gaming,15.6,16,2.2,130482.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+apple,ultrabook,12.0,8,0.92,68145.12,ips panel retina display,2304,1440,0,intel core m,other intel processor,1.2,0,0,0,512,intel hd,mac
+asus,notebook,15.6,16,2.2,93186.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+msi,gaming,17.3,16,2.43,103842.1872,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,256,0,0,nvidia geforce,windows
+dell,2 in 1 convertible,15.6,8,2.191,53226.72,ips panel full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,windows
+asus,gaming,17.3,16,2.9,103842.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+acer,netbook,11.6,2,1.3,9270.72,standard,1366,768,0,intel celeron dual,other intel processor,1.5,0,32,0,0,intel hd,others/no os
+acer,notebook,17.3,4,3.3,31861.44,standard,1600,900,0,intel core i3,intel core i3,2.0,1000,0,0,0,nvidia geforce,windows
+lenovo,notebook,17.3,8,2.8,28717.92,standard,1600,900,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,others/no os
+lenovo,gaming,15.6,8,2.6,67772.16,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+acer,2 in 1 convertible,14.0,8,1.2,61218.72,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,1.3,0,256,0,0,intel hd,windows
+lenovo,notebook,15.6,8,2.3,81465.12,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,0,256,0,0,intel hd,windows
+msi,gaming,15.6,8,2.2,78647.1408,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+hp,notebook,15.6,6,2.1,28185.12,full hd,1920,1080,0,amd a12-series 9720p,amd processor,2.7,1000,0,0,0,amd radeon,windows
+dell,ultrabook,12.5,8,1.26,91288.3536,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.4,0,256,0,0,intel hd,windows
+dell,2 in 1 convertible,15.0,4,2.08,27119.52,full hd / touchscreen,1920,1080,1,intel core i3,intel core i3,2.4,500,0,0,0,intel hd,windows
+asus,notebook,15.6,4,2.65,16463.52,standard,1366,768,0,intel pentium quad,other intel processor,1.6,1000,0,0,0,intel hd,windows
+dell,ultrabook,13.3,8,1.29,78694.56,quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,2.7,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.18,27804.7008,standard,1366,768,0,intel core i5,intel core i5,2.5,1000,0,0,0,intel hd,linux
+lenovo,gaming,15.6,16,2.6,54825.12,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+msi,gaming,15.6,8,2.2,61218.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,128,0,0,nvidia geforce,windows
+lenovo,netbook,12.5,16,1.3,87912.0,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.5,0,512,0,0,intel hd,windows
+razer,gaming,14.0,16,1.95,186426.72,full hd,1920,1080,0,intel core i7,intel core i7,2.8,0,1000,0,0,nvidia geforce,windows
+dell,notebook,15.6,8,2.3,24988.8528,touchscreen,1366,768,1,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+msi,gaming,17.3,16,2.7,85141.44,full hd,1920,1080,0,intel core i7,intel core i7,2.8,1000,256,0,0,nvidia geforce,windows
+apple,ultrabook,11.6,4,1.08,51095.52,standard,1366,768,0,intel core i5,intel core i5,1.6,0,0,0,256,intel hd,mac
+hp,notebook,15.6,4,2.1,25467.84,full hd,1920,1080,0,intel core i3,intel core i3,2.0,1000,0,0,0,intel hd,windows
+hp,ultrabook,14.0,8,1.54,117119.5632,standard,2560,1440,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.24,39267.36,standard,1366,768,0,intel core i5,intel core i5,2.3,500,0,0,0,intel hd,windows
+msi,gaming,15.6,8,2.3,62284.32,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+lenovo,notebook,13.3,16,1.4,79866.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.7,0,512,0,0,intel hd,windows
+lenovo,notebook,15.6,6,2.2,31838.5296,full hd,1920,1080,0,amd a12-series 9720p,amd processor,3.6,0,256,0,0,amd radeon,windows
+asus,ultrabook,13.3,8,1.45,68198.4,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,256,0,0,intel hd,windows
+acer,notebook,15.6,4,2.4,19276.704,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,linux
+dell,2 in 1 convertible,17.3,16,2.77,95850.72,full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.7,0,512,0,0,nvidia geforce,windows
+hp,notebook,14.0,4,1.54,58607.4672,full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+dell,notebook,14.0,4,1.6,46620.0,standard,1366,768,0,intel core i5,intel core i5,2.5,500,0,0,0,intel hd,windows
+asus,gaming,15.6,16,2.34,123876.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,256,0,0,nvidia geforce,windows
+lenovo,notebook,15.6,8,2.3,30529.44,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.5,0,256,0,0,intel hd,others/no os
+dell,2 in 1 convertible,13.3,8,1.24,96596.64,quad hd+ / touchscreen,3200,1800,1,intel core i5,intel core i5,1.2,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.2,17262.72,standard,1366,768,0,intel pentium quad,other intel processor,1.6,500,0,0,0,intel hd,linux
+hp,notebook,15.6,4,1.86,21258.72,standard,1366,768,0,amd a6-series 9220,amd processor,2.5,500,0,0,0,amd radeon,windows
+lenovo,notebook,15.6,6,2.4,30316.32,full hd,1920,1080,0,intel core i3,intel core i3,2.3,0,128,0,0,nvidia geforce,windows
+lenovo,notebook,14.0,8,1.9,57116.16,ips panel full hd,1920,1080,0,intel core i5,intel core i5,2.3,0,256,0,0,intel hd,windows
+dell,notebook,15.6,4,2.2,23655.7872,standard,1366,768,0,intel pentium quad,other intel processor,1.6,500,0,0,0,intel hd,windows
+asus,notebook,15.6,4,2.0,18061.92,standard,1366,768,0,intel celeron dual,other intel processor,1.1,1000,0,0,0,intel hd,windows
+asus,gaming,17.3,16,4.0,101232.0,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+dell,notebook,15.6,4,2.29,26107.2,standard,1366,768,0,intel core i3,intel core i3,2.0,500,0,0,0,intel hd,windows
+lenovo,notebook,15.6,8,2.32,47685.6,full hd,1920,1080,0,intel core i7,intel core i7,2.5,0,0,1000,0,amd radeon,windows
+msi,gaming,15.6,8,2.4,65481.12,full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,128,0,0,nvidia geforce,windows
+lenovo,2 in 1 convertible,14.0,4,1.8,44382.7728,full hd / touchscreen,1920,1080,1,intel core i5,intel core i5,2.3,0,128,0,0,intel hd,windows
+asus,ultrabook,13.3,8,1.2,38841.12,ips panel full hd,1920,1080,0,intel core m,other intel processor,0.9,0,512,0,0,intel hd,windows
+dell,notebook,15.6,6,2.3,24455.52,standard,1366,768,0,intel core i3,intel core i3,2.4,1000,0,0,0,intel hd,windows
+acer,notebook,15.6,4,2.4,15397.92,standard,1366,768,0,intel celeron dual,other intel processor,1.6,500,0,0,0,intel hd,linux
+dell,notebook,15.6,2,2.2,20193.12,standard,1366,768,0,intel celeron dual,other intel processor,1.6,500,0,0,0,intel hd,windows
+lenovo,notebook,15.6,8,2.6,47898.72,ips panel full hd,1920,1080,0,intel core i7,intel core i7,2.6,1000,0,0,0,nvidia geforce,windows
+hp,notebook,15.6,6,2.04,29303.4672,full hd,1920,1080,0,amd a9-series 9410,amd processor,2.9,0,0,1000,0,amd radeon,windows
+dell,notebook,15.6,8,2.3,42943.1472,standard,1366,768,0,intel core i7,intel core i7,2.7,1000,0,0,0,amd radeon,linux
+hp,netbook,11.6,2,1.17,11135.52,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,32,intel hd,windows
+asus,notebook,15.6,4,2.2,38378.6496,standard,1366,768,0,intel core i7,intel core i7,2.5,500,0,0,0,nvidia geforce,windows
+lenovo,2 in 1 convertible,14.0,4,1.8,33992.64,ips panel full hd / touchscreen,1920,1080,1,intel core i7,intel core i7,2.5,0,128,0,0,intel hd,windows
+lenovo,2 in 1 convertible,13.3,16,1.3,79866.72,ips panel quad hd+ / touchscreen,3200,1800,1,intel core i7,intel core i7,2.5,0,512,0,0,intel hd,windows
+lenovo,notebook,14.0,2,1.5,12201.12,standard,1366,768,0,intel celeron dual,other intel processor,1.6,0,0,0,64,intel hd,windows
+hp,notebook,15.6,6,2.19,40705.92,standard,1366,768,0,intel core i7,intel core i7,2.5,1000,0,0,0,amd radeon,windows
