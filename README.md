@@ -1,6 +1,6 @@
-**DATA MANIPULATION AND ANALYSIS**
-**CAR PRICE PREDICTION**
-**DATE: 22TH DECEMBER, 2025**
+# **DATA MANIPULATION AND ANALYSIS**
+# **CAR PRICE PREDICTION**
+# **DATE: 22TH DECEMBER, 2025**
 
 **ABOUT DATASET**
 The dataset contains 4,009 entries, each representing a unique vehicle listing. It includes 12 features that provide insights into various aspects of vehicles:
