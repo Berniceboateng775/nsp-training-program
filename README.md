@@ -1,8 +1,8 @@
-# **DATA MANIPULATION AND ANALYSIS**
-# **CAR PRICE PREDICTION**
-# **DATE: 22TH DECEMBER, 2025**
+### **DATA MANIPULATION AND ANALYSIS**
+### **CAR PRICE PREDICTION**
+### **DATE: 22TH DECEMBER, 2025**
 
-**ABOUT DATASET**
+### **ABOUT DATASET**
 The dataset contains 4,009 entries, each representing a unique vehicle listing. It includes 12 features that provide insights into various aspects of vehicles:
 **Brand & Model**: Specifies the manufacturer and model of the vehicle.
 **Model Year**: Indicates the year of manufacture, useful for analyzing depreciation and technological features.
@@ -15,7 +15,7 @@ The dataset contains 4,009 entries, each representing a unique vehicle listing. 
 **Clean Title**: Indicates whether the vehicle has a clean title, which affects resale value and legal status.
 **Price**: The listed price of the vehicle, used as the target variable for prediction.
 
-**DATA PREPROCESSING**
+### **DATA PREPROCESSING**
 Upon initial exploration, several data quality issues were identified:
 1. **Column Names & Consistency**: Some column names and entries were inconsistent in formatting. These needs to be standardized for uniformity. For instance, the column milage will be corrected to mileage.
 
@@ -29,10 +29,10 @@ Upon initial exploration, several data quality issues were identified:
 •	Categorical columns (fuel_type, accident): Impute using the or introduce a new category such as "Unknown".
 •	Numerical columns (if any were missing): Impute using the median to reduce the effect of extreme values.
 
-**EXPLORING THE BRAND COLUMN**
+### **EXPLORING THE BRAND COLUMN**
 I found that the brand column contained several niche manufacturers (like Plymouth, Maybach, Suzuki and Smart) that appeared only once or twice in the dataset. To prevent the model from overfitting to these extremely rare cases, I applied a frequency threshold of 20. Any brand appearing fewer than 20 times was grouped into a generic "Other" category. This grouping ensures that our machine learning model focuses on the general relationship between brand and price for the majority of the market, rather than memorizing individual outliers.
 
-**EXPLORING THE MODEL COLUMN**
+### **EXPLORING THE MODEL COLUMN**
 I noticed the model column had nearly 2,000 unique values which is way too many for a dataset of this size. The issue was that it included specific trim levels (like "Palisade SEL" vs. "Palisade Limited") instead of just the car name. To fix this and help our model find better patterns, I simplified them into just their base model names and grouped the really rare ones into an "Other" category.
 
 
