@@ -35,4 +35,11 @@ I found that the brand column contained several niche manufacturers (like Plymou
 ### **EXPLORING THE MODEL COLUMN**
 I noticed the model column had nearly 2,000 unique values which is way too many for a dataset of this size. The issue was that it included specific trim levels (like "Palisade SEL" vs. "Palisade Limited") instead of just the car name. To fix this and help our model find better patterns, I simplified them into just their base model names and grouped the really rare ones into an "Other" category.
 
+### **EXPLORING THE MODEL YEAR COLUMN**
+When I looked at the stats for the model_year column, everything appeared pretty normal. The cars range from 1974 to 2024, with an average model year around 2015. Since these numbers made sense and there weren't any outliers (like a car from the year 1800 or 2050), I decided not to touch this column for now. 
+
+### **EXPLORING THE MILEAGE COLUMN**
+The mileage column needed a bit more work. First, I noticed the spelling was slightly off ("milage"), so I renamed it to mileage to be correct. The values were stored as text strings with "mi." and commas (e.g "51,000 mi."), which meant I couldn't do any math on them. I wrote a quick function to strip out those characters and converted the whole column into integers.
+Once I had the raw numbers, I checked for outliers using the IQR (Interquartile Range) method. I found about 69 cars with unusually high mileage that didn't fit the general pattern of the data. To keep my model accurate, I removed these extreme cases, which trimmed the dataset down slightly but left me with a much cleaner set of 3,940 cars.
+
 
