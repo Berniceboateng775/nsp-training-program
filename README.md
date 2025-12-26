@@ -42,7 +42,6 @@ When I looked at the stats for the model_year column, everything appeared pretty
 The mileage column needed a bit more work. First, I noticed the spelling was slightly off ("milage"), so I renamed it to mileage to be correct. The values were stored as text strings with "mi." and commas (e.g "51,000 mi."), which meant I couldn't do any math on them. I wrote a quick function to strip out those characters and converted the whole column into integers.
 Once I had the raw numbers, I checked for outliers using the IQR (Interquartile Range) method. I found about 69 cars with unusually high mileage that didn't fit the general pattern of the data. To keep my model accurate, I removed these extreme cases, which trimmed the dataset down slightly but left me with a much cleaner set of 3,940 cars.
 
-
 ### **EXPLORING THE FUEL TYPE COLUMN**
 The fuel_type column had a mix of useful categories and some garbage data. I found values like –, not supported, and NaN (missing) mixed in with standard types like Gasoline, Hybrid, and E85 Flex Fuel.
 I standardized this by converting all the meaningless placeholders (–, not supported) into true missing values (NaN). Since I couldn't just leave holes in the data, I filled these missing spots with the mode (the most common fuel type), which was Gasoline. This kept the dataset complete without throwing away valuable rows.
