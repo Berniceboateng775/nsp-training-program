@@ -82,3 +82,7 @@ The clean_title column was mostly filled with "Yes," but had a significant numbe
 Therefore, I treated this as a binary feature:
 I assumed that any missing value meant the title was not clean (or at least not verified).
 I filled the NaN values with "No".
+
+### **EXPLORING THE PRICE COLUMN (THE TARGET)**
+Finally, I cleaned the target variable, price. It was stored as text with currency symbols (e.g., "$54,598"). I stripped the dollar signs and commas and converted the entire column to integers.
+Since this is what we want to predict, it was crucial to remove extreme outliers that could skew the model. I used the IQR method again to define a "reasonable price range" and removed the few extreme high-end outliers. This left me with a stable, cleaner dataset ready for training.
