@@ -68,3 +68,11 @@ I standardized these into simple base colors. It scanned each name for specific 
 **White:** Caught "Alpine," "Fuji," "Pearl," etc.
 **Silver/Gray:** Combined "Metallic," "Steel," "Granite," etc.
 And so on for Blue, Red, Green, etc.
+
+### **EXPLORING THE ACCIDENT COLUMN**
+The accident column originally contained long, descriptive strings like "At least 1 accident or damage reported."
+I simplified this into a clean binary category:
+
+**Accident:** For any car with a reported history of damage.
+None: For cars with "None reported."
+For missing values, I assumed "no news is good news" and filled them with "None," as it's the standard industry practice to assume a clean title unless flagged otherwise. This left me with a clear split: about 75% of the cars have a clean history (None), while about 25% have at least one reported accident.
