@@ -104,3 +104,12 @@ I used boxplots to see how different features change the price tag.
 **Brand vs Price:** Porsche was the clear winner, with the highest median price (around $50k) and a huge range. Land Rover and Mercedes-Benz followed. Interestingly, Toyota and Ford are much more affordable but have many outliers (expensive special models).
 **Transmission:** Automatic and Dual Clutch cars have the highest median prices (around $30k+), likely because modern luxury cars use these. Manual cars are surprisingly competitive but have a wider spread, while CVTs are the cheapest option on average.
 **Fuel Type:** Plug-in Hybrids and Diesel engines are the most expensive categories given their efficiency and durability. E85 Flex Fuel cars are significantly cheaper than everything else.
+**Accident:** Cars with no accident history have a noticeably higher median price (around $35k) compared to those with accidents (around $20k). A clean history adds value.
+
+### **SCATTER PLOTS (Understanding Trends)**
+**Car Age vs Price:** There's a clear upward trend. Cars made after 2015 have a much wider price range (going up to our $98k limit), while older cars from before 2005 rarely go above $40k. This confirms: newer is pricier.
+**How Mileage Affects Price:** This shows the classic depreciation curve. The steepest drop happens in the first 0–50,000 miles. After around 100,000 miles, prices hit a floor and doesn't drop much further. 
+**Horsepower:** There's a clear upward trend. Most cars cluster between 200–400 HP at $10k–$50k. Above 500 HP, prices jump significantly. More power = more money.
+
+### **COUNT PLOTS**
+**Number of Cars per Brand (Top 10):** Ford dominates the dataset with about 365 cars, followed closely by BMW.  Porsche and Land Rover have the fewest cars but had the highest prices proving that luxury brands are rarer in the market.
