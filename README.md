@@ -45,3 +45,8 @@ Once I had the raw numbers, I checked for outliers using the IQR (Interquartile 
 ### **EXPLORING THE FUEL TYPE COLUMN**
 The fuel_type column had a mix of useful categories and some garbage data. I found values like –, not supported, and NaN (missing) mixed in with standard types like Gasoline, Hybrid, and E85 Flex Fuel.
 I standardized this by converting all the meaningless placeholders (–, not supported) into true missing values (NaN). Since I couldn't just leave holes in the data, I filled these missing spots with the mode (the most common fuel type), which was Gasoline. This kept the dataset complete without throwing away valuable rows.
+
+### **EXPLORING THE ENGINE COLUMN**
+The engine column contained mixed text data (e.g., "3.8L V6 24V GDI DOHC"). I extracted three key features from this text: Horsepower (HP), Displacement (Litres), and Cylinders.
+I noticed that while many rows were missing HP or Liters, some were also missing the Cylinder count. I decided to tackle the Cylinders first by filling any missing values with the mode (the most common cylinder count).
+Once every car had a valid Cylinder count, I used that to fill the missing Horsepower and Liters. For example, if a car was a V6, I filled its missing HP with the average HP of all other V6 cars. Because I had already filled the Cylinders column, this method worked for every single row, leaving me with a complete, clean dataset and no missing values.
