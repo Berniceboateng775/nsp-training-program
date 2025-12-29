@@ -98,3 +98,9 @@ I checked which numbers matter most.
 **Horsepower & Year:** These had the strongest positive link. meaning newer and more powerful cars cost significantly more.
 **Mileage:** This had a strong negative link. meaning The more miles a car has, the less it’s worth. I confirmed online and its true 
 ![alt text](<Screenshot 2025-12-29 114734.png>)
+
+### **CATEGORICAL ANALYSIS (Comparing Groups)**
+I used boxplots to see how different features change the price tag.
+**Brand vs Price:** Porsche was the clear winner, with the highest median price (around $50k) and a huge range. Land Rover and Mercedes-Benz followed. Interestingly, Toyota and Ford are much more affordable but have many outliers (expensive special models).
+**Transmission:** Automatic and Dual Clutch cars have the highest median prices (around $30k+), likely because modern luxury cars use these. Manual cars are surprisingly competitive but have a wider spread, while CVTs are the cheapest option on average.
+**Fuel Type:** Plug-in Hybrids and Diesel engines are the most expensive categories given their efficiency and durability. E85 Flex Fuel cars are significantly cheaper than everything else.
