@@ -59,3 +59,12 @@ I created a mapping function using keywords to bucket these into four distinct c
 **CVT:** (Continuously Variable Transmissions)
 **Dual Clutch:** (High-performance automated manuals like DCT/PDK)
 This reduced the dimensionality from 61 unique strings down to just 4 clean categories, making it much easier for the machine learning model to interpret. Non-standard values with negligible counts (like "Other") were merged into the majority class (Automatic) to ensure data stability.
+
+### **EXPLORING THE EXTERIOR AND INTERIOR COLOR COLUMN**
+The columns exterior_color and interior_color were filled with many different colours
+I standardized these into simple base colors. It scanned each name for specific keywords:
+
+**Black:** Covered everything from "Obsidian" to "Ebony" to "Midnight."
+**White:** Caught "Alpine," "Fuji," "Pearl," etc.
+**Silver/Gray:** Combined "Metallic," "Steel," "Granite," etc.
+And so on for Blue, Red, Green, etc.
