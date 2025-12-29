@@ -86,3 +86,15 @@ I filled the NaN values with "No".
 ### **EXPLORING THE PRICE COLUMN (THE TARGET)**
 Finally, I cleaned the target variable, price. It was stored as text with currency symbols (e.g., "$54,598"). I stripped the dollar signs and commas and converted the entire column to integers.
 Since this is what we want to predict, it was crucial to remove extreme outliers that could skew the model. I used the IQR method again to define a "reasonable price range" and removed the few extreme high-end outliers. This left me with a stable, cleaner dataset ready for training.
+
+## **CAR PRICE VISUALIZATION**
+### **VISUALIZING THE PRICE DISTRIBUTION**
+I plotted a histogram to see how the car prices were spread out.
+**Findings:** The majority of cars are in the affordable to mid-range bracket (roughly $15,000 to $45,000).
+**Insight:** There is a long tail of more expensive cars leading up to our $98,000 limit, but they are much rarer. This confirms that our cleaner dataset represents the "common market" well.
+
+### **CORRELATION HEATMAP (WHAT DRIVES THE PRICE?)**
+I checked which numbers matter most.
+**Horsepower & Year:** These had the strongest positive link. meaning newer and more powerful cars cost significantly more.
+**Mileage:** This had a strong negative link. meaning The more miles a car has, the less it’s worth. I confirmed online and its true 
+![alt text](<Screenshot 2025-12-29 114734.png>)
