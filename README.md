@@ -50,3 +50,12 @@ I standardized this by converting all the meaningless placeholders (–, not sup
 The engine column contained mixed text data (e.g., "3.8L V6 24V GDI DOHC"). I extracted three key features from this text: Horsepower (HP), Displacement (Litres), and Cylinders.
 I noticed that while many rows were missing HP or Liters, some were also missing the Cylinder count. I decided to tackle the Cylinders first by filling any missing values with the mode (the most common cylinder count).
 Once every car had a valid Cylinder count, I used that to fill the missing Horsepower and Liters. For example, if a car was a V6, I filled its missing HP with the average HP of all other V6 cars. Because I had already filled the Cylinders column, this method worked for every single row, leaving me with a complete, clean dataset and no missing values.
+
+### **EXPLORING THE TRANSMISSION COLUMN**
+I created a mapping function using keywords to bucket these into four distinct categories:
+
+**Automatic:** (Standard automatics, A/T)
+**Manual:** (Stick shifts, M/T)
+**CVT:** (Continuously Variable Transmissions)
+**Dual Clutch:** (High-performance automated manuals like DCT/PDK)
+This reduced the dimensionality from 61 unique strings down to just 4 clean categories, making it much easier for the machine learning model to interpret. Non-standard values with negligible counts (like "Other") were merged into the majority class (Automatic) to ensure data stability.
