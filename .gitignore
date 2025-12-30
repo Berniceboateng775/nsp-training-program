@@ -1,4 +1,4 @@
 *.docx
 *.tmp
 ~$*
-image.png
+*image.png
