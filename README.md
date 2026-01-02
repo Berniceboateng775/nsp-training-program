@@ -1,115 +1,456 @@
-### **DATA MANIPULATION AND ANALYSIS**
-### **CAR PRICE PREDICTION**
-### **DATE: 22TH DECEMBER, 2025**
+#  SQL Practice & Learning Notes
+## Introduction to SQL
 
-### **ABOUT DATASET**
-The dataset contains 4,009 entries, each representing a unique vehicle listing. It includes 12 features that provide insights into various aspects of vehicles:
-**Brand & Model**: Specifies the manufacturer and model of the vehicle.
-**Model Year**: Indicates the year of manufacture, useful for analyzing depreciation and technological features.
-**Mileage**: Represents the distance the vehicle has traveled, an important metric for assessing wear and tear.
-**Fuel Type**: Indicates the type of fuel the vehicle uses, such as gasoline, diesel, electric, or hybrid.
-**Engine Type**: Details the engine specifications, providing insights into performance and efficiency.
-**Transmission**: Shows the type of transmission (automatic, manual, or other variants).
-**Exterior & Interior Colors**: Represents the vehicle's aesthetic characteristics.
-**Accident History**: Records whether the vehicle has been involved in accidents or sustained damage, important for evaluating its condition and resale value.
-**Clean Title**: Indicates whether the vehicle has a clean title, which affects resale value and legal status.
-**Price**: The listed price of the vehicle, used as the target variable for prediction.
+### What is SQL?
+**SQL (Structured Query Language)** is the standard language for interacting with relational databases. It allows you to:
+- **C**reate data (INSERT)
+- **R**ead data (SELECT)
+- **U**pdate data (UPDATE)
+- **D**elete data (DELETE)
 
-### **DATA PREPROCESSING**
-Upon initial exploration, several data quality issues were identified:
-1. **Column Names & Consistency**: Some column names and entries were inconsistent in formatting. These needs to be standardized for uniformity. For instance, the column milage will be corrected to mileage.
+This is known as **CRUD** operations.
 
-2. **Data Types**:
-•	The price column was stored as an object due to the presence of the dollar sign  and commas. It will converted to a float after removing non-numeric characters.
-•	The mileage column will be converted from object to float, with units "mi." removed.
+### Why Learn SQL?
+- Essential for data analysis and data science
+- Query and analyze large datasets efficiently
+- Used by almost every company with data
+- High-demand skill in the job market
 
-3. **Missing Values**:
-•	The clean_title column contained null values. Since all non-null entries were "Yes," it is reasonable to impute missing values as "No."
-•	Other columns with missing values include fuel_type (170 missing) and accident (113 missing). These can be handled as follows:
-•	Categorical columns (fuel_type, accident): Impute using the or introduce a new category such as "Unknown".
-•	Numerical columns (if any were missing): Impute using the median to reduce the effect of extreme values.
+---
 
-### **EXPLORING THE BRAND COLUMN**
-I found that the brand column contained several niche manufacturers (like Plymouth, Maybach, Suzuki and Smart) that appeared only once or twice in the dataset. To prevent the model from overfitting to these extremely rare cases, I applied a frequency threshold of 20. Any brand appearing fewer than 20 times was grouped into a generic "Other" category. This grouping ensures that our machine learning model focuses on the general relationship between brand and price for the majority of the market, rather than memorizing individual outliers.
+## My Dataset
 
-### **EXPLORING THE MODEL COLUMN**
-I noticed the model column had nearly 2,000 unique values which is way too many for a dataset of this size. The issue was that it included specific trim levels (like "Palisade SEL" vs. "Palisade Limited") instead of just the car name. To fix this and help our model find better patterns, I simplified them into just their base model names and grouped the really rare ones into an "Other" category.
+I am working with a **Bookstore Database** containing the following tables:
 
-### **EXPLORING THE MODEL YEAR COLUMN**
-When I looked at the stats for the model_year column, everything appeared pretty normal. The cars range from 1974 to 2024, with an average model year around 2015. Since these numbers made sense and there weren't any outliers (like a car from the year 1800 or 2050), I decided not to touch this column for now. 
+### Books Table
+| Column | Type | Description |
+|--------|------|-------------|
+| book_id | INTEGER | Primary Key - Unique book identifier |
+| book_title | TEXT | Title of the book |
+| book_author | TEXT | Author name |
+| book_genre | TEXT | Genre category |
+| price | REAL | Book price in dollars |
+| units_sold | INTEGER | Number of units sold (has NULL) |
+| quantity | INTEGER | Stock quantity |
+| author_id | INTEGER | Foreign Key to Authors table |
+| book_rating | REAL | Average rating (1-5) |
 
-### **EXPLORING THE MILEAGE COLUMN**
-The mileage column needed a bit more work. First, I noticed the spelling was slightly off ("milage"), so I renamed it to mileage to be correct. The values were stored as text strings with "mi." and commas (e.g "51,000 mi."), which meant I couldn't do any math on them. I wrote a quick function to strip out those characters and converted the whole column into integers.
-Once I had the raw numbers, I checked for outliers using the IQR (Interquartile Range) method. I found about 69 cars with unusually high mileage that didn't fit the general pattern of the data. To keep my model accurate, I removed these extreme cases, which trimmed the dataset down slightly but left me with a much cleaner set of 3,940 cars.
+### Authors Table
+| Column | Type | Description |
+|--------|------|-------------|
+| author_id | INTEGER | Primary Key - Unique author identifier |
+| author_name | TEXT | Author's full name |
+| country | TEXT | Author's country of origin |
+| birth_year | INTEGER | Year of birth |
 
-### **EXPLORING THE FUEL TYPE COLUMN**
-The fuel_type column had a mix of useful categories and some garbage data. I found values like –, not supported, and NaN (missing) mixed in with standard types like Gasoline, Hybrid, and E85 Flex Fuel.
-I standardized this by converting all the meaningless placeholders (–, not supported) into true missing values (NaN). Since I couldn't just leave holes in the data, I filled these missing spots with the mode (the most common fuel type), which was Gasoline. This kept the dataset complete without throwing away valuable rows.
+### Orders Table
+| Column | Type | Description |
+|--------|------|-------------|
+| order_id | INTEGER | Primary Key |
+| book_id | INTEGER | Foreign Key to Books |
+| customer_name | TEXT | Customer name |
+| order_date | TEXT | Date of order |
+| quantity | INTEGER | Quantity ordered |
 
-### **EXPLORING THE ENGINE COLUMN**
-The engine column contained mixed text data (e.g., "3.8L V6 24V GDI DOHC"). I extracted three key features from this text: Horsepower (HP), Displacement (Litres), and Cylinders.
-I noticed that while many rows were missing HP or Liters, some were also missing the Cylinder count. I decided to tackle the Cylinders first by filling any missing values with the mode (the most common cylinder count).
-Once every car had a valid Cylinder count, I used that to fill the missing Horsepower and Liters. For example, if a car was a V6, I filled its missing HP with the average HP of all other V6 cars. Because I had already filled the Cylinders column, this method worked for every single row, leaving me with a complete, clean dataset and no missing values.
+---
 
-### **EXPLORING THE TRANSMISSION COLUMN**
-I created a mapping function using keywords to bucket these into four distinct categories:
+## Basic SQL Operations
 
-**Automatic:** (Standard automatics, A/T)
-**Manual:** (Stick shifts, M/T)
-**CVT:** (Continuously Variable Transmissions)
-**Dual Clutch:** (High-performance automated manuals like DCT/PDK)
-This reduced the dimensionality from 61 unique strings down to just 4 clean categories, making it much easier for the machine learning model to interpret. Non-standard values with negligible counts (like "Other") were merged into the majority class (Automatic) to ensure data stability.
+### 1. SELECT - Retrieving Data
 
-### **EXPLORING THE EXTERIOR AND INTERIOR COLOR COLUMN**
-The columns exterior_color and interior_color were filled with many different colours
-I standardized these into simple base colors. It scanned each name for specific keywords:
+```sql
+-- Select all columns from a table
+SELECT * FROM data;
 
-**Black:** Covered everything from "Obsidian" to "Ebony" to "Midnight."
-**White:** Caught "Alpine," "Fuji," "Pearl," etc.
-**Silver/Gray:** Combined "Metallic," "Steel," "Granite," etc.
-And so on for Blue, Red, Green, etc.
+-- Select specific columns
+SELECT book_title, book_author, price FROM data;
 
-### **EXPLORING THE ACCIDENT COLUMN**
-The accident column originally contained long, descriptive strings like "At least 1 accident or damage reported."
-I simplified this into a clean binary category:
+-- Using aliases for cleaner output
+SELECT book_title AS "Book Name", price AS "Price ($)" FROM data;
+```
 
-**Accident:** For any car with a reported history of damage.
-None: For cars with "None reported."
-For missing values, I assumed "no news is good news" and filled them with "None," as it's the standard industry practice to assume a clean title unless flagged otherwise. This left me with a clear split: about 75% of the cars have a clean history (None), while about 25% have at least one reported accident.
+### 2. WHERE - Filtering Data
 
-### **EXPLORING THE CLEAN TITLE COLUMN**
-The clean_title column was mostly filled with "Yes," but had a significant number of missing values . 
-Therefore, I treated this as a binary feature:
-I assumed that any missing value meant the title was not clean (or at least not verified).
-I filled the NaN values with "No".
+```sql
+-- Filter by condition
+SELECT * FROM data WHERE price > 14;
 
-### **EXPLORING THE PRICE COLUMN (THE TARGET)**
-Finally, I cleaned the target variable, price. It was stored as text with currency symbols (e.g., "$54,598"). I stripped the dollar signs and commas and converted the entire column to integers.
-Since this is what we want to predict, it was crucial to remove extreme outliers that could skew the model. I used the IQR method again to define a "reasonable price range" and removed the few extreme high-end outliers. This left me with a stable, cleaner dataset ready for training.
+-- Multiple conditions with AND
+SELECT * FROM data WHERE price > 12 AND book_rating > 4.5;
 
-## **CAR PRICE VISUALIZATION**
-### **VISUALIZING THE PRICE DISTRIBUTION**
-I plotted a histogram to see how the car prices were spread out.
-**Findings:** The majority of cars are in the affordable to mid-range bracket (roughly $15,000 to $45,000).
-**Insight:** There is a long tail of more expensive cars leading up to our $98,000 limit, but they are much rarer. This confirms that our cleaner dataset represents the "common market" well.
+-- Using OR for alternative conditions
+SELECT * FROM data WHERE book_genre = 'Fantasy' OR book_genre = 'Mafia';
 
-### **CORRELATION HEATMAP (WHAT DRIVES THE PRICE?)**
-I checked which numbers matter most.
-**Horsepower & Year:** These had the strongest positive link. meaning newer and more powerful cars cost significantly more.
-**Mileage:** This had a strong negative link. meaning The more miles a car has, the less it’s worth. I confirmed online and its true 
-![alt text](<Screenshot 2025-12-29 114734.png>)
+-- Using IN for multiple values
+SELECT * FROM data WHERE book_genre IN ('Fantasy', 'Mafia', 'Dark Romace');
 
-### **CATEGORICAL ANALYSIS (Comparing Groups)**
-I used boxplots to see how different features change the price tag.
-**Brand vs Price:** Porsche was the clear winner, with the highest median price (around $50k) and a huge range. Land Rover and Mercedes-Benz followed. Interestingly, Toyota and Ford are much more affordable but have many outliers (expensive special models).
-**Transmission:** Automatic and Dual Clutch cars have the highest median prices (around $30k+), likely because modern luxury cars use these. Manual cars are surprisingly competitive but have a wider spread, while CVTs are the cheapest option on average.
-**Fuel Type:** Plug-in Hybrids and Diesel engines are the most expensive categories given their efficiency and durability. E85 Flex Fuel cars are significantly cheaper than everything else.
-**Accident:** Cars with no accident history have a noticeably higher median price (around $35k) compared to those with accidents (around $20k). A clean history adds value.
+-- Using BETWEEN for ranges
+SELECT * FROM data WHERE price BETWEEN 10 AND 15;
 
-### **SCATTER PLOTS (Understanding Trends)**
-**Car Age vs Price:** There's a clear upward trend. Cars made after 2015 have a much wider price range (going up to our $98k limit), while older cars from before 2005 rarely go above $40k. This confirms: newer is pricier.
-**How Mileage Affects Price:** This shows the classic depreciation curve. The steepest drop happens in the first 0–50,000 miles. After around 100,000 miles, prices hit a floor and doesn't drop much further. 
-**Horsepower:** There's a clear upward trend. Most cars cluster between 200–400 HP at $10k–$50k. Above 500 HP, prices jump significantly. More power = more money.
+-- Pattern matching with LIKE
+SELECT * FROM data WHERE book_title LIKE '%Wing%';  -- Contains 'Wing'
+SELECT * FROM data WHERE book_author LIKE 'J%';      -- Starts with 'J'
+```
 
-### **COUNT PLOTS**
-**Number of Cars per Brand (Top 10):** Ford dominates the dataset with about 365 cars, followed closely by BMW.  Porsche and Land Rover have the fewest cars but had the highest prices proving that luxury brands are rarer in the market.
+### 3. ORDER BY - Sorting Results
+
+```sql
+-- Sort ascending (default)
+SELECT * FROM data ORDER BY price ASC;
+
+-- Sort descending
+SELECT * FROM data ORDER BY price DESC;
+
+-- Sort by multiple columns
+SELECT * FROM data ORDER BY book_genre, book_rating DESC;
+```
+
+### 4. LIMIT - Restricting Results
+
+```sql
+-- Get only first 3 rows
+SELECT * FROM data LIMIT 3;
+
+-- Skip first 2, then get 3 rows (pagination)
+SELECT * FROM data LIMIT 3 OFFSET 2;
+```
+
+### 5. INSERT - Adding New Data
+
+```sql
+-- Insert a single row
+INSERT INTO data (book_title, book_author, book_genre, price, units_sold, book_id, quantity, author_id, book_rating)
+VALUES ('Iron Flame', 'Rebecca Yarros', 'Fantasy', 15.99, 500, 6, 60, 3, 4.8);
+
+-- Insert multiple rows
+INSERT INTO data (book_title, book_author, price, book_id)
+VALUES 
+    ('Book One', 'Author A', 9.99, 7),
+    ('Book Two', 'Author B', 11.99, 8);
+```
+
+### 6. UPDATE - Modifying Data
+
+```sql
+-- Update a single column
+UPDATE data SET price = 11.99 WHERE book_id = 1;
+
+-- Update multiple columns
+UPDATE data SET price = 12.99, quantity = 25 WHERE book_title = 'ACOTAR';
+```
+
+### 7. DELETE - Removing Data
+
+```sql
+-- Delete specific rows
+DELETE FROM data WHERE book_id = 5;
+
+-- Delete all rows (be careful!)
+DELETE FROM data;
+```
+
+---
+
+## SQL Constraints
+
+Constraints are rules applied to columns to ensure data integrity.
+
+### 1. NOT NULL Constraint
+
+Ensures a column cannot have NULL values.
+
+```sql
+-- Creating a table with NOT NULL constraint
+CREATE TABLE books (
+    book_id INTEGER NOT NULL,
+    book_title TEXT NOT NULL,
+    price REAL NOT NULL,
+    units_sold INTEGER  -- This CAN be NULL
+);
+
+-- This will FAIL because book_title is NOT NULL
+INSERT INTO books (book_id, price) VALUES (1, 10.99);
+-- Error: NOT NULL constraint failed
+
+-- Checking for NULL values
+SELECT * FROM data WHERE units_sold IS NULL;
+
+-- Finding rows where column is NOT NULL
+SELECT * FROM data WHERE units_sold IS NOT NULL;
+```
+
+### 2. PRIMARY KEY Constraint
+
+- Uniquely identifies each record in a table
+- Cannot be NULL
+- Each table should have ONE primary key
+
+```sql
+-- Creating a table with PRIMARY KEY
+CREATE TABLE authors (
+    author_id INTEGER PRIMARY KEY,  -- Unique identifier
+    author_name TEXT NOT NULL,
+    country TEXT,
+    birth_year INTEGER
+);
+
+-- In SQLite, PRIMARY KEY auto-increments
+INSERT INTO authors (author_name, country) VALUES ('J.J McAvoy', 'Canada');
+-- author_id will be automatically assigned as 1
+```
+
+### 3. FOREIGN KEY Constraint
+
+- Creates a link between two tables
+- References a PRIMARY KEY in another table
+- Ensures referential integrity
+
+```sql
+-- Creating tables with FOREIGN KEY relationship
+CREATE TABLE authors (
+    author_id INTEGER PRIMARY KEY,
+    author_name TEXT NOT NULL,
+    country TEXT
+);
+
+CREATE TABLE books (
+    book_id INTEGER PRIMARY KEY,
+    book_title TEXT NOT NULL,
+    author_id INTEGER,
+    price REAL,
+    FOREIGN KEY (author_id) REFERENCES authors(author_id)
+);
+
+-- Now books.author_id MUST reference a valid authors.author_id
+-- This ensures data consistency between tables
+```
+
+### 4. UNIQUE Constraint
+
+Ensures all values in a column are different.
+
+```sql
+CREATE TABLE users (
+    user_id INTEGER PRIMARY KEY,
+    email TEXT UNIQUE,  -- No duplicate emails allowed
+    username TEXT UNIQUE
+);
+```
+
+### 5. DEFAULT Constraint
+
+Sets a default value when no value is specified.
+
+```sql
+CREATE TABLE products (
+    product_id INTEGER PRIMARY KEY,
+    product_name TEXT NOT NULL,
+    in_stock INTEGER DEFAULT 1,  -- Defaults to 1 if not specified
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### 6. CHECK Constraint
+
+Limits values that can be placed in a column.
+
+```sql
+CREATE TABLE books (
+    book_id INTEGER PRIMARY KEY,
+    book_title TEXT NOT NULL,
+    price REAL CHECK(price > 0),  -- Price must be positive
+    rating REAL CHECK(rating >= 1 AND rating <= 5)  -- Rating between 1-5
+);
+```
+
+---
+
+## SQL JOINs
+
+JOINs combine rows from two or more tables based on related columns.
+
+### Visual Representation
+
+```
+Table A (Books)          Table B (Authors)
++---------+             +-----------+
+| book_id |──────────── | author_id |
+| title   |   JOIN ON   | name      |
+| auth_id |   auth_id = | country   |
++---------+   author_id +-----------+
+```
+
+### 1. INNER JOIN
+
+Returns only rows that have matching values in BOTH tables.
+
+```sql
+-- Get books with their author details
+SELECT 
+    b.book_title,
+    b.price,
+    a.author_name,
+    a.country
+FROM books b
+INNER JOIN authors a ON b.author_id = a.author_id;
+```
+
+**Result:** Only books that have a matching author are returned.
+
+### 2. LEFT (OUTER) JOIN
+
+Returns ALL rows from the LEFT table, and matched rows from the right table.
+NULL values appear where there's no match.
+
+```sql
+-- Get all books, even those without author info
+SELECT 
+    b.book_title,
+    b.price,
+    a.author_name
+FROM books b
+LEFT JOIN authors a ON b.author_id = a.author_id;
+```
+
+**Result:** All books are returned. If a book has no matching author, author columns show NULL.
+
+### 3. RIGHT (OUTER) JOIN
+
+Returns ALL rows from the RIGHT table, and matched rows from the left table.
+*(Note: SQLite doesn't support RIGHT JOIN, but you can achieve it by swapping tables in LEFT JOIN)*
+
+```sql
+-- Get all authors, even those without books
+SELECT 
+    b.book_title,
+    a.author_name,
+    a.country
+FROM books b
+RIGHT JOIN authors a ON b.author_id = a.author_id;
+
+-- In SQLite, use LEFT JOIN with swapped tables:
+SELECT 
+    b.book_title,
+    a.author_name,
+    a.country
+FROM authors a
+LEFT JOIN books b ON a.author_id = b.author_id;
+```
+
+### 4. FULL (OUTER) JOIN
+
+Returns ALL rows when there's a match in EITHER table.
+*(SQLite doesn't directly support FULL JOIN, but you can use UNION)*
+
+```sql
+-- Full outer join using UNION (SQLite workaround)
+SELECT 
+    b.book_title,
+    a.author_name
+FROM books b
+LEFT JOIN authors a ON b.author_id = a.author_id
+
+UNION
+
+SELECT 
+    b.book_title,
+    a.author_name
+FROM authors a
+LEFT JOIN books b ON a.author_id = b.author_id;
+```
+
+### JOIN Comparison Chart
+
+| JOIN Type | Returns |
+|-----------|---------|
+| INNER JOIN | Only matching rows from both tables |
+| LEFT JOIN | All rows from left + matching from right |
+| RIGHT JOIN | All rows from right + matching from left |
+| FULL JOIN | All rows from both tables |
+
+---
+
+## GROUP BY & Aggregations
+
+GROUP BY groups rows with the same values and allows aggregate calculations.
+
+### Aggregate Functions
+
+| Function | Description | Example |
+|----------|-------------|---------|
+| COUNT() | Count rows | COUNT(*) |
+| SUM() | Sum values | SUM(price) |
+| AVG() | Average | AVG(book_rating) |
+| MIN() | Minimum | MIN(price) |
+| MAX() | Maximum | MAX(price) |
+| ROUND() | Round numbers | ROUND(AVG(price), 2) |
+
+### Basic GROUP BY
+
+```sql
+-- Count books per genre
+SELECT 
+    book_genre,
+    COUNT(*) as book_count
+FROM data
+GROUP BY book_genre;
+
+-- Total revenue by genre
+SELECT 
+    book_genre,
+    SUM(price * units_sold) AS revenue
+FROM data
+GROUP BY book_genre
+ORDER BY revenue DESC;
+
+-- Average price per genre
+SELECT 
+    book_genre,
+    ROUND(AVG(price), 2) AS avg_price
+FROM data
+GROUP BY book_genre;
+```
+
+### HAVING Clause
+
+HAVING filters groups (like WHERE, but for aggregated data).
+
+```sql
+-- Genres with average price > $13
+SELECT 
+    book_genre,
+    ROUND(AVG(price), 2) AS avg_price
+FROM data
+GROUP BY book_genre
+HAVING AVG(price) > 13;
+
+-- Genres with more than 1 book
+SELECT 
+    book_genre,
+    COUNT(*) as book_count
+FROM data
+GROUP BY book_genre
+HAVING COUNT(*) > 1;
+```
+
+### WHERE vs HAVING
+
+| WHERE | HAVING |
+|-------|--------|
+| Filters individual rows | Filters groups |
+| Used BEFORE GROUP BY | Used AFTER GROUP BY |
+| Can't use aggregate functions | Used with aggregate functions |
+
+```sql
+-- Combined example
+SELECT 
+    book_genre,
+    AVG(price) as avg_price,
+    SUM(units_sold) as total_sold
+FROM data
+WHERE book_rating > 4.0          -- Filter rows BEFORE grouping
+GROUP BY book_genre
+HAVING SUM(units_sold) > 200     -- Filter groups AFTER grouping
+ORDER BY total_sold DESC;
+```
+
