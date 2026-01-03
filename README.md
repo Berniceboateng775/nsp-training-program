@@ -37,3 +37,32 @@ ML is great when:
 3. **Reinforcement Learning**
    - Learn by trial and error
    - *Example:* Teaching a robot to walk
+
+## 2. Organizing a Project with CRISP-DM
+
+**CRISP-DM** (Cross-Industry Standard Process for Data Mining) is the checklist for running a successful ML project.
+
+Think of it like **Cooking a Meal** :
+
+1. **Business Understanding** ("What are we hungry for?")
+   - Define the goal.
+   - *Example:* "We need to reduce customer churn."
+
+2. **Data Understanding** ("Check the fridge")
+   - What ingredients (data) do we have?
+   - Is the data good quality?
+
+3. **Data Preparation** ("Chopping & Washing") 
+   - **Crucial Step:** This takes 80% of the time!
+   - Cleaning data, fixing missing values, and formatting.
+
+4. **Modeling** ("Cooking") 
+   - Select the cooking method (algorithm).
+   - Train the model.
+
+5. **Evaluation** ("Taste Test") 
+   - Does it taste good? Does the model solve the problem?
+   - If not, go back to step 1 or 3!
+
+6. **Deployment** ("Serving the Meal") 
+   - Put the model into the real world for people to use.
