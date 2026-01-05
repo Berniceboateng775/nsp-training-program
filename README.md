@@ -10,7 +10,7 @@
 | You give rules → Computer follows rules | You give examples → Computer learns the rules |
 | "If email contains 'lottery', mark as spam" | Show 1000 spam emails, 1000 good emails → Computer learns what spam looks like |
 
-### Real-Life Analogy 🍎
+### Real-Life Analogy 
 Imagine teaching a child to recognize apples:
 - **Traditional way:** "An apple is round, red or green, has a stem on top..."
 - **Machine Learning way:** Show the child 100 pictures of apples and say "this is an apple" for each one. Eventually, the child learns to recognize apples on their own.
@@ -66,3 +66,27 @@ Think of it like **Cooking a Meal** :
 
 6. **Deployment** ("Serving the Meal") 
    - Put the model into the real world for people to use.
+
+## 3. Training & Selecting Models
+
+**Training a Model**.
+
+Imagine you want to teach a computer to predict **House Prices** based on their **Size** (sq ft).
+
+### 1. The Setup (X and y)
+- **X (Features):** The data used to predict. (e.g., Size, Number of Rooms)
+- **y (Target):** What we want to predict. (e.g., Price)
+
+### 2. Choosing an Algorithm
+Think of algorithms as different "tools" to solve the problem:
+
+| Algorithm | Analogy | Best For |
+|:--- |:--- |:--- |
+| **Linear Regression** | Drawing a straight line through points | Predicting numbers (e.g., Price, Temperature) |
+| **Logistic Regression** | Drawing a line to separate two groups | Yes/No questions (e.g., Spam vs Not Spam) |
+| **Decision Trees** | A game of "20 Questions" | Complex rules (e.g., "Is it raining?" -> "Yes" -> "Take Umbrella") |
+
+### 3. "Fitting" the Model
+This is when the computer actually **learns**.
+- command: `model.fit(X, y)`
+- It looks at the **X** (size) and **y** (price) and tries to find the math formula that connects them.
