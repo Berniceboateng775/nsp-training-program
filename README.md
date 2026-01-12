@@ -90,3 +90,26 @@ Think of algorithms as different "tools" to solve the problem:
 This is when the computer actually **learns**.
 - command: `model.fit(X, y)`
 - It looks at the **X** (size) and **y** (price) and tries to find the math formula that connects them.
+
+## 4. Performing Model Validation
+
+This is the final critical step.
+
+**The Golden Rule of ML:**
+> *"Never test your model on the same data you used to train it."*
+
+Why? Because the model will just "memorize" the answers instead of learning the rules. This is called **Overfitting**. (Like a student who memorizes the answers to the practice test but fails the real exam).
+
+### How to Validate Correctly:
+We split our data into 3 parts:
+
+1. **Training Set (60%)** ??
+   - Used to train the model. ("Study Material")
+
+2. **Validation Set (20%)** ??
+   - Used to tune settings and compare models. ("Practice Exam")
+   - *Example:* Testing if "Decision Tree" is better than "Linear Regression".
+
+3. **Test Set (20%)** ??
+   - Held back until the very end. ("Final Exam")
+   - Used to simulate how the model will perform in the real world.
