@@ -1,19 +1,15 @@
-# Machine Learning: Chapter 1
+# Linear Regression Analysis: Ecommerce Customer Spending
 
-## 1. Introduction to Machine Learning
+This project analyzes customer data from an Ecommerce company to understand what factors most significantly influence the **Yearly Amount Spent** by customers. We used a Linear Regression model to find relationships between customer behavior and their spending habits.
 
-### What is Machine Learning?
-**Machine Learning (ML)** is teaching computers to learn from examples instead of giving them explicit instructions.
+##  Evaluation & Insights
 
-| Traditional Programming | Machine Learning |
-|------------------------|------------------|
-| You give rules → Computer follows rules | You give examples → Computer learns the rules |
-| "If email contains 'lottery', mark as spam" | Show 1000 spam emails, 1000 good emails → Computer learns what spam looks like |
+After training the model and evaluating the data, here are the key takeaways:
 
-### Real-Life Analogy 
-Imagine teaching a child to recognize apples:
-- **Traditional way:** "An apple is round, red or green, has a stem on top..."
-- **Machine Learning way:** Show the child 100 pictures of apples and say "this is an apple" for each one. Eventually, the child learns to recognize apples on their own.
+*   **Length of Membership** is the strongest driver of spending. The longer a customer stays, the more they spend.
+*   **Time on App** has a significant positive impact on spending.
+*   **Avg. Session Length** also contributes positively but to a lesser extent.
+*   **Time on Website** has a negligible effect on spending compared to the mobile app.
 
 ### What Problems Can Machine Learning Solve?
 ML is great when:
