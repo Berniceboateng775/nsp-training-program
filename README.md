@@ -1,111 +1,52 @@
-# Linear Regression Analysis: Ecommerce Customer Spending
+# Car Price Prediction
 
-This project analyzes customer data from an Ecommerce company to understand what factors most significantly influence the **Yearly Amount Spent** by customers. We used a Linear Regression model to find relationships between customer behavior and their spending habits.
+This project presents a comprehensive regression analysis aimed at predicting vehicle prices based on various attributes. The study utilizes a dataset of automobile listings to investigate the relationship between independent variables such as vehicle age, mileage, horsepower, and brand, and the dependent variable, price. The primary objective is to develop and evaluate a Linear Regression model implemented from first principles.
 
-##  Evaluation & Insights
+## Methodology
 
-After training the model and evaluating the data, here are the key takeaways:
+The analysis follows a structured workflow:
 
-*   **Length of Membership** is the strongest driver of spending. The longer a customer stays, the more they spend.
-*   **Time on App** has a significant positive impact on spending.
-*   **Avg. Session Length** also contributes positively but to a lesser extent.
-*   **Time on Website** has a negligible effect on spending compared to the mobile app.
+1.  **Data Acquisition and Preprocessing:**
+    -   Ingestion of the raw dataset.
+    -   Data cleaning procedures, including handling missing values, standardizing string formats, and type conversion.
+    -   One-hot encoding of categorical variables (`brand`, `fuel_type`, `transmission`) and label encoding of binary features (`accident`, `clean_title`).
 
-### What Problems Can Machine Learning Solve?
-ML is great when:
-1. **The rules are too complex** (e.g., recognizing faces)
-2. **The rules keep changing** (e.g., social media trends)
-3. **You have lots of data** with patterns
+2.  **Feature Engineering:**
+    -   Transformation of raw features into numerical inputs suitable for regression analysis.
+    -   Derivation of new variables, such as `Vehicle Age` from model years.
+    -   Feature Selection based on correlation analysis.
 
-#### Common Applications:
-- **Prediction:** Will this customer buy?
-- **Classification:** Is this email spam?
-- **Recommendation:** Netflix movie suggestions
-- **Detection:** Fraud detection
+3.  **Model Implementation:**
+    -   Development of a Linear Regression algorithm from scratch to demonstrate an understanding of the underlying mathematical principles.
+    -   Utilization of the Normal Equation ($(X^T X)^{-1} X^T y$) for precise parameter estimation.
 
-### The 3 Main Types of Machine Learning
-1. **Supervised Learning** (Most Common)
-   - You have labeled data (answers are known)
-   - *Example:* Predicting house prices using past sales
-2. **Unsupervised Learning**
-   - No labels, finding hidden patterns
-   - *Example:* Grouping customers by shopping behavior
-3. **Reinforcement Learning**
-   - Learn by trial and error
-   - *Example:* Teaching a robot to walk
+4.  **Evaluation:**
+    -   Assessment of model performance using quantitative metrics: Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and Coefficient of Determination ($R^2$).
+    -   Visual analysis of predicted versus actual prices to assess goodness of fit.
 
-## 2. Organizing a Project with CRISP-DM
+## Results & Evaluation
 
-**CRISP-DM** (Cross-Industry Standard Process for Data Mining) is the checklist for running a successful ML project.
+The Linear Regression model, trained on features such as mileage, vehicle age, horsepower, and encoded categorical attributes, yielded the following performance metrics on the validation dataset:
 
-Think of it like **Cooking a Meal** :
+*   **Coefficient of Determination ($R^2$):** **0.8161**
+    *   *Interpretation:* The model explains approximately 81.6% of the variance in the target variable (price), indicating a strong predictive capability.
+*   **Root Mean Squared Error (RMSE):** **0.3144**
+    *   *Interpretation:* On the log-transformed price scale, the deviation is approximately 0.31. This suggests the model's predictions are generally consistent with actual market values.
+*   **Mean Absolute Error (MAE):** **0.2325**
+    *   *Interpretation:* The average magnitude of errors in the predictions roughly corresponds to a 23% difference from the actual values when converted back from the logarithmic scale.
 
-1. **Business Understanding** ("What are we hungry for?")
-   - Define the goal.
-   - *Example:* "We need to reduce customer churn."
+### Feature Importance Analysis
 
-2. **Data Understanding** ("Check the fridge")
-   - What ingredients (data) do we have?
-   - Is the data good quality?
+Correlation analysis prior to training highlighted the most significant determinants of vehicle price:
 
-3. **Data Preparation** ("Chopping & Washing") 
-   - **Crucial Step:** This takes 80% of the time!
-   - Cleaning data, fixing missing values, and formatting.
+1.  **Horsepower (HP):** Exhibited the strongest positive correlation, confirming that performance is a primary driver of value.
+2.  **Vehicle Age & Mileage:** Both demonstrated strong negative correlations, quantitatively verifying the impact of depreciation and wear.
+3.  **Specific Brands:** Encoded features for luxury brands (e.g., Porsche) showed positive correlations, while mass-market equivalents showed neutral or negative tendencies.
+4.  **Accident History:** The presence of reported accidents (`accident_encoded`) showed a clear negative impact on valuation.
 
-4. **Modeling** ("Cooking") 
-   - Select the cooking method (algorithm).
-   - Train the model.
+## Tools and Technologies
 
-5. **Evaluation** ("Taste Test") 
-   - Does it taste good? Does the model solve the problem?
-   - If not, go back to step 1 or 3!
-
-6. **Deployment** ("Serving the Meal") 
-   - Put the model into the real world for people to use.
-
-## 3. Training & Selecting Models
-
-**Training a Model**.
-
-Imagine you want to teach a computer to predict **House Prices** based on their **Size** (sq ft).
-
-### 1. The Setup (X and y)
-- **X (Features):** The data used to predict. (e.g., Size, Number of Rooms)
-- **y (Target):** What we want to predict. (e.g., Price)
-
-### 2. Choosing an Algorithm
-Think of algorithms as different "tools" to solve the problem:
-
-| Algorithm | Analogy | Best For |
-|:--- |:--- |:--- |
-| **Linear Regression** | Drawing a straight line through points | Predicting numbers (e.g., Price, Temperature) |
-| **Logistic Regression** | Drawing a line to separate two groups | Yes/No questions (e.g., Spam vs Not Spam) |
-| **Decision Trees** | A game of "20 Questions" | Complex rules (e.g., "Is it raining?" -> "Yes" -> "Take Umbrella") |
-
-### 3. "Fitting" the Model
-This is when the computer actually **learns**.
-- command: `model.fit(X, y)`
-- It looks at the **X** (size) and **y** (price) and tries to find the math formula that connects them.
-
-## 4. Performing Model Validation
-
-This is the final critical step.
-
-**The Golden Rule of ML:**
-> *"Never test your model on the same data you used to train it."*
-
-Why? Because the model will just "memorize" the answers instead of learning the rules. This is called **Overfitting**. (Like a student who memorizes the answers to the practice test but fails the real exam).
-
-### How to Validate Correctly:
-We split our data into 3 parts:
-
-1. **Training Set (60%)** ??
-   - Used to train the model. ("Study Material")
-
-2. **Validation Set (20%)** ??
-   - Used to tune settings and compare models. ("Practice Exam")
-   - *Example:* Testing if "Decision Tree" is better than "Linear Regression".
-
-3. **Test Set (20%)** ??
-   - Held back until the very end. ("Final Exam")
-   - Used to simulate how the model will perform in the real world.
+The analysis utilizes the Python programming language and the following scientific computing libraries:
+*   **Pandas:** For data manipulation and analysis.
+*   **NumPy:** For numerical computing and matrix operations.
+*   **Matplotlib/Seaborn:** For data visualization.
