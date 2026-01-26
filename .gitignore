@@ -4,3 +4,7 @@
 image.png
 Screenshot 2025-12-29 114734.png
 .vscode/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
