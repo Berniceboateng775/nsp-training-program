@@ -50,3 +50,24 @@ After validating the model's performance, I moved towards productionizing it. Th
     ![Prediction Test](images/prediction_test.png)
 
     The service correctly parsed the JSON input, processed the features, and returned a churn probability of **1.0 (True)** for the high-risk test profile.
+
+---
+
+## 6. Dependency Management & Containerization
+To ensure the model runs everywhere, not just on my machine, I isolated the environment.
+
+*   **Pipenv:** I replaced `pip` and `requirements.txt` with **Pipenv**. This gives me a deterministic environment (`Pipfile.lock`), so anyone installing the project gets the *exact* same library versions I used.
+*   **Docker:** The final step was wrapping everything in a Docker container.
+    *   *The Dockerfile:* I built a lightweight image based on `python:3.12-slim`.
+    *   *The Build Process:* I ran into a small issue where my Pipfile wanted Python 3.13 but the base image was 3.12. I fixed this by downgrading the requirement in the Pipfile to match the container.
+
+    *Building the Image:*
+    ![Docker Build](images/docker_build_terminal.png)
+
+    *Build Details (Docker Desktop):*
+    ![Docker Build Details](images/docker_build_details.png)
+
+    *Container Ready:*
+    ![Docker Image List](images/docker_image_list.png)
+
+    Now the model is a portable, self-contained unit that can be deployed to any cloud provider that supports Docker.
