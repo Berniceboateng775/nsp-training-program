@@ -99,3 +99,50 @@ The ultimate test was deploying the container to the public cloud so it could se
 
     *Environment List:*
     ![AWS Environment List](images/aws_health_ok_list.png)
+
+## 8. API Documentation
+
+The deployed model is accessible via a REST API hosted on AWS Elastic Beanstalk.
+
+*   **Live Base URL:** `http://churn-serving-env.eba-mtykwqiz.us-west-2.elasticbeanstalk.com`
+
+### Endpoints
+
+1.  **Health Check**
+    *   **URL:** `/`
+    *   **Method:** `GET`
+    *   **Description:** Returns a simple string to verify the service is running.
+    *   **Response:** `Churn Prediction Service is Active`
+
+2.  **Predict Churn**
+    *   **URL:** `/predict`
+    *   **Method:** `POST`
+    *   **Description:** Accepts customer data in JSON format and returns the churn probability.
+    *   **Headers:** `Content-Type: application/json`
+    *   **Request Body Example:**
+        ```json
+        {
+            "gender": "female",
+            "seniorcitizen": 0,
+            "partner": "no",
+            "dependents": "no",
+            "tenure": 12,
+            "phoneservice": "no",
+            "multiplelines": "no_phone_service",
+            "internetservice": "dsl",
+            "onlinesecurity": "yes",
+            "onlinebackup": "yes",
+            "deviceprotection": "yes",
+            "techsupport": "yes",
+            "streamingtv": "no",
+            "streamingmovies": "no",
+            "contract": "one_year",
+            "paperlessbilling": "yes",
+            "paymentmethod": "mailed_check",
+            "monthlycharges": 56.85,
+            "totalcharges": 1889.50
+        }
+        ```
+    *   **Response Example:**
+        ```json
+        
