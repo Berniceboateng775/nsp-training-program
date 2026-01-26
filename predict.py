@@ -14,6 +14,11 @@ model_columns = [
     'paymentmethod_electronic check', 'paymentmethod_mailed check'
 ]
 app = Flask('churn')
+
+@app.route('/')
+def ping():
+    return "Churn Prediction Service is Active", 200
+
 @app.route('/predict', methods=['POST'])
 def predict():
     customer = request.get_json()

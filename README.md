@@ -71,3 +71,20 @@ To ensure the model runs everywhere, not just on my machine, I isolated the envi
     ![Docker Image List](images/docker_image_list.png)
 
     Now the model is a portable, self-contained unit that can be deployed to any cloud provider that supports Docker.
+
+---
+
+## 7. Cloud Deployment (AWS Elastic Beanstalk)
+The ultimate test was deploying the container to the public cloud so it could serve real users over the internet.
+
+*   **AWS Setup:** I configured an IAM user with appropriate permissions and set up credentials locally using `aws configure`.
+*   **Elastic Beanstalk:** I initialized the deployment with `eb init -p docker` and launched the environment with `eb create`.
+*   **Validation:** Once deployed, I received a live URL (`churn-serving-env...`). I verified it by sending a POST request to the live cloud API from my local terminal.
+
+    *Deployment Success (Log):*
+    ![Deployment Success](images/aws_deployment_success.png)
+
+    *Live Cloud API Verification:*
+    ![Cloud Verification](images/aws_cloud_test.png)
+
+    The cloud API returned the same accurate prediction (Churn Probability: 1.0) as my local Docker container, confirming a successful end-to-end deployment.
