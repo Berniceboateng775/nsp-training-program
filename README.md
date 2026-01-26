@@ -1,8 +1,4 @@
 # Predicting Customer Churn 
-The goal was simple: **Build a model to predict churn, but more importantly, understand the *story* behind the data.**
-Here is how I went about it, what I found, and the results I got!
-
----
 
 ## 1. What I Did (The Process)
 *   **Data Cleaning:** I started by tidying things up. I standardized column names (made them all lowercase and snake_case for sanity) and fixed some annoying missing values in the `TotalCharges` column (turns out blank spaces aren't numbers!).
@@ -13,13 +9,11 @@ Here is how I went about it, what I found, and the results I got!
 *   **Scaling:** Since `Tenure` (0-70 months) and `MonthlyCharges` ($20-$120) had totally different ranges, I scaled them to be between 0 and 1 so the model wouldn't get confused.
 
 ## 2. Building the Model 
-
 I chose **Logistic Regression** for this task. Why? Because it's interpretable! It doesn't just say "Churn" or "No Churn"; it gives me a *probability* (e.g., "There's an 80% chance this person leaves"). This is super useful for business decisions.
 
 I split the data: **80% for training** (teaching the model) and **20% for testing** (checking if it actually works).
 
 ## 3. The Results
-
 *   **Accuracy:** **82.19%**
     *  Overall, my model guessed correctly 8 out of 10 times. Not bad
     
@@ -32,7 +26,6 @@ I split the data: **80% for training** (teaching the model) and **20% for testin
     *   The model is pretty balanced and doesn't just guess "No Churn" for everyone.
 
 ## 4. Key Takeaways
-
 If I were presenting this to the marketing team, here is what I'd say:
 1.  **Watch out for Fiber Optic users:** They are paying more, but they are leaving faster. Maybe the service quality isn't matching the price?
 2.  **Lock them in:** Month-to-month contracts are dangerous. We should incentivize 1-year or 2-year deals.
@@ -40,3 +33,20 @@ If I were presenting this to the marketing team, here is what I'd say:
 
 ---
 
+## 5. Model Deployment
+After validating the model's performance, I moved towards productionizing it. The goal was to create a scalable service that could accept customer data and return a churn prediction in real-time.
+
+*   **Model Serialization:** I verified the optimal way to save my model. Since I used `pd.get_dummies` for one-hot encoding during training, simply saving the model wasn't enough—I needed to ensure the input data structure for prediction matched the training data exactly. I executed the serialization using `pickle` to save the trained Logistic Regression model as `customer_churn_model.pkl`.
+
+*   **Flask Service Creation:** I developed a web service using **Flask** (`predict.py`). The application loads the saved model and exposes a POST endpoint `/predict`. 
+    *   *Robustness Implementation:* A critical challenge was ensuring feature alignment. `pd.get_dummies` dynamically creates columns based on input values. To prevent errors when a single customer record doesn't contain all possible categories (e.g., missing 'PaymentMethod_Mailed check'), I implemented logic to reindex the input DataFrame against the original training columns, filling missing features with 0s. This ensures the model always receives the exact input shape it expects.
+
+*   **Verification:** I started the Flask server and successfully tested it using `Invoke-RestMethod` in PowerShell, simulating a client request.
+
+    *Server Running:*
+    ![Flask Server](images/flask_server.png)
+
+    *Successful Prediction Response:*
+    ![Prediction Test](images/prediction_test.png)
+
+    The service correctly parsed the JSON input, processed the features, and returned a churn probability of **1.0 (True)** for the high-risk test profile.
