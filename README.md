@@ -87,4 +87,15 @@ The ultimate test was deploying the container to the public cloud so it could se
     *Live Cloud API Verification:*
     ![Cloud Verification](images/aws_cloud_test.png)
 
+
     The cloud API returned the same accurate prediction (Churn Probability: 1.0) as my local Docker container, confirming a successful end-to-end deployment.
+
+*   **Health Check Resolution:** Initially, the environment showed a "Severe" health status because the load balancer's health check was pinging the root path (`/`), which wasn't handled by my Flask app.
+    *   *Fix:* I added a simple root route (`/`) to `predict.py` that returns "Churn Prediction Service is Active".
+    *   *Result:* After redeploying, the health checks passed, and the environment status turned to **Ok**.
+
+    *Environment Dashboard (Health: Ok):*
+    ![AWS Health Ok Dashboard](images/aws_health_ok_dashboard.png)
+
+    *Environment List:*
+    ![AWS Environment List](images/aws_health_ok_list.png)
