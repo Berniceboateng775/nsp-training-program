@@ -143,6 +143,9 @@ The deployed model is accessible via a REST API hosted on AWS Elastic Beanstalk.
             "totalcharges": 1889.50
         }
         ```
-    *   **Response Example:**
-        ```json
         
+               {
+                "churn" : "True "
+                "churn_probability" : "1.0"
+
+               }
