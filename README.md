@@ -42,4 +42,4 @@ Chatbots are designed to simulate human conversation and are commonly used in cu
 **3.Speech Recognition**
 Speech recognition systems convert spoken language into written text... examples include voice assistants such as Google Assistant, Siri, and alexa... When users speak to these systems, NLP helps interpret the words, understand intent, and provide appropriate responses... Speech recognition is also used in dictation tools that allow users to write text by speaking.
 
-**In conclusion** 
+**In conclusion** AL and NLP are the bridge between human and machine communication... they help us interact with technology naturally and efficiently... I believe these technologies wont replace us but will make our lives easier and more convenient.
