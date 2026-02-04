@@ -28,3 +28,18 @@ When I read a novel, I understand that cold feet means someone is nervous, not t
 
 This is where NLP comes in... It acts as the translator between our messy, emotional human talk and the computer's strict, logical brain. Without NLP, we would have to learn complex programming languages just to tell a computer to do simple things like even setting an alarm... NLP allows the computer to meet us halfway, learning to decode our grammar and intent so we can interact with technology naturally. It turns the Librarian into a helpful assistant you can actually talk to.
 
+**Real world applications of NlP**
+NLP is used in our everyday life and the moost common technologies we use as of today are
+
+**1.Machine Translation**
+For a book lover like me, the idea of a language barrier is frustrating. Imagine a library where you can only read half the books because the rest are in French... Machine translation tools like Google Translate uses NLP to tear down those walls.
+
+In the past, computers tried to translate by swapping one word for another, like using a dictionary... This resulted in long and confusing sentences... Modern NLP looks at the whole sentence at once to understand the meaning before translating. It allows us to communicate instantly with people across the globe or read websites in languages we don’t speak.
+
+**2.Chatbots**
+Chatbots are designed to simulate human conversation and are commonly used in customer service platforms, banking applications, and online stores...when we visit some online platforms we see chat bubbles asking "how can i help you"... NLP allows chatbots to understand user questions, process the meaning behind them, and respond in a natural way. This helps organizations provide support at any time without relying entirely on human agents.
+
+**3.Speech Recognition**
+Speech recognition systems convert spoken language into written text... examples include voice assistants such as Google Assistant, Siri, and alexa... When users speak to these systems, NLP helps interpret the words, understand intent, and provide appropriate responses... Speech recognition is also used in dictation tools that allow users to write text by speaking.
+
+**In conclusion** 
