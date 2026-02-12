@@ -49,9 +49,23 @@ This was the big one... I actually fine-tuned a BERT model for paraphrase detect
 
 **Preprocessing** — I tokenized both sentences together using BERT's tokenizer with truncation enabled, and used dynamic padding with `DataCollatorWithPadding` to efficiently batch the data.
 
-**Training** — I used the Hugging Face `Trainer` API with `TrainingArguments` to fine-tune `bert-base-uncased` for sequence classification with 2 labels. The training ran for 3 epochs on the MRPC training set.
+**Training** — I used the Hugging Face `Trainer` API with `TrainingArguments` to fine-tune `bert-base-uncased` for sequence classification with 2 labels. The training ran for 3 epochs (1,377 steps) on the MRPC training set with evaluation at each epoch.
 
-**Evaluation** — After training, I used the model to make predictions on the validation set and evaluated performance using the GLUE MRPC metric (accuracy and F1 score).
+**Evaluation Results** — The model showed solid performance on the validation set:
+
+| Epoch | Training Loss | Validation Loss | Accuracy | F1 Score |
+|-------|--------------|-----------------|----------|----------|
+| 1     | —            | 0.4280          | 79.41%   | 86.75%   |
+| 2     | 0.5296       | 0.5175          | 84.80%   | 89.46%   |
+| 3     | 0.2667       | 0.7906          | 84.07%   | 89.08%   |
+
+The best performance was at Epoch 2 with **84.80% accuracy** and **89.46% F1 score**... The validation loss started increasing at Epoch 3 which means the model was starting to overfit a bit, but the accuracy and F1 were still strong.
+
+**Visualization** — I visualized the training progress with plots showing how accuracy, F1, and loss changed across epochs... this helped me see exactly when the model peaked and when overfitting kicked in.
+
+**Saving and Testing** — After training, I saved the model and tokenizer locally so I could load them back and manually test with my own sentence pairs to see if the model could detect paraphrases correctly.
+
+**Advanced Training Features** — I also explored mixed precision training (fp16), gradient accumulation, and learning rate scheduling with cosine scheduler to understand how to optimize training for larger models.
 
 ## Tools and Libraries Used
 - **Hugging Face Transformers** — for pipelines, models, tokenizers, and the Trainer API
