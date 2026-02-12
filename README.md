@@ -1,154 +1,45 @@
-# Predicting Customer Churn 
+# Introduction to GPT AI
 
-## 1. What I Did (The Process)
-*   **Data Cleaning:** I started by tidying things up. I standardized column names (made them all lowercase and snake_case for sanity) and fixed some annoying missing values in the `TotalCharges` column (turns out blank spaces aren't numbers!).
-*   **Exploratory Data Analysis (EDA):** This was the fun part. I went through the columns one by one—literally!—to see what was going on. I visualized everything from `Gender` and `Tenure`to `PaymentMethod`.
-    *   *Cool Find:* I realized that people with **Month-to-Month contracts** and **Fiber Optic internet** were way more likely to leave. 
-    *   *Another one:* New customers (low tenure) are the most fragile. If they stick around for a year, they are usually loyal for good.
-*   **Feature Engineering:** Machines don't understand words like "Yes" or "No", so I converted all the text data into numbers (0s and 1s). I also used **One-Hot Encoding** for things like Payment Method to make sure the model treated them fairly.
-*   **Scaling:** Since `Tenure` (0-70 months) and `MonthlyCharges` ($20-$120) had totally different ranges, I scaled them to be between 0 and 1 so the model wouldn't get confused.
+## Artificial Intelligence (AI) and Natural Language Processing(NLP)
+As a computer Engineering student who loves reading I spend a lot of time thinking about how machines work and think...I often hear the word Artificial Intelligence everywhere these days, from movies about robots and even the helpful suggestions on our keyboards.
+For me the best way to understand AI is by looking at a library. Imagine a library that contains every book...AI is like a super-fast librarian that has read every book and can instantly find the exact information I need.
 
-## 2. Building the Model 
-I chose **Logistic Regression** for this task. Why? Because it's interpretable! It doesn't just say "Churn" or "No Churn"; it gives me a *probability* (e.g., "There's an 80% chance this person leaves"). This is super useful for business decisions.
+**Artificial Intelligence** at its simplest level is training machines to mimic human behavior... basically its about macking machines smart to recognize patterns and solve problems and also make decisions.
 
-I split the data: **80% for training** (teaching the model) and **20% for testing** (checking if it actually works).
+## Branches of AI
+so if we take a computer as the body, ai is the brain and for like human brain we have different parts that do different things, like speaking, running etc...AI also has different branches
 
-## 3. The Results
-*   **Accuracy:** **82.19%**
-    *  Overall, my model guessed correctly 8 out of 10 times. Not bad
-    
-*   **ROC AUC Score:** **0.8615 (or 86%)**
-    *  This is the real star of the show. An AUC of 0.86 is considered **excellent**. It means if you pick a random churner and a random loyal customer, my model has an **86% chance** of correctly ranking the churner higher. It's really good at distinguishing between the two groups.
+**1. Machine Learning**
+Instead of programming a computer with exact instructions for every situation, we give it lots of examples and data and let it figure out the rules on its own. 
 
-*   **The Confusion Matrix:**
-    *   I correctly identified **222** people who were going to leave (True Positives).
-    *   I correctly identified **892** happy customers who stayed (True Negatives).
-    *   The model is pretty balanced and doesn't just guess "No Churn" for everyone.
+**2. Computer Vision**
+This branch helps computers to see and interpret through images and videos...for eg. a self driving car uses computer vision to see the road and other cars.
 
-## 4. Key Takeaways
-If I were presenting this to the marketing team, here is what I'd say:
-1.  **Watch out for Fiber Optic users:** They are paying more, but they are leaving faster. Maybe the service quality isn't matching the price?
-2.  **Lock them in:** Month-to-month contracts are dangerous. We should incentivize 1-year or 2-year deals.
-3.  **The first few months are critical:** Most churn happens early. We need a better onboarding process for new users.
+**3. Natural Language Processing (NLP)**
+This branch focuses on enabling machines to understand, interpret, and generate human language.
 
----
+**4. Robotics**
+This focuses on physical movement and interaction with the world.
 
-## 5. Model Deployment
-After validating the model's performance, I moved towards productionizing it. The goal was to create a scalable service that could accept customer data and return a churn prediction in real-time.
+## The role and importance of NLP in within AI and real world examples of NLP applications
+If Artificial Intelligence is the brain of the operation, NLP is the voice and the ears... This is the part of AI that fascinates me the most because it tackles the hardest problem in computing which is human communication.
 
-*   **Model Serialization:** I verified the optimal way to save my model. Since I used `pd.get_dummies` for one-hot encoding during training, simply saving the model wasn't enough—I needed to ensure the input data structure for prediction matched the training data exactly. I executed the serialization using `pickle` to save the trained Logistic Regression model as `customer_churn_model.pkl`.
+When I read a novel, I understand that cold feet means someone is nervous, not that their toes are actually freezing... I understand sarcasm, slang, and emotional context... But to a standard computer, language is just a chaotic mess of data... Computers think in binary (zeros and ones), logic and math. They demand precision. Human language, on the other hand, is full of ambiguity...
 
-*   **Flask Service Creation:** I developed a web service using **Flask** (`predict.py`). The application loads the saved model and exposes a POST endpoint `/predict`. 
-    *   *Robustness Implementation:* A critical challenge was ensuring feature alignment. `pd.get_dummies` dynamically creates columns based on input values. To prevent errors when a single customer record doesn't contain all possible categories (e.g., missing 'PaymentMethod_Mailed check'), I implemented logic to reindex the input DataFrame against the original training columns, filling missing features with 0s. This ensures the model always receives the exact input shape it expects.
+This is where NLP comes in... It acts as the translator between our messy, emotional human talk and the computer's strict, logical brain. Without NLP, we would have to learn complex programming languages just to tell a computer to do simple things like even setting an alarm... NLP allows the computer to meet us halfway, learning to decode our grammar and intent so we can interact with technology naturally. It turns the Librarian into a helpful assistant you can actually talk to.
 
-*   **Verification:** I started the Flask server and successfully tested it using `Invoke-RestMethod` in PowerShell, simulating a client request.
+**Real world applications of NlP**
+NLP is used in our everyday life and the moost common technologies we use as of today are
 
-    *Server Running:*
-    ![Flask Server](images/flask_server.png)
+**1.Machine Translation**
+For a book lover like me, the idea of a language barrier is frustrating. Imagine a library where you can only read half the books because the rest are in French... Machine translation tools like Google Translate uses NLP to tear down those walls.
 
-    *Successful Prediction Response:*
-    ![Prediction Test](images/prediction_test.png)
+In the past, computers tried to translate by swapping one word for another, like using a dictionary... This resulted in long and confusing sentences... Modern NLP looks at the whole sentence at once to understand the meaning before translating. It allows us to communicate instantly with people across the globe or read websites in languages we don’t speak.
 
-    The service correctly parsed the JSON input, processed the features, and returned a churn probability of **1.0 (True)** for the high-risk test profile.
+**2.Chatbots**
+Chatbots are designed to simulate human conversation and are commonly used in customer service platforms, banking applications, and online stores...when we visit some online platforms we see chat bubbles asking "how can i help you"... NLP allows chatbots to understand user questions, process the meaning behind them, and respond in a natural way. This helps organizations provide support at any time without relying entirely on human agents.
 
----
+**3.Speech Recognition**
+Speech recognition systems convert spoken language into written text... examples include voice assistants such as Google Assistant, Siri, and alexa... When users speak to these systems, NLP helps interpret the words, understand intent, and provide appropriate responses... Speech recognition is also used in dictation tools that allow users to write text by speaking.
 
-## 6. Dependency Management & Containerization
-To ensure the model runs everywhere, not just on my machine, I isolated the environment.
-
-*   **Pipenv:** I replaced `pip` and `requirements.txt` with **Pipenv**. This gives me a deterministic environment (`Pipfile.lock`), so anyone installing the project gets the *exact* same library versions I used.
-*   **Docker:** The final step was wrapping everything in a Docker container.
-    *   *The Dockerfile:* I built a lightweight image based on `python:3.12-slim`.
-    *   *The Build Process:* I ran into a small issue where my Pipfile wanted Python 3.13 but the base image was 3.12. I fixed this by downgrading the requirement in the Pipfile to match the container.
-
-    *Building the Image:*
-    ![Docker Build](images/docker_build_terminal.png)
-
-    *Build Details (Docker Desktop):*
-    ![Docker Build Details](images/docker_build_details.png)
-
-    *Container Ready:*
-    ![Docker Image List](images/docker_image_list.png)
-
-    Now the model is a portable, self-contained unit that can be deployed to any cloud provider that supports Docker.
-
----
-
-## 7. Cloud Deployment (AWS Elastic Beanstalk)
-The ultimate test was deploying the container to the public cloud so it could serve real users over the internet.
-
-*   **AWS Setup:** I configured an IAM user with appropriate permissions and set up credentials locally using `aws configure`.
-*   **Elastic Beanstalk:** I initialized the deployment with `eb init -p docker` and launched the environment with `eb create`.
-*   **Validation:** Once deployed, I received a live URL (`churn-serving-env...`). I verified it by sending a POST request to the live cloud API from my local terminal.
-
-    *Deployment Success (Log):*
-    ![Deployment Success](images/aws_deployment_success.png)
-
-    *Live Cloud API Verification:*
-    ![Cloud Verification](images/aws_cloud_test.png)
-
-
-    The cloud API returned the same accurate prediction (Churn Probability: 1.0) as my local Docker container, confirming a successful end-to-end deployment.
-
-*   **Health Check Resolution:** Initially, the environment showed a "Severe" health status because the load balancer's health check was pinging the root path (`/`), which wasn't handled by my Flask app.
-    *   *Fix:* I added a simple root route (`/`) to `predict.py` that returns "Churn Prediction Service is Active".
-    *   *Result:* After redeploying, the health checks passed, and the environment status turned to **Ok**.
-
-    *Environment Dashboard (Health: Ok):*
-    ![AWS Health Ok Dashboard](images/aws_health_ok_dashboard.png)
-
-    *Environment List:*
-    ![AWS Environment List](images/aws_health_ok_list.png)
-
-## 8. API Documentation
-
-The deployed model is accessible via a REST API hosted on AWS Elastic Beanstalk.
-
-*   **Live Base URL:** `http://churn-serving-env.eba-mtykwqiz.us-west-2.elasticbeanstalk.com`
-
-### Endpoints
-
-1.  **Health Check**
-    *   **URL:** `/`
-    *   **Method:** `GET`
-    *   **Description:** Returns a simple string to verify the service is running.
-    *   **Response:** `Churn Prediction Service is Active`
-
-2.  **Predict Churn**
-    *   **URL:** `/predict`
-    *   **Method:** `POST`
-    *   **Description:** Accepts customer data in JSON format and returns the churn probability.
-    *   **Headers:** `Content-Type: application/json`
-    *   **Request Body Example:**
-        ```json
-        {
-            "gender": "female",
-            "seniorcitizen": 0,
-            "partner": "no",
-            "dependents": "no",
-            "tenure": 12,
-            "phoneservice": "no",
-            "multiplelines": "no_phone_service",
-            "internetservice": "dsl",
-            "onlinesecurity": "yes",
-            "onlinebackup": "yes",
-            "deviceprotection": "yes",
-            "techsupport": "yes",
-            "streamingtv": "no",
-            "streamingmovies": "no",
-            "contract": "one_year",
-            "paperlessbilling": "yes",
-            "paymentmethod": "mailed_check",
-            "monthlycharges": 56.85,
-            "totalcharges": 1889.50
-        }
-        ```
-    *   **Response Example:**
-        ```json
-        
-               
-               {
-                "churn" : "True "
-                "churn_probability" : "1.0"
-
-               }
+**In conclusion** AL and NLP are the bridge between human and machine communication... they help us interact with technology naturally and efficiently... I believe these technologies wont replace us but will make our lives easier and more convenient.
