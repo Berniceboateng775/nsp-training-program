@@ -61,9 +61,26 @@ This was the big one... I actually fine-tuned a BERT model for paraphrase detect
 
 The best performance was at Epoch 2 with **84.80% accuracy** and **89.46% F1 score**... The validation loss started increasing at Epoch 3 which means the model was starting to overfit a bit, but the accuracy and F1 were still strong.
 
-**Visualization** — I visualized the training progress with plots showing how accuracy, F1, and loss changed across epochs... this helped me see exactly when the model peaked and when overfitting kicked in.
+**Visualization** — I created three key visualizations to understand how the training went:
 
-**Saving and Testing** — After training, I saved the model and tokenizer locally so I could load them back and manually test with my own sentence pairs to see if the model could detect paraphrases correctly.
+1. **Training vs Validation Loss** — This plot showed the training loss decreasing from 0.53 to 0.27 across Epochs 2-3... but the validation loss kept climbing from 0.43 to 0.79, which is a classic sign of overfitting. Seeing this visually made it crystal clear that more training wouldn't help.
+
+2. **Validation Accuracy** — Accuracy jumped from 79.41% at Epoch 1 to 84.80% at Epoch 2... then dipped slightly to 84.07% at Epoch 3. The annotations on the plot made it easy to see the exact numbers.
+
+3. **Validation F1 Score** — The F1 score followed a similar pattern, peaking at 89.46% at Epoch 2 and dropping to 89.08% at Epoch 3.
+
+I also created a **Confusion Matrix** to see exactly how the model was performing on the 408 validation examples... it showed the breakdown of true paraphrases vs not paraphrases and how many the model got right or wrong.
+
+**Saving the Model** — I saved the fine-tuned model and tokenizer locally using `trainer.save_model()` and `tokenizer.save_pretrained()` so I could load them back anytime without having to retrain.
+
+**Manual Testing** — This was the most satisfying part... I loaded the saved model and tested it with my own sentence pairs to see if it actually works. The results were impressive:
+
+- "I love reading romance books." vs "Romance novels are my favorite thing to read." → **Paraphrase (99.73% confidence)**
+- "The weather is nice today." vs "I went to the grocery store." → **Not a Paraphrase (99.52% confidence)**
+- "Revenue dropped 15 percent in the first quarter." vs "First quarter revenue fell by 15 percent." → **Paraphrase (99.79% confidence)**
+- "She likes playing football." vs "The cat sat on the mat." → **Not a Paraphrase (99.75% confidence)**
+
+The model got all 4 of my test cases correct with 99%+ confidence on each one... that's pretty impressive for a model I fine-tuned myself!
 
 **Advanced Training Features** — I also explored mixed precision training (fp16), gradient accumulation, and learning rate scheduling with cosine scheduler to understand how to optimize training for larger models.
 
