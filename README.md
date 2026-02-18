@@ -72,21 +72,47 @@ My starting settings:
 
 **Takeaway:** More epochs ≠ better model. For fine-tuning GPT-2 on this dataset, 1-3 epochs seems to be the sweet spot. Beyond that, the model starts to overfit.
 
-## Honest Thoughts
+## Round 1 Thoughts
 
-These results are honestly not great . The perplexity numbers are all quite high (28-53 range), and the differences between most experiments are pretty small. Here's what I think is going on:
+The initial results were honestly not great. The perplexity numbers were all quite high (28-53 range), and the differences between most experiments were pretty small. I figured the main issues were:
 
-1. **The dataset is small** — Wikitext-2 only has ~23,000 training examples after tokenization. GPT-2 has 124M parameters. That's a LOT of model for not much data.
-2. **The tokenization approach** — Using fixed 128-token chunks with max_length padding means a lot of shorter sequences are padded with empty tokens, which wastes training signal.
-3. **The base model is already pretty good** — GPT-2 was pretrained on a massive dataset, so fine-tuning it on a small subset of Wikipedia doesn't add much new knowledge.
+1. **The tokenization approach** — Using fixed 128-token chunks with `max_length` padding meant a lot of shorter sequences were padded with empty tokens, wasting training signal.
+2. **Small context window** — 128 tokens isn't much for a language model to work with.
+3. **No learning rate scheduling** — A flat learning rate the entire time isn't ideal.
 
-## What's Next
+---
 
-I want to explore ways to improve these results:
-- Try a better tokenization strategy (concatenate text and chunk properly instead of padding)
-- Use a learning rate scheduler (warmup + decay)
-- Try gradient accumulation to simulate larger batch sizes
-- Maybe use a smaller model variant or a different/larger dataset
+## Round 2: Improving the Results
+
+So I went back and fixed the data preparation. Here's what I changed:
+
+| What Changed | Before (Round 1) | After (Round 2) |
+|---|---|---|
+| **Tokenization** | Pad short texts to 128 tokens | Concatenate all text, then chunk (no padding waste) |
+| **Block Size** | 128 tokens | 512 tokens (4x more context) |
+| **LR Schedule** | Flat learning rate | Warmup (100 steps) + Cosine decay |
+| **Gradient Accumulation** | None | 4 steps (simulates 4x larger batch) |
+
+### Round 2 Result
+
+| Experiment | Eval Loss | Perplexity | vs Round 1 Baseline |
+|---|---|---|---|
+| **Round 1 Baseline** | 3.3522 | 28.56 | — |
+| **Improved Baseline** | 3.1314 | 22.91 | **-19.8% improvement** |
+
+### What Made The Difference
+
+The biggest factor was definitely the **tokenization fix**. In Round 1, I had ~23,000 training examples but many were mostly padding. In Round 2, I got 4,656 training chunks — fewer examples, but every single token was real content. Quality over quantity.
+
+The **larger block size (512 vs 128)** also helped a lot because the model could see more context when predicting the next token. And the **cosine LR schedule** with warmup prevented the model from making wild updates at the start of training.
+
+## Overall Takeaways
+
+1. **Data preparation matters more than hyperparameters** — Fixing the tokenization strategy gave me a 19.8% improvement, while all the hyperparameter changes in Round 1 only moved the needle by 1-2% (except the high LR which made things way worse).
+2. **Learning rate is the most dangerous hyperparameter** — Set it too high and you'll destroy your model (53.51 perplexity vs 28.56 baseline).
+3. **More epochs can hurt** — The model started overfitting after 3 epochs. Training loss went down but validation loss went up.
+4. **Batch size matters less than you'd think** — The difference between batch size 4 and 16 was small.
+5. **The perplexity is still high** — 22.91 is better but still not amazing. This is likely because Wikitext-2 is a small dataset and GPT-2 was already pretrained on similar data, so there's a limit to how much fine-tuning can help.
 
 ## Tools & Libraries Used
 
@@ -94,4 +120,5 @@ I want to explore ways to improve these results:
 - PyTorch (with CUDA)
 - Hugging Face Transformers
 - Hugging Face Datasets
+- Google Colab (GPU runtime)
 - Matplotlib & Pandas (for visualization)
