@@ -1,6 +1,6 @@
 /**
  * Vellichor AI — Navigation & Shared Utilities
- * Handles sidebar rendering, route guards, and toast notifications.
+ * Handles sidebar rendering, route guards, theme toggle, and toast notifications.
  */
 
 // ─── Lucide Icons (inline SVGs) ──────────────────────────
@@ -29,7 +29,34 @@ const icons = {
     trendingUp: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
     zap: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
     bookMarked: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><polyline points="10 2 10 10 13 7 16 10 16 2"/></svg>`,
+    sun: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`,
+    moon: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`,
+    upload: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>`,
 };
+
+
+// ─── Theme Toggle ────────────────────────────────────────
+
+function initTheme() {
+    const saved = localStorage.getItem('vellichor_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', saved);
+}
+
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('vellichor_theme', next);
+
+    // Update button icon
+    const btn = document.getElementById('themeToggleBtn');
+    if (btn) {
+        btn.innerHTML = next === 'light' ? icons.moon + '<span>Dark Mode</span>' : icons.sun + '<span>Light Mode</span>';
+    }
+}
+
+// Apply theme immediately
+initTheme();
 
 
 // ─── Navigation Items ────────────────────────────────────
@@ -48,6 +75,9 @@ const navItems = [
 function renderSidebar(activePage) {
     const user = api.getUser();
     const initial = user ? user.name.charAt(0).toUpperCase() : '?';
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const themeIcon = currentTheme === 'light' ? icons.moon : icons.sun;
+    const themeLabel = currentTheme === 'light' ? 'Dark Mode' : 'Light Mode';
     
     const sidebarHTML = `
         <div class="sidebar-overlay" onclick="closeSidebar()"></div>
@@ -68,6 +98,10 @@ function renderSidebar(activePage) {
                 `).join('')}
             </nav>
             <div class="sidebar-footer">
+                <button class="nav-item" id="themeToggleBtn" style="width: 100%; color: var(--color-text-muted);" onclick="toggleTheme()">
+                    ${themeIcon}
+                    <span>${themeLabel}</span>
+                </button>
                 <div class="sidebar-user">
                     <div class="user-avatar">${initial}</div>
                     <div class="user-info">

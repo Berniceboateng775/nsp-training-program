@@ -97,7 +97,7 @@ class VellichorAPI {
 
   logout() {
     this.clearToken();
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   }
 
   // ─── Chat ────────────────────────────────────────────

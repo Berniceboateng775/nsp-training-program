@@ -102,6 +102,39 @@
   --content-max-width: 1200px;
 }
 
+/* ─── Light Mode ────────────────────────────────────────── */
+
+[data-theme="light"] {
+  --color-bg-deep: #faf8f5;
+  --color-bg-primary: #f5f0eb;
+  --color-bg-surface: #ffffff;
+  --color-bg-elevated: #f0ebe4;
+  --color-bg-hover: #e8e2d9;
+
+  --color-gold: #b8922e;
+  --color-gold-dim: #9a7a24;
+  --color-gold-glow: rgba(184, 146, 46, 0.15);
+  --color-rose: #963350;
+  --color-rose-dim: #7a2841;
+  --color-rose-glow: rgba(150, 51, 80, 0.15);
+
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #4a4a5a;
+  --color-text-muted: #8a8a9a;
+  --color-text-inverse: #fffffe;
+
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-border-gold: rgba(184, 146, 46, 0.3);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+  --shadow-gold: 0 4px 20px rgba(184, 146, 46, 0.12);
+  --shadow-rose: 0 4px 20px rgba(150, 51, 80, 0.12);
+}
+
 /* ─── Reset & Base ──────────────────────────────────────── */
 
 *,

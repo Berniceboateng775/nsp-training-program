@@ -20,7 +20,58 @@ const SAMPLE_TEXTS = [
 document.addEventListener('DOMContentLoaded', () => {
     if (!requireAuth()) return;
     renderSidebar('emotions.html');
+
+    // Drag and drop support
+    const zone = document.getElementById('uploadZone');
+    if (zone) {
+        zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('drag-over'); });
+        zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            zone.classList.remove('drag-over');
+            if (e.dataTransfer.files.length > 0) {
+                document.getElementById('fileInput').files = e.dataTransfer.files;
+                handleFileUpload({ target: { files: e.dataTransfer.files } });
+            }
+        });
+    }
 });
+
+
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const ext = file.name.split('.').pop().toLowerCase();
+    const supported = ['txt', 'pdf', 'epub', 'docx', 'doc'];
+    if (!supported.includes(ext)) {
+        showToast('Unsupported file type. Please use PDF, EPUB, DOCX, or TXT.', 'error');
+        return;
+    }
+
+    // Show file info
+    document.getElementById('fileInfo').style.display = 'flex';
+    document.getElementById('fileName').textContent = `📄 ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+
+    if (ext === 'txt') {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            document.getElementById('emotionText').value = e.target.result;
+            updateCharCount();
+            showToast('Text file loaded successfully');
+        };
+        reader.readAsText(file);
+    } else {
+        // For PDF/EPUB/DOCX — inform user these require backend processing
+        showToast(`${ext.toUpperCase()} file selected. When the backend model is connected, it will extract and analyze the text automatically.`, 'info');
+    }
+}
+
+function clearFile() {
+    document.getElementById('fileInput').value = '';
+    document.getElementById('fileInfo').style.display = 'none';
+    document.getElementById('fileName').textContent = '';
+}
 
 
 function updateCharCount() {
@@ -58,6 +109,11 @@ async function analyzeText() {
             Analyze Emotions
         `;
         btn.disabled = false;
+    }
+
+    // Track stats
+    if (typeof incrementStat === 'function') {
+        incrementStat('texts_analyzed');
     }
 }
 

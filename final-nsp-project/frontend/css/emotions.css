@@ -42,6 +42,48 @@
     color: var(--color-text-muted);
 }
 
+/* Upload Zone */
+.upload-zone {
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    background: var(--color-bg-surface);
+    margin-bottom: var(--space-2);
+}
+
+.upload-zone:hover,
+.upload-zone.drag-over {
+    border-color: var(--color-gold);
+    background: var(--color-gold-glow);
+}
+
+.upload-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-1);
+}
+
+.upload-hint {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--color-gold);
+    margin-bottom: var(--space-4);
+}
+
+
 .analyze-actions {
     display: flex;
     align-items: center;
@@ -198,6 +240,7 @@
     gap: var(--space-3);
     flex-wrap: wrap;
     margin-top: var(--space-4);
+    margin-bottom: var(--space-8);
 }
 
 .sample-text-btn {

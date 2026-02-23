@@ -12,9 +12,40 @@ document.addEventListener('DOMContentLoaded', async () => {
         welcomeEl.textContent = `Welcome back, ${user.name}`;
     }
 
+    // Load dynamic stats
+    loadDashboardStats();
+
     // Load trending books for the dashboard
     await loadRecentBooks();
 });
+
+
+function loadDashboardStats() {
+    // Pull real counts from localStorage activity tracking
+    const stats = JSON.parse(localStorage.getItem('vellichor_stats') || '{}');
+    const booksExplored = stats.books_explored || 0;
+    const aiConversations = stats.ai_conversations || 0;
+    const textsAnalyzed = stats.texts_analyzed || 0;
+    const dominantMood = stats.dominant_mood || '—';
+
+    document.getElementById('statBooks').textContent = booksExplored;
+    document.getElementById('statChats').textContent = aiConversations;
+    document.getElementById('statTexts').textContent = textsAnalyzed;
+    document.getElementById('statMood').textContent = dominantMood;
+}
+
+// Global: increment a stat counter
+function incrementStat(key) {
+    const stats = JSON.parse(localStorage.getItem('vellichor_stats') || '{}');
+    stats[key] = (stats[key] || 0) + 1;
+    localStorage.setItem('vellichor_stats', JSON.stringify(stats));
+}
+
+function setStatValue(key, value) {
+    const stats = JSON.parse(localStorage.getItem('vellichor_stats') || '{}');
+    stats[key] = value;
+    localStorage.setItem('vellichor_stats', JSON.stringify(stats));
+}
 
 
 async function loadRecentBooks() {

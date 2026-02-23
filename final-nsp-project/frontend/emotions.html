@@ -26,8 +26,27 @@
                 <div class="emotions-input-section animate-fade-in-up">
                     <h2 style="margin-bottom: var(--space-2);">Analyze a Passage</h2>
                     <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin-bottom: var(--space-5);">
-                        Paste any literary text — a chapter, poem, or passage — and let Vellichor AI uncover its emotional landscape and thematic structure.
+                        Paste any literary text — a chapter, poem, or passage — or upload a document and let Vellichor AI uncover its emotional landscape and thematic structure.
                     </p>
+
+                    <!-- Document Upload -->
+                    <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+                        <input type="file" id="fileInput" accept=".pdf,.epub,.docx,.doc,.txt" style="display:none;" onchange="handleFileUpload(event)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-gold); margin-bottom: var(--space-2);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                        <div class="upload-label">Drop a file here or <span style="color: var(--color-gold); cursor: pointer;">browse</span></div>
+                        <div class="upload-hint">Supports PDF, EPUB, DOCX, TXT</div>
+                    </div>
+                    <div class="file-info" id="fileInfo" style="display: none;">
+                        <span id="fileName"></span>
+                        <button class="btn btn-sm btn-ghost" onclick="clearFile()" style="padding: 2px 8px;">✕</button>
+                    </div>
+
+                    <div class="or-divider" style="display: flex; align-items: center; gap: var(--space-4); margin: var(--space-4) 0; color: var(--color-text-muted); font-size: var(--text-xs);">
+                        <span style="flex: 1; border-top: 1px solid var(--color-border);"></span>
+                        or paste text directly
+                        <span style="flex: 1; border-top: 1px solid var(--color-border);"></span>
+                    </div>
+
                     <div class="emotion-textarea-wrapper">
                         <textarea 
                             id="emotionText" 
