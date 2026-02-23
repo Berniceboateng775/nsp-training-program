@@ -79,6 +79,19 @@ function renderSidebar(activePage) {
     const themeIcon = currentTheme === 'light' ? icons.moon : icons.sun;
     const themeLabel = currentTheme === 'light' ? 'Dark Mode' : 'Light Mode';
     
+    // Chat history section (only on chatbot page)
+    const chatHistorySection = activePage === 'chatbot.html' ? `
+        <div class="chat-history-section">
+            <button class="btn btn-primary btn-sm new-chat-btn" onclick="startNewChat()" style="width: 100%; margin-bottom: var(--space-3);">
+                ${icons.plus} <span>New Chat</span>
+            </button>
+            <div class="chat-history-label">History</div>
+            <div class="chat-history-list" id="chatHistoryList">
+                <div class="chat-history-empty">No conversations yet</div>
+            </div>
+        </div>
+    ` : '';
+
     const sidebarHTML = `
         <div class="sidebar-overlay" onclick="closeSidebar()"></div>
         <button class="mobile-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
@@ -97,6 +110,7 @@ function renderSidebar(activePage) {
                     </a>
                 `).join('')}
             </nav>
+            ${chatHistorySection}
             <div class="sidebar-footer">
                 <button class="nav-item" id="themeToggleBtn" style="width: 100%; color: var(--color-text-muted);" onclick="toggleTheme()">
                     ${themeIcon}

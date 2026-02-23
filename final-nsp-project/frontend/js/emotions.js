@@ -2,6 +2,27 @@
  * Vellichor AI — Emotion Analysis Logic
  */
 
+function showGuestLimitModal() {
+    const existing = document.getElementById('guestLimitModal');
+    if (existing) existing.remove();
+    const modal = document.createElement('div');
+    modal.id = 'guestLimitModal';
+    modal.innerHTML = `
+        <div class="modal-overlay" onclick="this.parentElement.remove()">
+            <div class="modal-card" onclick="event.stopPropagation()">
+                <div class="modal-icon">🔒</div>
+                <h3>Guest Limit Reached</h3>
+                <p>You've used your free guest analysis. Create a free account to unlock unlimited conversations, analysis, and recommendations.</p>
+                <div class="modal-actions">
+                    <a href="register.html" class="btn btn-primary" style="width: 100%;">Create Free Account</a>
+                    <a href="login.html" class="btn btn-secondary" style="width: 100%;">Sign In</a>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
 let pieChart = null;
 let barChart = null;
 
@@ -91,6 +112,18 @@ async function analyzeText() {
     if (!text) {
         showToast('Please enter some text to analyze', 'warning');
         return;
+    }
+
+    // Guest limit check
+    const user = api.getUser();
+    if (user && user.id === 'guest') {
+        const usage = JSON.parse(localStorage.getItem('vellichor_guest_usage') || '{"messages":0,"analyses":0}');
+        if (usage.analyses >= 1) {
+            showGuestLimitModal();
+            return;
+        }
+        usage.analyses++;
+        localStorage.setItem('vellichor_guest_usage', JSON.stringify(usage));
     }
 
     const btn = document.getElementById('analyzeBtn');
