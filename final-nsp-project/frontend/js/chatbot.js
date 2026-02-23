@@ -3,6 +3,7 @@
  */
 
 let conversationId = null;
+let uploadedFileContent = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     if (!requireAuth()) return;
@@ -29,10 +30,56 @@ function sendSuggestion(text) {
 }
 
 
+function handleChatFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const ext = file.name.split('.').pop().toLowerCase();
+    const supported = ['txt', 'pdf', 'epub', 'docx', 'doc'];
+    if (!supported.includes(ext)) {
+        showToast('Unsupported file type. Please use PDF, EPUB, DOCX, or TXT.', 'error');
+        return;
+    }
+
+    document.getElementById('chatFileInfo').style.display = 'flex';
+    document.getElementById('chatFileName').textContent = `📄 ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+
+    if (ext === 'txt') {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            uploadedFileContent = e.target.result;
+            showToast('Text file loaded — it will be included with your next message');
+        };
+        reader.readAsText(file);
+    } else {
+        uploadedFileContent = `[Uploaded file: ${file.name}]`;
+        showToast(`${ext.toUpperCase()} file attached. Send a message to ask about its content.`);
+    }
+}
+
+function clearChatFile() {
+    document.getElementById('chatFileInput').value = '';
+    document.getElementById('chatFileInfo').style.display = 'none';
+    document.getElementById('chatFileName').textContent = '';
+    uploadedFileContent = null;
+}
+
+
 async function sendMessage() {
     const input = document.getElementById('chatInput');
-    const message = input.value.trim();
-    if (!message) return;
+    let message = input.value.trim();
+    if (!message && !uploadedFileContent) return;
+
+    // If there's uploaded file content, prepend it
+    if (uploadedFileContent) {
+        const fileContext = uploadedFileContent.length > 4000
+            ? uploadedFileContent.substring(0, 4000) + '\n... [text truncated for analysis]'
+            : uploadedFileContent;
+        message = message
+            ? `[Document content for analysis]:\n${fileContext}\n\n[User question]: ${message}`
+            : `Please analyze this document:\n${fileContext}`;
+        clearChatFile();
+    }
 
     // Switch from suggestions to messages view
     const suggestions = document.getElementById('chatSuggestions');
@@ -42,8 +89,13 @@ async function sendMessage() {
         messagesContainer.style.display = 'flex';
     }
 
-    // Add user message
-    addMessage(message, 'user');
+    // Add user message (show just the question, not the full document)
+    const displayMessage = message.includes('[User question]:')
+        ? '📄 ' + message.split('[User question]: ')[1]
+        : message.includes('Please analyze this document')
+            ? '📄 Analyze uploaded document'
+            : message;
+    addMessage(displayMessage, 'user');
     input.value = '';
     autoResize(input);
 
@@ -75,6 +127,11 @@ async function sendMessage() {
     } finally {
         sendBtn.disabled = false;
         input.focus();
+    }
+
+    // Track stats
+    if (typeof incrementStat === 'function') {
+        incrementStat('ai_conversations');
     }
 }
 
@@ -109,3 +166,4 @@ function scrollToBottom() {
     const container = document.getElementById('chatMessages');
     container.scrollTop = container.scrollHeight;
 }
+

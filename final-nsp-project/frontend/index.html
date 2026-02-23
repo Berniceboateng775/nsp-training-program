@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="css/landing.css" />
   </head>
   <body>
+    <script>
+      // Apply saved theme immediately (before paint)
+      (function() {
+        var t = localStorage.getItem('vellichor_theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
     <!-- ═══ Navigation ═══ -->
     <nav class="landing-nav">
       <div class="nav-brand">
@@ -40,6 +47,9 @@
         <a href="#cta">Get Started</a>
       </div>
       <div class="nav-actions">
+        <button class="btn btn-ghost" id="landingThemeToggle" onclick="(function(){var c=document.documentElement.getAttribute('data-theme');var n=c==='light'?'dark':'light';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('vellichor_theme',n);document.getElementById('landingThemeToggle').textContent=n==='light'?'☽ Dark':'☀ Light';})()">
+          <script>document.write(localStorage.getItem('vellichor_theme')==='light'?'☽ Dark':'☀ Light');</script>
+        </button>
         <a href="login.html" class="btn btn-ghost">Sign In</a>
         <a href="register.html" class="btn btn-primary">Get Started</a>
       </div>

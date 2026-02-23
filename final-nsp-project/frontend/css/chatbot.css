@@ -251,6 +251,38 @@
     cursor: not-allowed;
 }
 
+.chat-upload-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--color-text-muted);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.chat-upload-btn:hover {
+    color: var(--color-gold);
+    background: var(--color-gold-glow);
+}
+
+.chat-file-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius-md);
+    font-size: var(--text-xs);
+    color: var(--color-gold);
+    margin-bottom: var(--space-2);
+}
+
 .chat-disclaimer {
     text-align: center;
     font-size: var(--text-xs);
