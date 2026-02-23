@@ -138,10 +138,6 @@ async function sendMessage() {
 
 function addMessage(text, role) {
     const messagesContainer = document.getElementById('chatMessages');
-    const user = api.getUser();
-    const initial = role === 'user' 
-        ? (user ? user.name.charAt(0).toUpperCase() : 'U')
-        : 'V';
     
     const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     
@@ -150,7 +146,6 @@ function addMessage(text, role) {
     
     const messageHTML = `
         <div class="chat-message ${role}">
-            <div class="message-avatar">${initial}</div>
             <div>
                 <div class="message-content">${processedText}</div>
                 <div class="message-time">${time}</div>
