@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot — Vellichor AI</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+
+    <div class="app-layout">
+        <div class="main-content" id="mainContent">
+            <header class="page-header">
+                <h1>Vellichor AI</h1>
+                <span class="badge badge-gold" style="display: flex; align-items: center; gap: 6px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    GPT-Powered
+                </span>
+            </header>
+
+            <div class="chat-container">
+                <!-- Suggestions (shown when no messages) -->
+                <div class="chat-suggestions" id="chatSuggestions">
+                    <div class="suggestions-header">
+                        <h2>What would you like to explore?</h2>
+                        <p>Ask me about books, get recommendations, or analyze literary passages.</p>
+                    </div>
+                    <div class="suggestions-grid">
+                        <button class="suggestion-btn" onclick="sendSuggestion('Can you recommend a book that will transport me to another world?')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                            Recommend a book that transports me to another world
+                        </button>
+                        <button class="suggestion-btn" onclick="sendSuggestion('Summarize the themes and plot of The Great Gatsby')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            Summarize The Great Gatsby's themes
+                        </button>
+                        <button class="suggestion-btn" onclick="sendSuggestion('What emotions does this passage evoke: The autumn leaves fell like tears from ancient trees...')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                            Analyze emotions in a literary passage
+                        </button>
+                        <button class="suggestion-btn" onclick="sendSuggestion('Compare the writing styles of Tolkien and George R.R. Martin')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                            Compare writing styles of two authors
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Messages -->
+                <div class="chat-messages" id="chatMessages" style="display: none;">
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+
+                <!-- Input -->
+                <div class="chat-input-area">
+                    <div class="chat-input-wrapper">
+                        <textarea 
+                            id="chatInput" 
+                            placeholder="Ask about a book, get recommendations, or analyze a passage..." 
+                            rows="1"
+                            onkeydown="handleKeyDown(event)"
+                            oninput="autoResize(this)"
+                        ></textarea>
+                        <button class="chat-send-btn" id="sendBtn" onclick="sendMessage()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                        </button>
+                    </div>
+                    <div class="chat-disclaimer">Vellichor AI may produce inaccurate information. Verify important literary facts independently.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
