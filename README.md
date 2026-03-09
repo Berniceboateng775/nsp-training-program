@@ -1,8 +1,5 @@
 # Emotion and Subtext Detection in Literary Dialogue Using Fine-Tuned GPT-2
 
-> **Student:** Bernice Boateng  
-> **Program:** Computer Engineering  
-
 ---
 
 ## Abstract
