@@ -140,6 +140,34 @@ To prove robustness beyond fiction, I ran an official test suite covering everyd
 
 ![Test 7 Expected Suspense and Reflection](final-nsp-project/images/test7_suspense.png)
 
+## Real-World Validation: Gemini Pro Cross-Check
+
+To test the model on completely unseen literary text, I uploaded the novel **"King of Envy" by Ana Huang** as a PDF into the Vellichor AI platform and asked the AI to analyze Chapter 1.
+
+**My model's prediction for Chapter 1:**
+
+| Emotion | Score |
+| --- | --- |
+| **Fear & Tension** | 36% |
+| **Vulnerability** | 25% |
+| **Anger** | 19% |
+| **Joy & Confidence** | 16% |
+| **Suspense & Reflection** | 4% |
+
+I then asked **Google Gemini Pro** to independently analyze the same chapter and tell me if my model's breakdown was accurate.
+
+**Gemini Pro's verdict:** *"Your model's prediction is surprisingly accurate for Chapter 1, Bernice. It picked up on the hidden subtext beautifully instead of just reading the surface-level words."*
+
+Gemini confirmed that even though the chapter takes place at a glamorous garden party, the underlying vibe is tense — the protagonist mentions modeling as a "cutthroat industry," feels dread about certain characters, and her engagement is secretly a sham. The model correctly identified **Fear & Tension** as dominant and **Vulnerability** as secondary, reading the subtext rather than being fooled by the surface-level glamour of the scene. This validated that the context-aware training approach works on real, full-length novels.
+
+**Proof — Vellichor AI Emotion Analysis Results:**
+
+![Vellichor AI King of Envy Chapter 1 Analysis](final-nsp-project/images/king_of_envy_analysis.png)
+
+**Proof — Gemini Pro Confirming the Analysis:**
+
+![Gemini Pro Validation of Chapter 1 Analysis](final-nsp-project/images/gemini_pro_validation.png)
+
 ## Deployment
 
 The trained model is hosted on [Hugging Face Hub](https://huggingface.co/Bernice775/vellichor-emotion-detector) and deployed as a REST API on [Render](https://vellichor-emotion-detector.onrender.com) using FastAPI + Docker. It powers the emotion analysis module in the Vellichor AI web app.

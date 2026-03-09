@@ -116,7 +116,14 @@ function handleFileUpload(event) {
         };
         reader.readAsText(file);
     } else {
-        // PDF — index it with FAISS first, then user tells us WHAT to analyze
+        // PDF — switch to query mode IMMEDIATELY
+        document.getElementById('dualInputs').style.display = 'none';
+        document.getElementById('pdfQueryBox').style.display = 'block';
+        document.getElementById('pdfQueryText').placeholder = 
+            `Loading "${file.name}"...\n\nThe AI is indexing the book. You can type your query now and click Analyze when ready.`;
+        document.getElementById('pdfQueryText').value = '';
+
+        // Index it in the background
         indexPdfFile(file);
     }
 }
@@ -124,29 +131,27 @@ function handleFileUpload(event) {
 
 async function indexPdfFile(file) {
     const btn = document.getElementById('analyzeBtn');
-    btn.textContent = 'Loading PDF...';
+    btn.textContent = 'Indexing PDF...';
     btn.disabled = true;
 
     try {
-        showToast('Uploading PDF for indexing...', 'info');
+        showToast('Indexing PDF — you can type your query while it loads...', 'info');
         const data = await api.uploadEmotionDocument(file);
         
         uploadedPdfFile = file;
 
-        // Switch to single query mode: hide dual inputs, show query box
-        document.getElementById('dualInputs').style.display = 'none';
-        const queryBox = document.getElementById('pdfQueryBox');
-        queryBox.style.display = 'block';
+        // Update placeholder with chunk count now that indexing is done
         document.getElementById('pdfQueryText').placeholder = 
-            `✅ "${file.name}" loaded (${data.total_chunks} passages indexed).\n\nNow tell the AI what to analyze:\n• "Analyze the opening chapter"\n• "What emotions are in the ending?"\n• "Find the most intense dialogue"`;
-        document.getElementById('pdfQueryText').value = '';
-        updateCharCount();
+            `✅ "${file.name}" ready (${data.total_chunks} passages indexed).\n\nTell the AI what to analyze:\n• "Analyze the opening chapter"\n• "What emotions are in the ending?"\n• "Find the most intense dialogue"`;
         
-        showToast(`PDF indexed! ${data.total_chunks} passages ready. Now type what to analyze.`, 'success');
+        showToast(`PDF indexed! ${data.total_chunks} passages ready. Now click Analyze.`, 'success');
     } catch (error) {
         console.error('PDF index error:', error);
         showToast(`PDF loading failed: ${error.message}`, 'error');
         uploadedPdfFile = null;
+        // Restore dual inputs
+        document.getElementById('dualInputs').style.display = '';
+        document.getElementById('pdfQueryBox').style.display = 'none';
     } finally {
         btn.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
