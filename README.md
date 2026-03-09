@@ -62,7 +62,7 @@ Along with this structural change, two key hyperparameter adjustments were made:
 
 ### Training Curves
 
-![Training vs Validation Loss and Accuracy over Epochs](final-nsp-project/images/training_curves.png)
+![Training vs Validation Loss and Accuracy over Epochs](final-nsp-project/images/training_loss_curve.png)
 
 The blue line (training loss) drops steadily while the red line (validation loss) begins rising after Epoch 2 — classic overfitting. The model was saved at its best checkpoint before this divergence.
 
