@@ -1,9 +1,10 @@
 """
 Vellichor AI — FastAPI Backend Entry Point
 ==========================================
-An intelligent reading companion powered by GPT models.
+An intelligent reading companion powered by HuggingFace models.
 """
 
+import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
@@ -13,18 +14,34 @@ from auth import register_user, login_user
 from models import UserRegister, UserLogin, TokenResponse
 from routes import chat, recommend, emotions, profile
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(name)s] %(levelname)s: %(message)s"
+)
+logger = logging.getLogger(__name__)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Initialize database indexes on startup."""
+    """Initialize database and warm up ML models on startup."""
     await init_db()
+    
+    # Warm up NLP models in background (non-blocking)
+    logger.info("Starting NLP model warmup...")
+    try:
+        from services.nlp_models import warmup_models
+        warmup_models()
+    except Exception as e:
+        logger.warning(f"Model warmup skipped (will load on first request): {e}")
+    
     yield
 
 
 app = FastAPI(
     title="Vellichor AI",
-    description="GPT-powered intelligent reading companion with personalized recommendations, conversational AI, and emotion-aware book analysis.",
-    version="1.0.0",
+    description="HuggingFace-powered intelligent reading companion with sentiment analysis, emotion detection, and document understanding.",
+    version="2.0.0",
     lifespan=lifespan
 )
 
@@ -62,6 +79,17 @@ async def login(body: UserLogin):
 @app.get("/api/health", tags=["System"])
 async def health_check():
     return {"status": "healthy", "service": "Vellichor AI"}
+
+
+@app.get("/api/models/status", tags=["System"])
+async def model_status():
+    """Check which ML models are currently loaded."""
+    try:
+        from services.nlp_models import models_status
+        status = models_status()
+        return {"status": "ok", "models": status}
+    except Exception as e:
+        return {"status": "error", "detail": str(e)}
 
 
 # ─── Include Route Modules ─────────────────────────────────

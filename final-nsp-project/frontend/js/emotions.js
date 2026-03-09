@@ -59,14 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Track uploaded PDF state
+let uploadedPdfFile = null;
+
 function handleFileUpload(event) {
     const file = event.target.files[0];
     if (!file) return;
 
     const ext = file.name.split('.').pop().toLowerCase();
-    const supported = ['txt', 'pdf', 'epub', 'docx', 'doc'];
+    const supported = ['txt', 'pdf'];
     if (!supported.includes(ext)) {
-        showToast('Unsupported file type. Please use PDF, EPUB, DOCX, or TXT.', 'error');
+        showToast('Unsupported file type. Please use PDF or TXT files.', 'error');
         return;
     }
 
@@ -75,16 +78,47 @@ function handleFileUpload(event) {
     document.getElementById('fileName').textContent = `📄 ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
 
     if (ext === 'txt') {
+        uploadedPdfFile = null;
         const reader = new FileReader();
         reader.onload = (e) => {
             document.getElementById('emotionText').value = e.target.result;
             updateCharCount();
-            showToast('Text file loaded successfully');
+            showToast('Text file loaded — click Analyze to process', 'info');
         };
         reader.readAsText(file);
     } else {
-        // For PDF/EPUB/DOCX — inform user these require backend processing
-        showToast(`${ext.toUpperCase()} file selected. When the backend model is connected, it will extract and analyze the text automatically.`, 'info');
+        // PDF — index it with FAISS first, then user tells us WHAT to analyze
+        indexPdfFile(file);
+    }
+}
+
+
+async function indexPdfFile(file) {
+    const btn = document.getElementById('analyzeBtn');
+    btn.textContent = 'Loading PDF...';
+    btn.disabled = true;
+
+    try {
+        showToast('Uploading PDF for indexing...', 'info');
+        const data = await api.uploadEmotionDocument(file);
+        
+        uploadedPdfFile = file;
+        document.getElementById('emotionText').placeholder = 
+            `✅ "${file.name}" loaded (${data.total_chunks} passages indexed).\n\nNow type what to analyze, e.g.:\n• "Analyze the opening chapter"\n• "What emotions are in the ending?"\n• "Analyze the love scenes"`;
+        document.getElementById('emotionText').value = '';
+        updateCharCount();
+        
+        showToast(`PDF indexed! ${data.total_chunks} passages ready. Now type what to analyze.`, 'success');
+    } catch (error) {
+        console.error('PDF index error:', error);
+        showToast(`PDF loading failed: ${error.message}`, 'error');
+        uploadedPdfFile = null;
+    } finally {
+        btn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            Analyze Emotions
+        `;
+        btn.disabled = false;
     }
 }
 
@@ -127,15 +161,24 @@ async function analyzeText() {
     }
 
     const btn = document.getElementById('analyzeBtn');
-    btn.textContent = 'Analyzing...';
     btn.disabled = true;
 
     try {
-        const data = await api.analyzeEmotions(text);
-        displayResults(data.result);
-    } catch {
-        // Fallback mock
-        displayResults(getMockResult());
+        let data;
+        if (uploadedPdfFile) {
+            // PDF loaded — use FAISS retrieval to find relevant chunks, then analyze
+            btn.textContent = 'Searching & analyzing...';
+            data = await api.queryAnalyze(text);
+            showToast(`Analyzed ${data.chunks_analyzed} relevant passages`, 'success');
+        } else {
+            // Plain text — analyze directly
+            btn.textContent = 'Analyzing...';
+            data = await api.analyzeEmotions(text);
+        }
+        displayResults(data);
+    } catch (error) {
+        console.error('Analysis error:', error);
+        showToast(`Analysis failed: ${error.message}. Make sure the backend is running.`, 'error');
     } finally {
         btn.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
@@ -155,23 +198,61 @@ function displayResults(result) {
     const container = document.getElementById('emotionResults');
     container.classList.add('show');
 
+    // Handle both new API format and legacy mock format
+    const emotions = result.emotions || {};
+    const sentiment = result.sentiment || null;
+    const dominantEmotion = result.dominant_emotion || Object.keys(emotions)[0] || 'unknown';
+
     // Emotion Bars
-    renderEmotionBars(result.emotions);
+    renderEmotionBars(emotions);
 
     // Pie Chart
-    renderPieChart(result.emotions);
+    renderPieChart(emotions);
 
     // Bar Chart
-    renderBarChart(result.emotions);
+    renderBarChart(emotions);
 
-    // Theme Tags
-    renderThemes(result.themes);
+    // Theme Tags — show sentiment + dominant emotion as tags
+    const tags = [];
+    if (sentiment) {
+        tags.push(`${sentiment.label} (${Math.round(sentiment.score * 100)}%)`);
+    }
+    tags.push(`Dominant: ${dominantEmotion.charAt(0).toUpperCase() + dominantEmotion.slice(1)}`);
+    renderThemes(result.themes || tags);
 
     // Summary
-    document.getElementById('emotionSummary').textContent = result.summary;
+    const summary = result.summary || generateSummary(sentiment, emotions, dominantEmotion);
+    document.getElementById('emotionSummary').textContent = summary;
 
     // Scroll to results
     container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+
+function generateSummary(sentiment, emotions, dominant) {
+    const sentimentTone = sentiment && sentiment.label === 'POSITIVE'
+        ? 'positive and uplifting'
+        : 'contemplative and somber';
+
+    const emotionDescs = {
+        joy: 'warmth, happiness, and celebration',
+        sadness: 'melancholy, reflection, and poignant emotion',
+        anger: 'intensity, passion, and strong conviction',
+        fear: 'suspense, tension, and underlying unease',
+        surprise: 'unexpected turns and revelatory moments',
+        love: 'tenderness, devotion, and deep connection'
+    };
+
+    const desc = emotionDescs[dominant] || `complex undertones of ${dominant}`;
+    const sorted = Object.entries(emotions).sort((a, b) => b[1] - a[1]);
+    const secondary = sorted.length > 1 ? sorted[1][0] : null;
+
+    let text = `This passage carries a predominantly ${sentimentTone} tone, characterized by ${desc}. `;
+    text += `The dominant emotion is ${dominant} (${Math.round((emotions[dominant] || 0) * 100)}% confidence).`;
+    if (secondary) {
+        text += ` A secondary thread of ${secondary} adds depth and complexity to the emotional landscape.`;
+    }
+    return text;
 }
 
 
@@ -199,11 +280,15 @@ function renderPieChart(emotions) {
     const colors = {
         joy: 'rgba(212, 168, 83, 0.8)',
         sadness: 'rgba(96, 165, 250, 0.8)',
+        anger: 'rgba(248, 113, 113, 0.8)',
+        fear: 'rgba(251, 191, 36, 0.8)',
+        surprise: 'rgba(167, 139, 250, 0.8)',
+        love: 'rgba(244, 114, 182, 0.8)',
+        // Legacy mock colors
         tension: 'rgba(248, 113, 113, 0.8)',
         romance: 'rgba(244, 114, 182, 0.8)',
         mystery: 'rgba(167, 139, 250, 0.8)',
-        hope: 'rgba(74, 222, 128, 0.8)',
-        fear: 'rgba(251, 191, 36, 0.8)'
+        hope: 'rgba(74, 222, 128, 0.8)'
     };
 
     pieChart = new Chart(canvas, {
@@ -246,11 +331,14 @@ function renderBarChart(emotions) {
     const colors = {
         joy: 'rgba(212, 168, 83, 0.8)',
         sadness: 'rgba(96, 165, 250, 0.8)',
+        anger: 'rgba(248, 113, 113, 0.8)',
+        fear: 'rgba(251, 191, 36, 0.8)',
+        surprise: 'rgba(167, 139, 250, 0.8)',
+        love: 'rgba(244, 114, 182, 0.8)',
         tension: 'rgba(248, 113, 113, 0.8)',
         romance: 'rgba(244, 114, 182, 0.8)',
         mystery: 'rgba(167, 139, 250, 0.8)',
-        hope: 'rgba(74, 222, 128, 0.8)',
-        fear: 'rgba(251, 191, 36, 0.8)'
+        hope: 'rgba(74, 222, 128, 0.8)'
     };
 
     barChart = new Chart(canvas, {
@@ -330,8 +418,10 @@ function copyReport() {
 
 function getMockResult() {
     return {
-        emotions: { joy: 0.15, sadness: 0.25, tension: 0.18, romance: 0.22, mystery: 0.08, hope: 0.07, fear: 0.05 },
+        emotions: { joy: 0.12, sadness: 0.30, anger: 0.08, fear: 0.15, surprise: 0.10, love: 0.25 },
+        dominant_emotion: 'sadness',
+        sentiment: { label: 'NEGATIVE', score: 0.72, all_scores: { POSITIVE: 0.28, NEGATIVE: 0.72 } },
         themes: ['Love & Loss', 'Identity', 'Mortality'],
-        summary: 'A contemplative melancholy runs through this text, reflecting on loss and the passage of time with a delicate, almost poetic sensibility. The interplay between sadness and romance creates a bittersweet emotional landscape that speaks to universal human experiences.'
+        summary: 'A contemplative melancholy runs through this text, reflecting on loss and the passage of time with a delicate, almost poetic sensibility. The interplay between sadness and love creates a bittersweet emotional landscape.'
     };
 }

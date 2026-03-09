@@ -138,6 +138,58 @@ class VellichorAPI {
     });
   }
 
+  async analyzeFile(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+    
+    const url = `${API_BASE}/emotions/analyze-file`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Authorization": `Bearer ${this.token}` },
+      body: formData,
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.detail || "File analysis failed");
+    return data;
+  }
+
+  async uploadEmotionDocument(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+    
+    const url = `${API_BASE}/emotions/upload`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Authorization": `Bearer ${this.token}` },
+      body: formData,
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.detail || "Upload failed");
+    return data;
+  }
+
+  async queryAnalyze(query) {
+    return this.request("/emotions/query-analyze", {
+      method: "POST",
+      body: JSON.stringify({ text: query }),
+    });
+  }
+
+  async uploadChatDocument(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+    
+    const url = `${API_BASE}/chat/upload`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Authorization": `Bearer ${this.token}` },
+      body: formData,
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.detail || "Upload failed");
+    return data;
+  }
+
   // ─── Profile ─────────────────────────────────────────
 
   async getProfile() {

@@ -73,8 +73,40 @@ class EmotionResult(BaseModel):
     themes: List[str]
     summary: str
 
+class SentimentResult(BaseModel):
+    label: str         # "POSITIVE" or "NEGATIVE"
+    score: float       # confidence 0-1
+    all_scores: dict   # {"POSITIVE": 0.99, "NEGATIVE": 0.01}
+
+class ChunkAnalysis(BaseModel):
+    chunk_text: str
+    chunk_index: int
+    sentiment: SentimentResult
+    emotions: dict     # {"joy": 0.9, "sadness": 0.02, ...}
+    dominant_emotion: str
+
+class FileAnalysisResponse(BaseModel):
+    filename: str
+    total_chunks: int
+    chunks: List[ChunkAnalysis]
+    aggregate_sentiment: SentimentResult
+    aggregate_emotions: dict
+    dominant_emotion: str
+    summary: str
+
 class EmotionResponse(BaseModel):
     result: EmotionResult
+
+class TextAnalysisResponse(BaseModel):
+    sentiment: SentimentResult
+    emotions: dict
+    dominant_emotion: str
+
+class FileUploadResponse(BaseModel):
+    filename: str
+    total_characters: int
+    total_chunks: int
+    status: str
 
 
 # ─── Profile Models ───────────────────────────────────────

@@ -8,3 +8,9 @@ python-dotenv==1.0.0
 pydantic[email]==2.5.3
 httpx==0.26.0
 python-multipart==0.0.6
+transformers>=4.36.0
+torch>=2.1.0
+sentence-transformers>=2.2.2
+faiss-cpu>=1.7.4
+PyMuPDF>=1.23.0
+langchain-text-splitters>=0.0.1
