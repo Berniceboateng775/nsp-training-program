@@ -174,6 +174,11 @@ async function openBookDetail(workId) {
 
     try {
         const book = await api.getBookDetails(workId);
+
+        // Track books explored
+        const stats = JSON.parse(localStorage.getItem('vellichor_stats') || '{}');
+        stats.books_explored = (stats.books_explored || 0) + 1;
+        localStorage.setItem('vellichor_stats', JSON.stringify(stats));
         
         if (book.error) {
             showToast('Could not load book details', 'error');

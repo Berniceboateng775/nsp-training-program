@@ -333,6 +333,11 @@ async function sendMessage() {
         // Save assistant reply
         chatMessages.push({ text: data.reply, role: 'assistant', time: replyTime });
         saveChatMessages(currentChatId, chatMessages);
+
+        // Track AI conversations stat
+        const stats = JSON.parse(localStorage.getItem('vellichor_stats') || '{}');
+        stats.ai_conversations = (stats.ai_conversations || 0) + 1;
+        localStorage.setItem('vellichor_stats', JSON.stringify(stats));
     } catch (error) {
         typing.classList.remove('show');
         const mockResponses = [

@@ -33,7 +33,7 @@ function getEmotionColors() {
         'Joy & Confidence': '#D4A853',
         'Sadness': '#60A5FA',
         'Anger': '#F87171',
-        'Fear & Tension': '#FBBF24',
+        'Fear & Tension': '#EF4444',
         'Connection & Trust': '#F472B6',
         'Vulnerability': '#A78BFA',
         'Suspense & Reflection': '#4ADE80',
@@ -41,17 +41,17 @@ function getEmotionColors() {
         'joy': '#D4A853',
         'sadness': '#60A5FA',
         'anger': '#F87171',
-        'fear': '#FBBF24',
+        'fear': '#EF4444',
         'surprise': '#A78BFA',
         'love': '#F472B6'
     };
 }
 
 const SAMPLE_TEXTS = [
-    // Romantic Prose  [situation, dialogue]
+    // Joy & Confidence  [situation, dialogue]
     {
-        situation: 'A woman stands in a twilight garden, holding a faded love letter from the man who left years ago.',
-        dialogue: 'She pressed the letter to her chest — the one he\'d written the night before he left, its ink now faded but its words still burning. "I will find my way back to you," he had promised, and she believed him still, even as the seasons turned and the world grew older without them.'
+        situation: 'A student finding out they passed their final engineering project.',
+        dialogue: 'I can\'t believe we actually got an A! All those sleepless nights coding finally paid off.'
     },
     // Gothic Horror
     {
@@ -109,7 +109,8 @@ function handleFileUpload(event) {
         uploadedPdfFile = null;
         const reader = new FileReader();
         reader.onload = (e) => {
-            document.getElementById('emotionText').value = e.target.result;
+            // For TXT: put text in the dialogue box directly
+            document.getElementById('dialogueText').value = e.target.result;
             updateCharCount();
             showToast('Text file loaded — click Analyze to process', 'info');
         };
@@ -131,9 +132,14 @@ async function indexPdfFile(file) {
         const data = await api.uploadEmotionDocument(file);
         
         uploadedPdfFile = file;
-        document.getElementById('emotionText').placeholder = 
-            `✅ "${file.name}" loaded (${data.total_chunks} passages indexed).\n\nNow type what to analyze, e.g.:\n• "Analyze the opening chapter"\n• "What emotions are in the ending?"\n• "Analyze the love scenes"`;
-        document.getElementById('emotionText').value = '';
+
+        // Switch to single query mode: hide dual inputs, show query box
+        document.getElementById('dualInputs').style.display = 'none';
+        const queryBox = document.getElementById('pdfQueryBox');
+        queryBox.style.display = 'block';
+        document.getElementById('pdfQueryText').placeholder = 
+            `✅ "${file.name}" loaded (${data.total_chunks} passages indexed).\n\nNow tell the AI what to analyze:\n• "Analyze the opening chapter"\n• "What emotions are in the ending?"\n• "Find the most intense dialogue"`;
+        document.getElementById('pdfQueryText').value = '';
         updateCharCount();
         
         showToast(`PDF indexed! ${data.total_chunks} passages ready. Now type what to analyze.`, 'success');
@@ -154,13 +160,18 @@ function clearFile() {
     document.getElementById('fileInput').value = '';
     document.getElementById('fileInfo').style.display = 'none';
     document.getElementById('fileName').textContent = '';
+    uploadedPdfFile = null;
+    // Restore dual inputs
+    document.getElementById('dualInputs').style.display = '';
+    document.getElementById('pdfQueryBox').style.display = 'none';
 }
 
 
 function updateCharCount() {
     const situation = document.getElementById('situationText')?.value || '';
     const dialogue = document.getElementById('dialogueText')?.value || '';
-    const total = situation.length + dialogue.length;
+    const pdfQuery = document.getElementById('pdfQueryText')?.value || '';
+    const total = situation.length + dialogue.length + pdfQuery.length;
     document.getElementById('charCount').textContent = `${total} characters`;
 }
 
@@ -177,8 +188,8 @@ async function analyzeText() {
     const situation = document.getElementById('situationText')?.value?.trim() || '';
     const dialogue = document.getElementById('dialogueText')?.value?.trim() || '';
     
-    // For PDF mode, use the hidden emotionText field
-    const pdfQuery = document.getElementById('emotionText')?.value?.trim() || '';
+    // For PDF mode, use the query box
+    const pdfQuery = document.getElementById('pdfQueryText')?.value?.trim() || '';
     
     if (!dialogue && !uploadedPdfFile && !pdfQuery) {
         showToast('Please enter dialogue text to analyze', 'warning');
@@ -213,6 +224,14 @@ async function analyzeText() {
             data = await api.analyzeEmotions(dialogue, situation);
         }
         displayResults(data);
+
+        // Track stats in localStorage (works across all pages)
+        const stats = JSON.parse(localStorage.getItem('vellichor_stats') || '{}');
+        stats.texts_analyzed = (stats.texts_analyzed || 0) + 1;
+        if (data.dominant_emotion && data.dominant_emotion !== 'unknown') {
+            stats.dominant_mood = data.dominant_emotion;
+        }
+        localStorage.setItem('vellichor_stats', JSON.stringify(stats));
     } catch (error) {
         console.error('Analysis error:', error);
         showToast(`Analysis failed: ${error.message}. Make sure the backend is running.`, 'error');
@@ -222,11 +241,6 @@ async function analyzeText() {
             Analyze Emotions
         `;
         btn.disabled = false;
-    }
-
-    // Track stats
-    if (typeof incrementStat === 'function') {
-        incrementStat('texts_analyzed');
     }
 }
 

@@ -128,9 +128,19 @@ def analyze_emotions_chunks(chunks: List[str], query: str = None) -> Dict[str, A
 # ─── Combined Analysis ──────────────────────────────────────
 
 def analyze_text_full(text: str, situation: str = "") -> Dict[str, Any]:
-    """Run both sentiment (local) and emotion (Render API) analysis."""
-    sentiment = analyze_sentiment(text)
+    """Run both emotion (Render API) and sentiment (local) analysis.
+    
+    Sentiment is derived from the emotion model's dominant label,
+    not the raw text. This prevents contradictions like
+    'Joy & Confidence' being labeled NEGATIVE.
+    """
+    # Step 1: Get emotions from your custom GPT-2 model
     emotions = analyze_emotions(text, situation=situation)
+    
+    # Step 2: Feed the dominant emotion label into DistilBERT for sentiment
+    # e.g. "Joy & Confidence" → POSITIVE, "Anger" → NEGATIVE
+    dominant = emotions.get("dominant", "unknown")
+    sentiment = analyze_sentiment(dominant) if dominant != "unknown" else analyze_sentiment(text)
 
     return {
         "sentiment": sentiment,

@@ -50,7 +50,7 @@
                     </div>
 
                     <!-- Two Box Input: Situation + Dialogue -->
-                    <div class="dual-input-grid">
+                    <div id="dualInputs" class="dual-input-grid">
                         <div class="input-box">
                             <label for="situationText">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
@@ -67,7 +67,18 @@
                         </div>
                     </div>
 
-                    <!-- Hidden field for PDF query (still used) -->
+                    <!-- PDF Query Box (hidden until PDF is uploaded) -->
+                    <div id="pdfQueryBox" style="display: none;">
+                        <div class="input-box">
+                            <label for="pdfQueryText">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                                What should the AI analyze?
+                            </label>
+                            <textarea id="pdfQueryText" placeholder='Tell the AI what part of the book to analyze...'></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Hidden field (legacy) -->
                     <textarea id="emotionText" style="display: none;"></textarea>
 
                     <div class="analyze-actions">
@@ -79,7 +90,7 @@
                     </div>
                     <div class="sample-texts">
                         <span style="font-size: var(--text-xs); color: var(--color-text-muted); margin-right: var(--space-2);">Try a sample:</span>
-                        <button class="sample-text-btn" onclick="loadSample(0)">Romantic Prose</button>
+                        <button class="sample-text-btn" onclick="loadSample(0)">Joy &amp; Confidence</button>
                         <button class="sample-text-btn" onclick="loadSample(1)">Gothic Horror</button>
                         <button class="sample-text-btn" onclick="loadSample(2)">Epic Fantasy</button>
                     </div>
