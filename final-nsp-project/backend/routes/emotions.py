@@ -40,7 +40,7 @@ async def analyze_text_endpoint(
         raise HTTPException(status_code=400, detail="Text must be at least 10 characters")
 
     try:
-        result = analyze_text_full(text)
+        result = analyze_text_full(text, situation=body.situation)
         return TextAnalysisResponse(
             sentiment=SentimentResult(**result["sentiment"]),
             emotions=result["emotions"]["scores"],

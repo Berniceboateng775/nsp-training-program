@@ -15,6 +15,17 @@ OPEN_LIBRARY_SEARCH = "https://openlibrary.org/search.json"
 OPEN_LIBRARY_WORKS = "https://openlibrary.org"
 
 
+def _clean_subjects(subjects: list) -> list:
+    """Filter out noisy Open Library subjects (NYT metadata, etc.)."""
+    if not subjects:
+        return ["General"]
+    clean = [
+        s for s in subjects
+        if ':' not in s and '=' not in s and len(s) < 35 and not s.startswith('nyt')
+    ]
+    return clean[:3] if clean else ["General"]
+
+
 def _format_book(doc: dict) -> dict:
     """Convert an Open Library search result into our book format."""
     cover_id = doc.get("cover_i")
@@ -26,7 +37,7 @@ def _format_book(doc: dict) -> dict:
     return {
         "title": doc.get("title", "Unknown Title"),
         "author": ", ".join(doc.get("author_name", ["Unknown Author"])[:2]),
-        "genre": (doc.get("subject", [])[:3] if doc.get("subject") else ["General"]),
+        "genre": _clean_subjects(doc.get("subject", [])),
         "description": doc.get("first_sentence", [""])[0] if doc.get("first_sentence") else "",
         "cover_url": cover_url,
         "year": doc.get("first_publish_year"),

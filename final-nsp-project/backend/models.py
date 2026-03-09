@@ -67,6 +67,7 @@ class RecommendationResponse(BaseModel):
 
 class EmotionRequest(BaseModel):
     text: str
+    situation: str = ""
 
 class EmotionResult(BaseModel):
     emotions: dict  # {"joy": 0.8, "sadness": 0.1, ...}

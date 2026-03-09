@@ -136,10 +136,10 @@ class VellichorAPI {
 
   // ─── Emotions ────────────────────────────────────────
 
-  async analyzeEmotions(text) {
+  async analyzeEmotions(text, situation = '') {
     return this.request("/emotions/analyze", {
       method: "POST",
-      body: JSON.stringify({ text }),
+      body: JSON.stringify({ text, situation }),
     });
   }
 

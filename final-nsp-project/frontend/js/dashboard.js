@@ -66,31 +66,40 @@ async function loadRecentBooks() {
 
 
 function createBookCard(book) {
-    const coverColors = [
-        'rgba(212,168,83,0.15)',
-        'rgba(184,64,94,0.15)',
-        'rgba(96,165,250,0.15)',
-        'rgba(74,222,128,0.15)'
-    ];
-    const randomColor = coverColors[Math.floor(Math.random() * coverColors.length)];
-    
+    // Use real cover image if available
+    const coverHtml = book.cover_url
+        ? `<img src="${book.cover_url}" alt="${book.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentNode.innerHTML='<span style=\\'opacity:0.6;position:relative;z-index:1;\\'>${book.title.substring(0, 20)}</span>'">`
+        : `<span style="opacity: 0.6; position: relative; z-index: 1;">${book.title.substring(0, 20)}</span>`;
+
+    const coverBg = book.cover_url ? '' : `background: rgba(212,168,83,0.15);`;
+
+    // Clean genre — filter out messy Open Library metadata
+    let genre = '';
+    if (Array.isArray(book.genre)) {
+        genre = book.genre
+            .filter(g => !g.includes(':') && !g.includes('=') && g.length < 30)
+            .slice(0, 2).join(', ');
+    } else {
+        genre = book.genre || '';
+    }
+
+    const rating = book.rating ? `${icons.star} ${book.rating}` : '';
+
     return `
         <div class="book-card">
-            <div class="book-cover" style="background: ${randomColor};">
-                <span style="opacity: 0.6; position: relative; z-index: 1;">${book.title.substring(0, 20)}</span>
+            <div class="book-cover" style="${coverBg}">
+                ${coverHtml}
             </div>
             <div class="book-info">
                 <div class="book-title">${book.title}</div>
                 <div class="book-author">${book.author}</div>
-                <div class="book-genre">${book.genre}</div>
-                <div class="book-description">${book.description}</div>
-                <div class="book-rating">
-                    ${icons.star} ${book.rating}
-                </div>
+                ${genre ? `<div class="book-genre">${genre}</div>` : ''}
+                ${rating ? `<div class="book-rating">${rating}</div>` : ''}
             </div>
         </div>
     `;
 }
+
 
 
 function createMockBooks() {

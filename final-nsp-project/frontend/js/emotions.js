@@ -29,33 +29,40 @@ let barChart = null;
 // Centralized color mapping for all 7 custom emotion labels
 function getEmotionColors() {
     return {
-        // Custom GPT-2 model labels
-        'Joy & Confidence': 'rgba(212, 168, 83, 0.8)',
-        'Sadness': 'rgba(96, 165, 250, 0.8)',
-        'Anger': 'rgba(248, 113, 113, 0.8)',
-        'Fear & Tension': 'rgba(251, 191, 36, 0.8)',
-        'Connection & Trust': 'rgba(244, 114, 182, 0.8)',
-        'Vulnerability': 'rgba(167, 139, 250, 0.8)',
-        'Suspense & Reflection': 'rgba(74, 222, 128, 0.8)',
+        // Custom GPT-2 model labels — solid vivid colors
+        'Joy & Confidence': '#D4A853',
+        'Sadness': '#60A5FA',
+        'Anger': '#F87171',
+        'Fear & Tension': '#FBBF24',
+        'Connection & Trust': '#F472B6',
+        'Vulnerability': '#A78BFA',
+        'Suspense & Reflection': '#4ADE80',
         // Fallback lowercase variants
-        'joy': 'rgba(212, 168, 83, 0.8)',
-        'sadness': 'rgba(96, 165, 250, 0.8)',
-        'anger': 'rgba(248, 113, 113, 0.8)',
-        'fear': 'rgba(251, 191, 36, 0.8)',
-        'surprise': 'rgba(167, 139, 250, 0.8)',
-        'love': 'rgba(244, 114, 182, 0.8)'
+        'joy': '#D4A853',
+        'sadness': '#60A5FA',
+        'anger': '#F87171',
+        'fear': '#FBBF24',
+        'surprise': '#A78BFA',
+        'love': '#F472B6'
     };
 }
 
 const SAMPLE_TEXTS = [
-    // Romantic Prose
-    `She stood at the edge of the garden where the roses still bloomed despite the autumn chill, their petals soft as the whispers they once shared under summer stars. Every breath carried the ghost of his cologne, and every shadow wore the shape of his absence. She pressed the letter to her chest — the one he'd written the night before he left, its ink now faded but its words still burning. "I will find my way back to you," he had promised, and she believed him still, even as the seasons turned and the world grew older without them.`,
-
+    // Romantic Prose  [situation, dialogue]
+    {
+        situation: 'A woman stands in a twilight garden, holding a faded love letter from the man who left years ago.',
+        dialogue: 'She pressed the letter to her chest — the one he\'d written the night before he left, its ink now faded but its words still burning. "I will find my way back to you," he had promised, and she believed him still, even as the seasons turned and the world grew older without them.'
+    },
     // Gothic Horror
-    `The manor groaned in the wind like a living creature in pain. Elara pressed her candle forward, its flame trembling against the darkness that seemed to breathe from the walls themselves. The corridor stretched impossibly long, each door she passed etched with symbols that writhed when she wasn't looking directly at them. Behind her, the footsteps resumed — measured, deliberate, patient. She quickened her pace, but the distance between her and the staircase never seemed to close. Then the candle went out, and in the perfect blackness, something cold brushed against her neck.`,
-
+    {
+        situation: 'A young woman explores an ancient, haunted manor during a storm. She hears footsteps behind her.',
+        dialogue: 'The corridor stretched impossibly long, each door she passed etched with symbols that writhed when she wasn\'t looking directly at them. Behind her, the footsteps resumed — measured, deliberate, patient. Then the candle went out, and in the perfect blackness, something cold brushed against her neck.'
+    },
     // Epic Fantasy
-    `The last dragon descended from the clouds of ash like judgment made flesh, its scales reflecting the fires that consumed the fallen kingdom below. Kael raised his blade — the Starsbane, forged by the First Warden in an age when gods still walked among mortals — and felt the ancient magic pulse through his veins like molten silver. Around him, the remnants of his company stood firm: warriors, scholars, and outcasts who had followed him across three continents and through the very gates of the Shadowlands. This was the final reckoning. The prophecy had spoken of this moment for a thousand years.`
+    {
+        situation: 'The last battle of a prophecy. A warrior with a legendary sword faces the final dragon above a burning kingdom.',
+        dialogue: 'Kael raised his blade — the Starsbane, forged by the First Warden in an age when gods still walked among mortals — and felt the ancient magic pulse through his veins like molten silver. This was the final reckoning. The prophecy had spoken of this moment for a thousand years.'
+    }
 ];
 
 
@@ -151,21 +158,30 @@ function clearFile() {
 
 
 function updateCharCount() {
-    const text = document.getElementById('emotionText').value;
-    document.getElementById('charCount').textContent = `${text.length} characters`;
+    const situation = document.getElementById('situationText')?.value || '';
+    const dialogue = document.getElementById('dialogueText')?.value || '';
+    const total = situation.length + dialogue.length;
+    document.getElementById('charCount').textContent = `${total} characters`;
 }
 
 
 function loadSample(index) {
-    document.getElementById('emotionText').value = SAMPLE_TEXTS[index];
+    const sample = SAMPLE_TEXTS[index];
+    document.getElementById('situationText').value = sample.situation;
+    document.getElementById('dialogueText').value = sample.dialogue;
     updateCharCount();
 }
 
 
 async function analyzeText() {
-    const text = document.getElementById('emotionText').value.trim();
-    if (!text) {
-        showToast('Please enter some text to analyze', 'warning');
+    const situation = document.getElementById('situationText')?.value?.trim() || '';
+    const dialogue = document.getElementById('dialogueText')?.value?.trim() || '';
+    
+    // For PDF mode, use the hidden emotionText field
+    const pdfQuery = document.getElementById('emotionText')?.value?.trim() || '';
+    
+    if (!dialogue && !uploadedPdfFile && !pdfQuery) {
+        showToast('Please enter dialogue text to analyze', 'warning');
         return;
     }
 
@@ -187,14 +203,14 @@ async function analyzeText() {
     try {
         let data;
         if (uploadedPdfFile) {
-            // PDF loaded — use FAISS retrieval to find relevant chunks, then analyze
+            // PDF loaded — use FAISS retrieval
             btn.textContent = 'Searching & analyzing...';
-            data = await api.queryAnalyze(text);
+            data = await api.queryAnalyze(pdfQuery || dialogue);
             showToast(`Analyzed ${data.chunks_analyzed} relevant passages`, 'success');
         } else {
-            // Plain text — analyze directly
+            // Direct text — send situation + dialogue separately
             btn.textContent = 'Analyzing...';
-            data = await api.analyzeEmotions(text);
+            data = await api.analyzeEmotions(dialogue, situation);
         }
         displayResults(data);
     } catch (error) {
@@ -279,18 +295,24 @@ function generateSummary(sentiment, emotions, dominant) {
 
 function renderEmotionBars(emotions) {
     const container = document.getElementById('emotionBars');
-    const sorted = Object.entries(emotions).sort((a, b) => b[1] - a[1]);
+    const sorted = Object.entries(emotions)
+        .sort((a, b) => b[1] - a[1])
+        .filter(([_, value]) => Math.round(value * 100) > 0);  // Only show emotions with scores
+    const colors = getEmotionColors();
 
-    container.innerHTML = sorted.map(([emotion, value]) => `
+    container.innerHTML = sorted.map(([emotion, value]) => {
+        const color = colors[emotion] || '#A7A9BE';
+        return `
         <div class="emotion-bar-item">
             <span class="emotion-bar-label">${emotion}</span>
             <div class="emotion-bar-track">
-                <div class="emotion-bar-fill ${emotion}" style="width: ${value * 100}%">
+                <div class="emotion-bar-fill" style="width: ${value * 100}%; background: ${color};">
                     ${Math.round(value * 100)}%
                 </div>
             </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 

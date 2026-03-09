@@ -78,16 +78,16 @@ def analyze_sentiment(text: str) -> Dict[str, Any]:
 
 # ─── Emotions (calls your Render-hosted model) ─────────────
 
-def analyze_emotions(text: str) -> Dict[str, Any]:
+def analyze_emotions(text: str, situation: str = "") -> Dict[str, Any]:
     """
     Call your custom GPT-2 emotion model hosted on Render.
     Returns: {"dominant": "Joy & Confidence", "scores": {"Joy & Confidence": 0.9, ...}}
     """
     try:
-        with httpx.Client(timeout=30.0) as client:
+        with httpx.Client(timeout=90.0) as client:
             response = client.post(
                 f"{EMOTION_MODEL_URL}/predict",
-                json={"text": text}
+                json={"text": text, "situation": situation or None}
             )
             response.raise_for_status()
             data = response.json()
@@ -113,7 +113,7 @@ def analyze_emotions_chunks(chunks: List[str], query: str = None) -> Dict[str, A
     Returns aggregate + per-chunk results.
     """
     try:
-        with httpx.Client(timeout=60.0) as client:
+        with httpx.Client(timeout=120.0) as client:
             response = client.post(
                 f"{EMOTION_MODEL_URL}/analyze-chunks",
                 json={"chunks": chunks, "query": query}
@@ -127,10 +127,10 @@ def analyze_emotions_chunks(chunks: List[str], query: str = None) -> Dict[str, A
 
 # ─── Combined Analysis ──────────────────────────────────────
 
-def analyze_text_full(text: str) -> Dict[str, Any]:
+def analyze_text_full(text: str, situation: str = "") -> Dict[str, Any]:
     """Run both sentiment (local) and emotion (Render API) analysis."""
     sentiment = analyze_sentiment(text)
-    emotions = analyze_emotions(text)
+    emotions = analyze_emotions(text, situation=situation)
 
     return {
         "sentiment": sentiment,

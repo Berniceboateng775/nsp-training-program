@@ -81,6 +81,7 @@ app.add_middleware(
 
 class PredictRequest(BaseModel):
     text: str
+    situation: Optional[str] = None  # context makes predictions much more accurate
 
 class ChunksRequest(BaseModel):
     chunks: List[str]
@@ -124,8 +125,11 @@ async def predict(body: PredictRequest):
     classifier = load_model()
     
     try:
-        # Truncate to model max length (1024 tokens for GPT-2)
-        results = classifier(text[:3000])
+        # Format input the way the model was trained:
+        # "Situation: [context] Dialogue: [text]"
+        formatted = _format_input(text, body.situation)
+        
+        results = classifier(formatted[:3000])
         scores = results[0] if isinstance(results[0], list) else results
         
         sorted_scores = sorted(scores, key=lambda x: x["score"], reverse=True)
@@ -153,7 +157,8 @@ async def analyze_chunks(body: ChunksRequest):
         all_emotions = {}
         
         for chunk in body.chunks:
-            results = classifier(chunk[:3000])
+            formatted = _format_input(chunk, body.query)
+            results = classifier(formatted[:3000])
             scores = results[0] if isinstance(results[0], list) else results
             sorted_scores = sorted(scores, key=lambda x: x["score"], reverse=True)
             
@@ -185,6 +190,25 @@ async def analyze_chunks(body: ChunksRequest):
     except Exception as e:
         logger.error(f"Chunk analysis error: {e}")
         raise HTTPException(status_code=500, detail=f"Analysis failed: {str(e)}")
+
+
+def _format_input(text: str, situation: str = None) -> str:
+    """Format input the way the model was trained: 'Situation: ... Dialogue: ...'
+    
+    Without this format, the model hits the '57% wall' — it can't distinguish
+    emotions from ambiguous text alone. The context-aware format is what pushed
+    accuracy from 57% to 75%.
+    """
+    text = text.strip()
+    # If the text already has the format, don't double-wrap
+    if text.lower().startswith('situation:'):
+        return text
+    
+    if situation:
+        return f"Situation: {situation} Dialogue: {text}"
+    else:
+        # Use a generic situation when none provided
+        return f"Situation: A person is expressing their thoughts and feelings. Dialogue: {text}"
 
 
 def _build_summary(dominant: str, emotions: dict, n: int, query: str = None) -> str:
