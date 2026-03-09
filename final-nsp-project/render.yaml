@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: vellichor-emotion-detector
+    runtime: docker
+    dockerfilePath: ./model-server/Dockerfile
+    dockerContext: ./model-server
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: MODEL_REPO
+        value: Bernice775/vellichor-emotion-detector

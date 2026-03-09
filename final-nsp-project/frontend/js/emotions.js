@@ -26,6 +26,27 @@ function showGuestLimitModal() {
 let pieChart = null;
 let barChart = null;
 
+// Centralized color mapping for all 7 custom emotion labels
+function getEmotionColors() {
+    return {
+        // Custom GPT-2 model labels
+        'Joy & Confidence': 'rgba(212, 168, 83, 0.8)',
+        'Sadness': 'rgba(96, 165, 250, 0.8)',
+        'Anger': 'rgba(248, 113, 113, 0.8)',
+        'Fear & Tension': 'rgba(251, 191, 36, 0.8)',
+        'Connection & Trust': 'rgba(244, 114, 182, 0.8)',
+        'Vulnerability': 'rgba(167, 139, 250, 0.8)',
+        'Suspense & Reflection': 'rgba(74, 222, 128, 0.8)',
+        // Fallback lowercase variants
+        'joy': 'rgba(212, 168, 83, 0.8)',
+        'sadness': 'rgba(96, 165, 250, 0.8)',
+        'anger': 'rgba(248, 113, 113, 0.8)',
+        'fear': 'rgba(251, 191, 36, 0.8)',
+        'surprise': 'rgba(167, 139, 250, 0.8)',
+        'love': 'rgba(244, 114, 182, 0.8)'
+    };
+}
+
 const SAMPLE_TEXTS = [
     // Romantic Prose
     `She stood at the edge of the garden where the roses still bloomed despite the autumn chill, their petals soft as the whispers they once shared under summer stars. Every breath carried the ghost of his cologne, and every shadow wore the shape of his absence. She pressed the letter to her chest — the one he'd written the night before he left, its ink now faded but its words still burning. "I will find my way back to you," he had promised, and she believed him still, even as the seasons turned and the world grew older without them.`,
@@ -277,19 +298,7 @@ function renderPieChart(emotions) {
     const canvas = document.getElementById('emotionPieChart');
     if (pieChart) pieChart.destroy();
 
-    const colors = {
-        joy: 'rgba(212, 168, 83, 0.8)',
-        sadness: 'rgba(96, 165, 250, 0.8)',
-        anger: 'rgba(248, 113, 113, 0.8)',
-        fear: 'rgba(251, 191, 36, 0.8)',
-        surprise: 'rgba(167, 139, 250, 0.8)',
-        love: 'rgba(244, 114, 182, 0.8)',
-        // Legacy mock colors
-        tension: 'rgba(248, 113, 113, 0.8)',
-        romance: 'rgba(244, 114, 182, 0.8)',
-        mystery: 'rgba(167, 139, 250, 0.8)',
-        hope: 'rgba(74, 222, 128, 0.8)'
-    };
+    const colors = getEmotionColors();
 
     pieChart = new Chart(canvas, {
         type: 'doughnut',
@@ -328,18 +337,7 @@ function renderBarChart(emotions) {
     const canvas = document.getElementById('emotionBarChart');
     if (barChart) barChart.destroy();
 
-    const colors = {
-        joy: 'rgba(212, 168, 83, 0.8)',
-        sadness: 'rgba(96, 165, 250, 0.8)',
-        anger: 'rgba(248, 113, 113, 0.8)',
-        fear: 'rgba(251, 191, 36, 0.8)',
-        surprise: 'rgba(167, 139, 250, 0.8)',
-        love: 'rgba(244, 114, 182, 0.8)',
-        tension: 'rgba(248, 113, 113, 0.8)',
-        romance: 'rgba(244, 114, 182, 0.8)',
-        mystery: 'rgba(167, 139, 250, 0.8)',
-        hope: 'rgba(74, 222, 128, 0.8)'
-    };
+    const colors = getEmotionColors();
 
     barChart = new Chart(canvas, {
         type: 'bar',

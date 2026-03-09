@@ -1,29 +1,31 @@
 """
 Vellichor AI — NLP Models Service
 ==================================
-Lazy-loads HuggingFace models for sentiment analysis, emotion detection,
-and sentence embeddings. Models are loaded once and cached as singletons.
-
-Models used:
-  - Sentiment: distilbert-base-uncased-finetuned-sst-2-english
-  - Emotion:   nateraw/bert-base-uncased-emotion
-  - Embeddings: sentence-transformers/all-MiniLM-L6-v2
+- Sentiment: runs locally (distilbert, small & fast)
+- Emotion:   calls external API (your custom GPT-2 model on Render)
+- Embeddings: runs locally (MiniLM-L6-v2 for FAISS)
 """
 
+import os
 import logging
+import httpx
 from typing import List, Dict, Any
+from dotenv import load_dotenv
+
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-# ─── Singleton model holders ────────────────────────────────
+# ─── Config ─────────────────────────────────────────────────
+EMOTION_MODEL_URL = os.getenv("EMOTION_MODEL_URL", "http://localhost:8000")
 
+# ─── Singleton model holders ────────────────────────────────
 _sentiment_pipeline = None
-_emotion_pipeline = None
 _embedding_model = None
 
 
 def get_sentiment_pipeline():
-    """Lazy-load the sentiment analysis pipeline."""
+    """Lazy-load the sentiment analysis pipeline (runs locally)."""
     global _sentiment_pipeline
     if _sentiment_pipeline is None:
         from transformers import pipeline, AutoModelForSequenceClassification, AutoTokenizer
@@ -36,34 +38,14 @@ def get_sentiment_pipeline():
             model=model,
             tokenizer=tokenizer,
             top_k=None,
-            device=-1  # CPU
+            device=-1
         )
         logger.info("Sentiment model loaded successfully")
     return _sentiment_pipeline
 
 
-def get_emotion_pipeline():
-    """Lazy-load the emotion classification pipeline."""
-    global _emotion_pipeline
-    if _emotion_pipeline is None:
-        from transformers import pipeline, AutoModelForSequenceClassification, AutoTokenizer
-        logger.info("Loading emotion model: nateraw/bert-base-uncased-emotion")
-        model_name = "nateraw/bert-base-uncased-emotion"
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
-        model = AutoModelForSequenceClassification.from_pretrained(model_name)
-        _emotion_pipeline = pipeline(
-            "text-classification",
-            model=model,
-            tokenizer=tokenizer,
-            top_k=None,
-            device=-1  # CPU
-        )
-        logger.info("Emotion model loaded successfully")
-    return _emotion_pipeline
-
-
 def get_embedding_model():
-    """Lazy-load the sentence-transformers embedding model."""
+    """Lazy-load the sentence-transformers embedding model (runs locally)."""
     global _embedding_model
     if _embedding_model is None:
         from sentence_transformers import SentenceTransformer
@@ -73,18 +55,16 @@ def get_embedding_model():
     return _embedding_model
 
 
-# ─── Analysis Functions ─────────────────────────────────────
+# ─── Sentiment (local) ──────────────────────────────────────
 
 def analyze_sentiment(text: str) -> Dict[str, Any]:
     """
-    Run sentiment analysis on a text string.
+    Run sentiment analysis locally.
     Returns: {"label": "POSITIVE"/"NEGATIVE", "score": 0.99, "all_scores": {...}}
     """
     pipe = get_sentiment_pipeline()
-    # Truncate to 512 tokens (model limit)
     result = pipe(text[:512])
 
-    # result is [[{label, score}, ...]] when top_k=None
     scores = result[0] if isinstance(result[0], list) else result
     label_scores = {item["label"]: round(item["score"], 4) for item in scores}
     top = max(scores, key=lambda x: x["score"])
@@ -96,29 +76,59 @@ def analyze_sentiment(text: str) -> Dict[str, Any]:
     }
 
 
+# ─── Emotions (calls your Render-hosted model) ─────────────
+
 def analyze_emotions(text: str) -> Dict[str, Any]:
     """
-    Run emotion classification on a text string.
-    Returns: {"dominant": "joy", "scores": {"joy": 0.9, "sadness": 0.02, ...}}
+    Call your custom GPT-2 emotion model hosted on Render.
+    Returns: {"dominant": "Joy & Confidence", "scores": {"Joy & Confidence": 0.9, ...}}
     """
-    pipe = get_emotion_pipeline()
-    result = pipe(text[:512])
+    try:
+        with httpx.Client(timeout=30.0) as client:
+            response = client.post(
+                f"{EMOTION_MODEL_URL}/predict",
+                json={"text": text}
+            )
+            response.raise_for_status()
+            data = response.json()
 
-    scores = result[0] if isinstance(result[0], list) else result
-    emotion_scores = {item["label"]: round(item["score"], 4) for item in scores}
-    dominant = max(scores, key=lambda x: x["score"])
+        # Convert from model server format to our internal format
+        emotion_scores = {e["label"]: e["score"] for e in data["emotions"]}
+        return {
+            "dominant": data["dominant"],
+            "scores": emotion_scores
+        }
+    except Exception as e:
+        logger.error(f"Emotion model API error: {e}")
+        # Return a neutral fallback if the model server is down
+        return {
+            "dominant": "unknown",
+            "scores": {}
+        }
 
-    return {
-        "dominant": dominant["label"],
-        "scores": emotion_scores
-    }
 
+def analyze_emotions_chunks(chunks: List[str], query: str = None) -> Dict[str, Any]:
+    """
+    Send multiple chunks to the model server for batch analysis.
+    Returns aggregate + per-chunk results.
+    """
+    try:
+        with httpx.Client(timeout=60.0) as client:
+            response = client.post(
+                f"{EMOTION_MODEL_URL}/analyze-chunks",
+                json={"chunks": chunks, "query": query}
+            )
+            response.raise_for_status()
+            return response.json()
+    except Exception as e:
+        logger.error(f"Chunk analysis API error: {e}")
+        raise
+
+
+# ─── Combined Analysis ──────────────────────────────────────
 
 def analyze_text_full(text: str) -> Dict[str, Any]:
-    """
-    Run both sentiment and emotion analysis on a text.
-    Returns combined result.
-    """
+    """Run both sentiment (local) and emotion (Render API) analysis."""
     sentiment = analyze_sentiment(text)
     emotions = analyze_emotions(text)
 
@@ -128,18 +138,14 @@ def analyze_text_full(text: str) -> Dict[str, Any]:
     }
 
 
+# ─── Embeddings (local) ─────────────────────────────────────
+
 def compute_embeddings(texts: List[str]) -> Any:
-    """
-    Compute sentence embeddings for a list of text chunks.
-    Returns numpy array of shape (n_texts, 384).
-    """
     model = get_embedding_model()
-    embeddings = model.encode(texts, show_progress_bar=False, normalize_embeddings=True)
-    return embeddings
+    return model.encode(texts, show_progress_bar=False, normalize_embeddings=True)
 
 
 def compute_single_embedding(text: str) -> Any:
-    """Compute embedding for a single text query."""
     model = get_embedding_model()
     return model.encode([text], normalize_embeddings=True)[0]
 
@@ -147,13 +153,24 @@ def compute_single_embedding(text: str) -> Any:
 # ─── Model Warmup ───────────────────────────────────────────
 
 def warmup_models():
-    """Pre-load all models so first request isn't slow."""
+    """Pre-load local models. Emotion model is remote, just check its health."""
     logger.info("Warming up NLP models...")
     try:
         get_sentiment_pipeline()
-        get_emotion_pipeline()
         get_embedding_model()
-        logger.info("All NLP models warmed up successfully")
+        
+        # Check if emotion model server is reachable
+        try:
+            with httpx.Client(timeout=5.0) as client:
+                r = client.get(f"{EMOTION_MODEL_URL}/health")
+                if r.status_code == 200:
+                    logger.info(f"Emotion model server healthy: {EMOTION_MODEL_URL}")
+                else:
+                    logger.warning(f"Emotion model server returned {r.status_code}")
+        except Exception:
+            logger.warning(f"Emotion model server not reachable at {EMOTION_MODEL_URL} — will retry on first request")
+        
+        logger.info("Model warmup complete")
         return True
     except Exception as e:
         logger.error(f"Model warmup failed: {e}")
@@ -162,8 +179,16 @@ def warmup_models():
 
 def models_status() -> Dict[str, bool]:
     """Check which models are currently loaded."""
+    emotion_ok = False
+    try:
+        with httpx.Client(timeout=3.0) as client:
+            r = client.get(f"{EMOTION_MODEL_URL}/health")
+            emotion_ok = r.status_code == 200
+    except Exception:
+        pass
+
     return {
         "sentiment_loaded": _sentiment_pipeline is not None,
-        "emotion_loaded": _emotion_pipeline is not None,
+        "emotion_model_reachable": emotion_ok,
         "embedding_loaded": _embedding_model is not None
     }
