@@ -118,15 +118,20 @@ class VellichorAPI {
 
   // ─── Recommendations ─────────────────────────────────
 
-  async getRecommendations(query, genres, mood) {
-    return this.request("/recommend", {
-      method: "POST",
-      body: JSON.stringify({ query, genres, mood }),
-    });
+  async getRecommendations() {
+    return this.request("/recommend", { method: "POST" });
   }
 
   async getTrending() {
     return this.request("/recommend/trending");
+  }
+
+  async searchBooks(query) {
+    return this.request(`/recommend/search?q=${encodeURIComponent(query)}`);
+  }
+
+  async getBookDetails(workId) {
+    return this.request(`/recommend/book/${workId}`);
   }
 
   // ─── Emotions ────────────────────────────────────────
