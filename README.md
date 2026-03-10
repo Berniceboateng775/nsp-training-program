@@ -66,6 +66,14 @@ Along with this structural change, two key hyperparameter adjustments were made:
 
 The blue line (training loss) drops steadily while the red line (validation loss) begins rising after Epoch 2 — classic overfitting. The model was saved at its best checkpoint before this divergence.
 
+### Classification Report & Confusion Matrix
+
+![Official Classification Report](final-nsp-project/images/classification_report.png)
+
+![Confusion Matrix showing where the AI gets confused](final-nsp-project/images/confusion_matrix.png)
+
+The classification report shows strong performance across most categories, with `Joy & Confidence` and `Fear & Tension` achieving the highest F1-scores. The confusion matrix reveals that the model sometimes confuses `Suspense & Reflection` with `Sadness` or `Connection & Trust`, highlighting the nuanced overlap in these emotional states.
+
 ## Our Model vs. Standard Models
 
 When generic conversational models are fed a dark romance quote — like a billionaire locking a door and murmuring a threat — they often output wildly incorrect labels like "Healthy Communication" or "Connection." They see quiet words (*"murmured"*) and incorrectly apply everyday conversational logic.
