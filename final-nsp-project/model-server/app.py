@@ -22,7 +22,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # ─── Config ──────────────────────────────────────────
-MODEL_REPO = os.getenv("MODEL_REPO", "Bernice775/vellichor-emotion-detector")
+MODEL_REPO = os.getenv("MODEL_REPO", "Bernice775/vellichor")
 
 # ─── Singleton model holder ─────────────────────────
 _classifier = None
