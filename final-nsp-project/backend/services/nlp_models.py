@@ -19,61 +19,39 @@ logger = logging.getLogger(__name__)
 # ─── Config ─────────────────────────────────────────────────
 EMOTION_MODEL_URL = os.getenv("EMOTION_MODEL_URL", "http://localhost:8000")
 
-# ─── Singleton model holders ────────────────────────────────
-_sentiment_pipeline = None
-_embedding_model = None
+# ─── Positive/negative emotion mappings ─────────────────────
+POSITIVE_LABELS = {
+    "joy", "love", "gratitude", "amusement", "approval", "caring",
+    "desire", "excitement", "optimism", "pride", "relief", "admiration",
+    "curiosity", "hope", "confidence", "positive", "happiness",
+    "joy & confidence", "love & tenderness", "surprise & curiosity",
+}
+NEGATIVE_LABELS = {
+    "anger", "annoyance", "disappointment", "disapproval", "disgust",
+    "embarrassment", "fear", "grief", "nervousness", "remorse",
+    "sadness", "negative", "frustration", "anxiety",
+    "anger & frustration", "fear & anxiety", "sadness & grief",
+}
 
-
-def get_sentiment_pipeline():
-    """Lazy-load the sentiment analysis pipeline (runs locally)."""
-    global _sentiment_pipeline
-    if _sentiment_pipeline is None:
-        from transformers import pipeline, AutoModelForSequenceClassification, AutoTokenizer
-        logger.info("Loading sentiment model: distilbert-base-uncased-finetuned-sst-2-english")
-        model_name = "distilbert-base-uncased-finetuned-sst-2-english"
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
-        model = AutoModelForSequenceClassification.from_pretrained(model_name)
-        _sentiment_pipeline = pipeline(
-            "sentiment-analysis",
-            model=model,
-            tokenizer=tokenizer,
-            top_k=None,
-            device=-1
-        )
-        logger.info("Sentiment model loaded successfully")
-    return _sentiment_pipeline
-
-
-def get_embedding_model():
-    """Lazy-load the sentence-transformers embedding model (runs locally)."""
-    global _embedding_model
-    if _embedding_model is None:
-        from sentence_transformers import SentenceTransformer
-        logger.info("Loading embedding model: all-MiniLM-L6-v2")
-        _embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-        logger.info("Embedding model loaded successfully")
-    return _embedding_model
-
-
-# ─── Sentiment (local) ──────────────────────────────────────
 
 def analyze_sentiment(text: str) -> Dict[str, Any]:
     """
-    Run sentiment analysis locally.
-    Returns: {"label": "POSITIVE"/"NEGATIVE", "score": 0.99, "all_scores": {...}}
+    Lightweight sentiment analysis — derives sentiment from emotion keywords.
+    No ML model needed, so no memory overhead.
     """
-    pipe = get_sentiment_pipeline()
-    result = pipe(text[:512])
+    text_lower = text.lower().strip()
 
-    scores = result[0] if isinstance(result[0], list) else result
-    label_scores = {item["label"]: round(item["score"], 4) for item in scores}
-    top = max(scores, key=lambda x: x["score"])
+    pos_match = any(label in text_lower for label in POSITIVE_LABELS)
+    neg_match = any(label in text_lower for label in NEGATIVE_LABELS)
 
-    return {
-        "label": top["label"],
-        "score": round(top["score"], 4),
-        "all_scores": label_scores
-    }
+    if pos_match and not neg_match:
+        return {"label": "POSITIVE", "score": 0.90, "all_scores": {"POSITIVE": 0.90, "NEGATIVE": 0.10}}
+    elif neg_match and not pos_match:
+        return {"label": "NEGATIVE", "score": 0.90, "all_scores": {"POSITIVE": 0.10, "NEGATIVE": 0.90}}
+    elif pos_match and neg_match:
+        return {"label": "MIXED", "score": 0.60, "all_scores": {"POSITIVE": 0.50, "NEGATIVE": 0.50}}
+    else:
+        return {"label": "NEUTRAL", "score": 0.70, "all_scores": {"POSITIVE": 0.50, "NEGATIVE": 0.50}}
 
 
 # ─── Emotions (calls your Render-hosted model) ─────────────
@@ -148,43 +126,38 @@ def analyze_text_full(text: str, situation: str = "") -> Dict[str, Any]:
     }
 
 
-# ─── Embeddings (local) ─────────────────────────────────────
+# ─── Embeddings (lazy-loaded, only when user uploads a document) ──
+
+_embedding_model = None
+
+
+def _get_embedding_model():
+    """Lazy-load the sentence-transformers embedding model."""
+    global _embedding_model
+    if _embedding_model is None:
+        from sentence_transformers import SentenceTransformer
+        logger.info("Loading embedding model: all-MiniLM-L6-v2")
+        _embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+        logger.info("Embedding model loaded successfully")
+    return _embedding_model
+
 
 def compute_embeddings(texts: List[str]) -> Any:
-    model = get_embedding_model()
+    model = _get_embedding_model()
     return model.encode(texts, show_progress_bar=False, normalize_embeddings=True)
 
 
 def compute_single_embedding(text: str) -> Any:
-    model = get_embedding_model()
+    model = _get_embedding_model()
     return model.encode([text], normalize_embeddings=True)[0]
 
 
-# ─── Model Warmup ───────────────────────────────────────────
+# ─── Model Status ───────────────────────────────────────────
 
 def warmup_models():
-    """Pre-load local models. Emotion model is remote, just check its health."""
-    logger.info("Warming up NLP models...")
-    try:
-        get_sentiment_pipeline()
-        get_embedding_model()
-        
-        # Check if emotion model server is reachable
-        try:
-            with httpx.Client(timeout=5.0) as client:
-                r = client.get(f"{EMOTION_MODEL_URL}/health")
-                if r.status_code == 200:
-                    logger.info(f"Emotion model server healthy: {EMOTION_MODEL_URL}")
-                else:
-                    logger.warning(f"Emotion model server returned {r.status_code}")
-        except Exception:
-            logger.warning(f"Emotion model server not reachable at {EMOTION_MODEL_URL} — will retry on first request")
-        
-        logger.info("Model warmup complete")
-        return True
-    except Exception as e:
-        logger.error(f"Model warmup failed: {e}")
-        return False
+    """No-op — models lazy-load on demand to stay within memory limits."""
+    logger.info("Model warmup skipped (memory-constrained mode)")
+    return True
 
 
 def models_status() -> Dict[str, bool]:
@@ -198,7 +171,7 @@ def models_status() -> Dict[str, bool]:
         pass
 
     return {
-        "sentiment_loaded": _sentiment_pipeline is not None,
+        "sentiment_loaded": True,  # rule-based, always available
         "emotion_model_reachable": emotion_ok,
         "embedding_loaded": _embedding_model is not None
     }

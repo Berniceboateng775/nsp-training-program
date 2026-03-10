@@ -27,13 +27,9 @@ async def lifespan(app: FastAPI):
     """Initialize database and warm up ML models on startup."""
     await init_db()
     
-    # Warm up NLP models in background (non-blocking)
-    logger.info("Starting NLP model warmup...")
-    try:
-        from services.nlp_models import warmup_models
-        warmup_models()
-    except Exception as e:
-        logger.warning(f"Model warmup skipped (will load on first request): {e}")
+    # Skip ML model warmup on Render free tier (512MB limit)
+    # Models will lazy-load on first request if needed
+    logger.info("Skipping eager model warmup (memory-constrained environment)")
     
     yield
 
