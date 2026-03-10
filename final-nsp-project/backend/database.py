@@ -4,6 +4,7 @@ Uses Motor (async MongoDB driver) for non-blocking database operations.
 """
 
 import os
+import certifi
 from motor.motor_asyncio import AsyncIOMotorClient
 from dotenv import load_dotenv
 
@@ -12,7 +13,7 @@ load_dotenv()
 MONGODB_URL = os.getenv("MONGODB_URL", "mongodb://localhost:27017")
 DATABASE_NAME = "vellichor"
 
-client = AsyncIOMotorClient(MONGODB_URL)
+client = AsyncIOMotorClient(MONGODB_URL, tlsCAFile=certifi.where())
 database = client[DATABASE_NAME]
 
 # Collections
