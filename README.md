@@ -22,13 +22,13 @@ To solve this, I re-mapped the 32 emotions into **7 Universal, Balanced Categori
 
 | Category | What It Captures |
 | --- | --- |
-| **Anger** | Rage, frustration, aggression |
-| **Fear & Tension** | Suspense, danger, threat |
-| **Sadness** | Loss, grief, quiet pain |
-| **Joy & Confidence** | Triumph, happiness, certainty |
-| **Connection & Trust** | Bonds, loyalty, belonging |
-| **Vulnerability** | Exposure, anxiety, honesty |
-| **Suspense & Reflection** | Mystery, introspection, contemplation |
+| **Anger** | angry, furious, annoyed, disgusted, jealous |
+| **Fear & Tension** | afraid, terrified, anxious, apprehensive |
+| **Sadness** | sad, lonely, devastated, disappointed |
+| **Joy & Confidence** | excited, proud, grateful, joyful, content, impressed, hopeful, confident |
+| **Connection & Trust** | caring, trusting, faithful |
+| **Vulnerability** | guilty, embarrassed, ashamed |
+| **Suspense & Reflection** | nostalgic, sentimental, surprised, anticipating, prepared |
 
 By grouping similar psychological states together, the dataset became balanced, giving the neural network a fair chance to learn the unique language patterns of each category.
 
