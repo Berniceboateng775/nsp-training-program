@@ -30,10 +30,12 @@ async def send_message(body: ChatMessage, user: dict = Depends(get_current_user)
 
     # Get or create conversation
     if body.conversation_id:
-        conv = await conversations_collection.find_one({
-            "_id": ObjectId(body.conversation_id),
-            "user_id": user_id
-        })
+        # Handle both ObjectId and frontend-generated string IDs
+        try:
+            query = {"_id": ObjectId(body.conversation_id), "user_id": user_id}
+        except Exception:
+            query = {"_id": body.conversation_id, "user_id": user_id}
+        conv = await conversations_collection.find_one(query)
     else:
         conv = None
 
