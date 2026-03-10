@@ -32,12 +32,17 @@ def load_model():
     """Download and load the emotion classifier from HuggingFace Hub."""
     global _classifier
     if _classifier is None:
+        import torch
         from transformers import pipeline, GPT2ForSequenceClassification, GPT2Tokenizer
         
         logger.info(f"Loading model from HuggingFace: {MODEL_REPO}")
         
         tokenizer = GPT2Tokenizer.from_pretrained(MODEL_REPO)
-        model = GPT2ForSequenceClassification.from_pretrained(MODEL_REPO)
+        model = GPT2ForSequenceClassification.from_pretrained(
+            MODEL_REPO,
+            torch_dtype=torch.float16,  # Half precision = half memory (~250MB instead of ~500MB)
+            low_cpu_mem_usage=True       # Load without doubling memory during init
+        )
         
         _classifier = pipeline(
             "text-classification",
