@@ -32,3 +32,7 @@ package-lock.json
 
 # Logs
 *.log
+
+# Model files (too large for GitHub, hosted on HuggingFace)
+emotion_detector_vellichor/
+emotion_detector_model/

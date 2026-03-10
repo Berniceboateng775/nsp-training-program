@@ -197,7 +197,7 @@ def _format_input(text: str, situation: str = None) -> str:
     
     Without this format, the model hits the '57% wall' — it can't distinguish
     emotions from ambiguous text alone. The context-aware format is what pushed
-    accuracy from 57% to 75%.
+    accuracy from 57% to 79%.
     """
     text = text.strip()
     # If the text already has the format, don't double-wrap

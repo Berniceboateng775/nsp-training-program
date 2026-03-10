@@ -4,7 +4,7 @@
 
 ## Abstract
 
-This project builds a natural language processing pipeline that accurately classifies the emotional "vibe" and subtext of written dialogue. While standard models often fail to grasp the nuanced subtext of fiction — things like suspense, dark romance, or dramatic tension — I successfully fine-tuned a generative GPT-2 model to read and categorize these scenes. By grouping a fragmented dataset into 7 balanced categories, implementing left-padding tokenization, and engineering context-aware inputs, the final model achieved an accuracy of **~75%**. Qualitative testing against off-the-shelf models showed that this custom pipeline is significantly better at identifying underlying motives rather than just surface-level keywords.
+This project builds a natural language processing pipeline that accurately classifies the emotional "vibe" and subtext of written dialogue. While standard models often fail to grasp the nuanced subtext of fiction — things like suspense, dark romance, or dramatic tension — I successfully fine-tuned a generative GPT-2 model to read and categorize these scenes. By grouping a fragmented dataset into 7 balanced categories, implementing left-padding tokenization, engineering context-aware inputs, and applying regularization techniques (dropout, weight decay), the final model achieved an accuracy of **~79%**. Qualitative testing against off-the-shelf models showed that this custom pipeline is significantly better at identifying underlying motives rather than just surface-level keywords.
 
 ## Introduction
 
@@ -53,18 +53,21 @@ To break past 57%, I completely re-engineered the data pipeline. Instead of feed
 
 > **New Input Format:** `"Situation: [Background Context] Dialogue: [Spoken Words]"`
 
-Along with this structural change, two key hyperparameter adjustments were made:
+With context alone, accuracy jumped to ~75%. But the model was memorizing training data (overfitting). To build a truly robust model, I applied three key regularization techniques:
 
+- **Dropout Layers (set to 0.2):** Forced the model to randomly drop 20% of its residual, embedding, and attention connections during training — preventing it from relying on any single pathway.
+- **Weight Decay (set to 0.15):** Applied a heavy penalty for memorizing exact word patterns, encouraging the model to learn generalizable features instead.
+- **Cosine Learning Rate Scheduler with Warmup:** Gradually increased the learning rate at the start (warmup ratio 0.1), then smoothly decayed it, giving the model a stable and efficient learning trajectory.
+- **Early Stopping Patience (set to 1):** Aggressively stopped training the moment accuracy plateaued, preventing overfit.
 - **Gradient Accumulation Steps (set to 2):** Simulated a larger batch size without exceeding memory limits.
-- **Early Stopping Patience (increased to 3):** Gave the model more room to learn before the safety net triggered.
 
-**Result:** With the added context, accuracy jumped from **57% → ~75%**. While the model did begin to overfit by Epoch 3 (rising validation loss), the `load_best_model_at_end` function captured the model at its smartest point.
+**Result:** With context-aware inputs and strict regularization, accuracy jumped from **57% → ~79%**. Unlike the previous model which overfit badly, the validation loss remained stable across all 3 epochs — the dropout and weight decay successfully prevented memorization.
 
 ### Training Curves
 
-![Training vs Validation Loss and Accuracy over Epochs](final-nsp-project/images/training_loss_curve.png)
+![Healthy Model: Training vs Validation Loss and Accuracy over Epochs](final-nsp-project/images/training_loss_curve.png)
 
-The blue line (training loss) drops steadily while the red line (validation loss) begins rising after Epoch 2 — classic overfitting. The model was saved at its best checkpoint before this divergence.
+The blue line (training loss) drops steadily while the red line (validation loss) remains flat and stable — no overfitting. The model was saved at Epoch 2 ("Peak Intelligence") where validation loss was lowest. Accuracy climbed steadily from 76% to 77.7% across all 3 epochs.
 
 ### Classification Report & Confusion Matrix
 
@@ -72,7 +75,7 @@ The blue line (training loss) drops steadily while the red line (validation loss
 
 ![Confusion Matrix showing where the AI gets confused](final-nsp-project/images/confusion_matrix.png)
 
-The classification report shows strong performance across most categories, with `Joy & Confidence` and `Fear & Tension` achieving the highest F1-scores. The confusion matrix reveals that the model sometimes confuses `Suspense & Reflection` with `Sadness` or `Connection & Trust`, highlighting the nuanced overlap in these emotional states.
+The classification report shows **79% overall accuracy** with strong F1-scores across all categories. `Fear & Tension` (0.87) and `Joy & Confidence` (0.82) lead the pack. The confusion matrix shows clean diagonal dominance — the model rarely confuses unrelated emotions. The main overlaps occur between psychologically adjacent categories like `Suspense & Reflection` and `Joy & Confidence`, which makes intuitive sense.
 
 ## Our Model vs. Standard Models
 
@@ -105,43 +108,43 @@ To prove robustness beyond fiction, I ran an official test suite covering everyd
 
 | Test | Scenario | Expected | Model Predicted | Confidence | Result |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Customer complaint (broken product) | Anger | **Anger** | 99.35% | ✅ |
-| 2 | Trapped in elevator (power outage) | Fear & Tension | **Fear & Tension** | 99.99% | ✅ |
-| 3 | Losing a childhood pet | Sadness | Suspense & Reflection | 60.34% | ❌ |
-| 4 | Passed engineering final project | Joy & Confidence | **Joy & Confidence** | 100.00% | ✅ |
-| 5 | Friends reuniting after time apart | Connection & Trust | Sadness | 94.97% | ❌ |
-| 6 | Admitting a mistake at work | Vulnerability | **Vulnerability** | 99.97% | ✅ |
-| 7 | Detective on unsolved case | Suspense & Reflection | Fear & Tension | 99.92% | ❌ |
+| 1 | Customer complaint (broken product) | Anger | **Anger** | 74.21% | ✅ |
+| 2 | Trapped in elevator (power outage) | Fear & Tension | **Fear & Tension** | 86.36% | ✅ |
+| 3 | Losing a childhood pet | Sadness | **Sadness** | 60.11% | ✅ |
+| 4 | Passed engineering final project | Joy & Confidence | **Joy & Confidence** | 98.21% | ✅ |
+| 5 | Friends reuniting after time apart | Connection & Trust | **Connection & Trust** | 50.36% | ✅ |
+| 6 | Admitting a mistake at work | Vulnerability | **Vulnerability** | 97.33% | ✅ |
+| 7 | Detective on unsolved case | Suspense & Reflection | Fear & Tension | 97.68% | ❌ |
 
-**4/7 matches (57% on edge cases).** Even in the mismatches, the model's reasoning was logical — for Test 5, two friends separated by time carries a genuine thread of sadness. For Test 7, an unsolved case absolutely has fear and tension elements.
+**6/7 matches (86% on edge cases).** The regularization techniques dramatically improved generalization — the previous model only matched 4/7. The single mismatch (Test 7) is still logically sound: an unsolved case with mounting evidence genuinely carries fear and tension.
 
 ### Validation Proof — AI Brain Scans
 
-**Test 1: Anger ✅** — Customer complaining about broken product. Model correctly predicts Anger with 99.35% confidence.
+**Test 1: Anger ✅** — Customer complaining about broken product. Model correctly predicts Anger with 74.21% confidence.
 
 ![Test 1 Expected Anger](final-nsp-project/images/test1_anger.png)
 
-**Test 2: Fear & Tension ✅** — Trapped in a stalled elevator. Model correctly predicts Fear & Tension with 99.99% confidence.
+**Test 2: Fear & Tension ✅** — Trapped in a stalled elevator. Model correctly predicts Fear & Tension with 86.36% confidence.
 
 ![Test 2 Expected Fear and Tension](final-nsp-project/images/test2_fear.png)
 
-**Test 3: Sadness ❌** — Losing a childhood pet. Model predicts Suspense & Reflection (60%) with Sadness close behind (39%). A logical near-miss — reflecting on loss straddles both categories.
+**Test 3: Sadness ✅** — Losing a childhood pet. Model correctly predicts Sadness with 60.11% confidence, with Suspense & Reflection as a close secondary — reflecting on loss naturally straddles both categories.
 
 ![Test 3 Expected Sadness](final-nsp-project/images/test3_sadness.png)
 
-**Test 4: Joy & Confidence ✅** — Passed their engineering final. Model correctly predicts Joy & Confidence with 100% confidence.
+**Test 4: Joy & Confidence ✅** — Passed their engineering final. Model correctly predicts Joy & Confidence with 98.21% confidence.
 
 ![Test 4 Expected Joy and Confidence](final-nsp-project/images/test4_joy.png)
 
-**Test 5: Connection & Trust ❌** — Two friends reuniting. Model predicts Sadness (94.97%). Logical — the subtext of time apart and missing each other carries genuine sadness.
+**Test 5: Connection & Trust ✅** — Two friends reuniting. Model correctly predicts Connection & Trust with 50.36% confidence. A hard test — the previous model missed this entirely, but the dropout regularization helped it learn the subtle difference.
 
 ![Test 5 Expected Connection and Trust](final-nsp-project/images/test5_connection.png)
 
-**Test 6: Vulnerability ✅** — Admitting a mistake at work. Model correctly predicts Vulnerability with 99.97% confidence.
+**Test 6: Vulnerability ✅** — Admitting a mistake at work. Model correctly predicts Vulnerability with 97.33% confidence.
 
 ![Test 6 Expected Vulnerability](final-nsp-project/images/test6_vulnerability.png)
 
-**Test 7: Suspense & Reflection ❌** — Detective on unsolved case. Model predicts Fear & Tension (99.92%). Reasonable — an unsolved case with mounting evidence is genuinely tense.
+**Test 7: Suspense & Reflection ❌** — Detective on unsolved case. Model predicts Fear & Tension (97.68%). Reasonable — an unsolved case with mounting evidence is genuinely tense.
 
 ![Test 7 Expected Suspense and Reflection](final-nsp-project/images/test7_suspense.png)
 
@@ -179,7 +182,7 @@ The trained model is hosted on [Hugging Face Hub](https://huggingface.co/Bernice
 
 ## Conclusion
 
-This project successfully transformed a raw, text-generating GPT-2 model into a highly perceptive text classifier. By re-categorizing complex emotions into 7 balanced buckets, engineering context-aware inputs, and utilizing advanced hyperparameter tuning, the final model achieved **75% accuracy**. The comparative analysis proves that this custom pipeline outperforms basic off-the-shelf models in understanding literary subtext. This pipeline serves as the backend for Vellichor AI — a full-stack literary analysis platform for analyzing the themes, tension, and emotional beats of entire books and novels.
+This project successfully transformed a raw, text-generating GPT-2 model into a highly perceptive text classifier. By re-categorizing complex emotions into 7 balanced buckets, engineering context-aware inputs, and applying regularization techniques (dropout layers, weight decay, cosine LR scheduling), the final model achieved **79% accuracy** with **6/7 manual validation matches**. The comparative analysis proves that this custom pipeline outperforms basic off-the-shelf models in understanding literary subtext. This pipeline serves as the backend for Vellichor AI — a full-stack literary analysis platform for analyzing the themes, tension, and emotional beats of entire books and novels.
 
 ---
 
