@@ -1,52 +1,82 @@
 """
-Hugging Face Inference API client.
-Provides mock responses when HF_API_TOKEN is not set.
-Replace mock functions with real API calls once model is deployed.
+AI-powered book companion — uses Groq API (Llama 3.3 70B) for
+chat, recommendations, and summaries. Falls back to mock responses
+if GROQ_API_KEY is not set.
 """
 
 import os
 import random
+import logging
 import httpx
 from dotenv import load_dotenv
 
 load_dotenv()
 
+logger = logging.getLogger(__name__)
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL = "llama-3.3-70b-versatile"
+
+# Keep HF vars for backward compat (unused if Groq is configured)
 HF_API_TOKEN = os.getenv("HF_API_TOKEN", "")
 HF_MODEL_ENDPOINT = os.getenv(
     "HF_MODEL_ENDPOINT",
     "https://api-inference.huggingface.co/models/gpt2"
 )
 
+# ─── System prompt ──────────────────────────────────────────
+SYSTEM_PROMPT = """You are Vellichor — a warm, knowledgeable book companion AI.
+
+STRICT RULES:
+1. Only recommend REAL, published books. NEVER invent titles or authors.
+2. Be concise and get straight to the point. No filler or fluff.
+3. When recommending books, include title, author, and a 1-2 sentence reason.
+4. When summarizing text, focus on key themes, emotions, and literary devices.
+5. When asked about a book, only answer if you are confident it exists.
+6. If unsure about a book, say so honestly — never fabricate information.
+7. Keep responses under 200 words unless the user asks for detail.
+8. Use markdown formatting (bold for titles, bullets for lists).
+
+You are helpful, literary, and genuine. You love books and want to share that passion."""
+
 
 async def query_model(prompt: str) -> str:
-    """Send a prompt to the Hugging Face model and return the response."""
-    if not HF_API_TOKEN:
+    """Send a prompt to Groq (Llama 3.3) and return the response."""
+    if not GROQ_API_KEY:
         return await mock_chat_response(prompt)
-    
-    headers = {"Authorization": f"Bearer {HF_API_TOKEN}"}
+
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json"
+    }
     payload = {
-        "inputs": prompt,
-        "parameters": {
-            "max_new_tokens": 300,
-            "temperature": 0.7,
-            "top_p": 0.9,
-            "do_sample": True
-        }
+        "model": GROQ_MODEL,
+        "messages": [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": prompt}
+        ],
+        "temperature": 0.7,
+        "max_tokens": 500,
+        "top_p": 0.9
     }
 
-    async with httpx.AsyncClient(timeout=60.0) as client:
-        response = await client.post(HF_MODEL_ENDPOINT, json=payload, headers=headers)
-        
-        if response.status_code == 200:
-            result = response.json()
-            if isinstance(result, list) and len(result) > 0:
-                return result[0].get("generated_text", "I couldn't generate a response.")
-            return str(result)
-        else:
-            return f"Model error ({response.status_code}). Please try again."
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(GROQ_API_URL, json=payload, headers=headers)
+
+            if response.status_code == 200:
+                result = response.json()
+                return result["choices"][0]["message"]["content"]
+            else:
+                logger.error(f"Groq API error: {response.status_code} — {response.text}")
+                return await mock_chat_response(prompt)
+    except Exception as e:
+        logger.error(f"Groq request failed: {e}")
+        return await mock_chat_response(prompt)
 
 
-# ─── Mock Responses (used when HF API is not configured) ──
+# ─── Mock Responses (fallback when Groq API is not configured) ──
 
 MOCK_BOOK_DATABASE = [
     {
@@ -162,7 +192,7 @@ MOCK_CHAT_RESPONSES = {
 async def mock_chat_response(message: str) -> str:
     """Generate contextual mock responses based on message intent."""
     msg_lower = message.lower()
-    
+
     if any(w in msg_lower for w in ["recommend", "suggest", "book", "read next", "what should"]):
         return random.choice(MOCK_CHAT_RESPONSES["recommend"])
     elif any(w in msg_lower for w in ["summarize", "summary", "explain", "chapter", "meaning"]):
@@ -176,22 +206,22 @@ async def mock_chat_response(message: str) -> str:
 async def mock_recommendations(query: str = None, genres: list = None, mood: str = None) -> list:
     """Return filtered mock book recommendations."""
     books = MOCK_BOOK_DATABASE.copy()
-    
+
     if genres:
         genre_lower = [g.lower() for g in genres]
         filtered = [b for b in books if b["genre"].lower() in genre_lower]
         if filtered:
             books = filtered
-    
+
     selected = random.sample(books, min(4, len(books)))
-    
+
     reasons = [
         "This deeply resonates with your reading preferences and current mood.",
         "The narrative style and thematic depth align beautifully with your taste.",
         "Readers with similar preferences have rated this exceptionally high.",
         "The emotional complexity of this work matches what you're looking for.",
     ]
-    
+
     return [
         {
             "title": b["title"],
@@ -217,18 +247,18 @@ async def mock_emotion_analysis(text: str) -> dict:
         "hope": round(random.uniform(0.1, 0.8), 2),
         "fear": round(random.uniform(0.05, 0.4), 2)
     }
-    
+
     # Normalize so they sum to ~1
     total = sum(emotions.values())
     emotions = {k: round(v / total, 2) for k, v in emotions.items()}
-    
+
     theme_pool = [
         "Coming of Age", "Love & Loss", "Identity", "Power & Corruption",
         "Nature vs Nurture", "Redemption", "Isolation", "Family Bonds",
         "Self-Discovery", "Social Justice", "Fate vs Free Will", "Mortality"
     ]
     themes = random.sample(theme_pool, 3)
-    
+
     dominant = max(emotions, key=emotions.get)
     summaries = {
         "joy": "This passage radiates warmth and positivity, with an undercurrent of celebration and contentment that permeates the narrative voice.",
@@ -239,7 +269,7 @@ async def mock_emotion_analysis(text: str) -> dict:
         "hope": "Despite the challenges presented, this passage ultimately resonates with resilience and the belief in better possibilities ahead.",
         "fear": "A subtle unease permeates this writing, creating an atmosphere of vulnerability and the unknown that lingers beyond the page."
     }
-    
+
     return {
         "emotions": emotions,
         "themes": themes,
