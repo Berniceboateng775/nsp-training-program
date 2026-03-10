@@ -189,11 +189,11 @@ This project successfully transformed a raw, text-generating GPT-2 model into a 
 
 ### Features
 
-- 📖 **Emotion & Theme Analysis** — Upload a PDF book or paste text, tell the AI which chapter to analyze, and get real emotion distributions with charts
-- 🤖 **AI Reading Companion** — Chat with a context-aware bot about your books (in progress)
-- 📚 **Book Recommendations** — Personalized recommendations based on your favorite genres via Open Library API
-- 👤 **User Profiles** — Registration, login, favorite genres, reading preferences
-- 🌙 **Dark/Light Mode** — Full theme support across all pages
+- **Emotion & Theme Analysis** — Upload a PDF book or paste text, tell the AI which chapter to analyze, and get real emotion distributions with charts
+- **AI Reading Companion** — Chat with a context-aware bot about your books (in progress)
+- **Book Recommendations** — Personalized recommendations based on your favorite genres via Open Library API
+- **User Profiles** — Registration, login, favorite genres, reading preferences
+- **Dark/Light Mode** — Full theme support across all pages
 
 ### Tech Stack
 
