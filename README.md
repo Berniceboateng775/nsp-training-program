@@ -178,7 +178,7 @@ Gemini confirmed that even though the chapter takes place at a glamorous garden 
 
 ## Deployment
 
-The trained model is hosted on [Hugging Face Hub](https://huggingface.co/Bernice775/vellichor-emotion-detector) and deployed as a REST API on [Render](https://vellichor-emotion-detector.onrender.com) using FastAPI + Docker. It powers the emotion analysis module in the Vellichor AI web app.
+The trained model is hosted on [Hugging Face Hub](https://huggingface.co/Bernice775/vellichor) and deployed as a REST API on [Render](https://vellichor.onrender.com) using FastAPI + Docker. It powers the emotion analysis module in the Vellichor AI web app.
 
 ## Conclusion
 
