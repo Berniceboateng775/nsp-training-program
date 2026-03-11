@@ -7,13 +7,16 @@
 
 function togglePassword() {
     const pwd = document.getElementById('password');
-    const btn = document.getElementById('togglePwdBtn');
+    const eyeOpen = document.getElementById('eyeOpen');
+    const eyeClosed = document.getElementById('eyeClosed');
     if (pwd.type === 'password') {
         pwd.type = 'text';
-        btn.textContent = 'Hide';
+        eyeOpen.style.display = 'none';
+        eyeClosed.style.display = 'block';
     } else {
         pwd.type = 'password';
-        btn.textContent = 'Show';
+        eyeOpen.style.display = 'block';
+        eyeClosed.style.display = 'none';
     }
 }
 // ─── Genre Toggle ────────────────────────────────────────
