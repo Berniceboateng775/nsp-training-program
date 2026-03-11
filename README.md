@@ -2,6 +2,7 @@
 
 🔗 **Live App:** [https://vellichor-ai.vercel.app](https://vellichor-ai.vercel.app/)  
 🔗 **Backend API:** [https://vellichor-ai-backend.onrender.com/docs](https://vellichor-ai-backend.onrender.com/docs)  
+🔗 **Emotion Model API:** [https://vellichor.onrender.com](https://vellichor.onrender.com)  
 🎥 **Demo Video:**
 
 [![Watch the demo](https://img.youtube.com/vi/8AguS4kIdXQ/maxresdefault.jpg)](https://youtu.be/8AguS4kIdXQ)
@@ -83,7 +84,7 @@ The blue line (training loss) drops steadily while the red line (validation loss
 
 The classification report shows **79% overall accuracy** with strong F1-scores across all categories. `Fear & Tension` (0.87) and `Joy & Confidence` (0.82) lead the pack. The confusion matrix shows clean diagonal dominance — the model rarely confuses unrelated emotions. The main overlaps occur between psychologically adjacent categories like `Suspense & Reflection` and `Joy & Confidence`, which makes intuitive sense.
 
-## Our Model vs. Standard Models
+## My Model vs. Standard Models
 
 When generic conversational models are fed a dark romance quote — like a billionaire locking a door and murmuring a threat — they often output wildly incorrect labels like "Healthy Communication" or "Connection." They see quiet words (*"murmured"*) and incorrectly apply everyday conversational logic.
 
@@ -99,12 +100,12 @@ The standard BERT emotion detector outputs **"sadness (98.32% confidence)"** for
 
 The popular RoBERTa-based go_emotions model (660+ likes, 404k downloads) outputs **"desire (0.375)"** and **"disappointment (0.170)"** for the same angry customer text. Not one of its 28 labels correctly identifies the clear anger.
 
-**Our model gets it right:**
+**My model gets it right:**
 
 > *"Touch a single hair on her head, and I will burn your entire syndicate to the ground while you watch."*
 >
 > - Other models: Often guess "Anger" or "Connection"
-> - **Our model:** Correctly predicts **Fear & Tension** with 95%+ confidence
+> - **My model:** Correctly predicts **Fear & Tension** with 95%+ confidence
 
 It recognizes the lethal danger and suspense of the scene, matching the comprehension level of a human reader.
 
