@@ -4,7 +4,7 @@
 🔗 **Backend API:** [https://vellichor-ai-backend.onrender.com/docs](https://vellichor-ai-backend.onrender.com/docs)  
 🎥 **Demo Video:**
 
-https://github.com/Berniceboateng775/nsp-training-program/raw/final-project/final-nsp-project/vellichor-ai.mp4
+[![Watch the demo](https://img.youtube.com/vi/8AguS4kIdXQ/maxresdefault.jpg)](https://youtu.be/8AguS4kIdXQ)
 
 ---
 
