@@ -5,8 +5,10 @@ An intelligent reading companion powered by HuggingFace models.
 """
 
 import logging
-from fastapi import FastAPI
+import traceback
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 
 from database import init_db
@@ -26,11 +28,10 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     """Initialize database and warm up ML models on startup."""
     await init_db()
-    
+
     # Skip ML model warmup on Render free tier (512MB limit)
-    # Models will lazy-load on first request if needed
     logger.info("Skipping eager model warmup (memory-constrained environment)")
-    
+
     yield
 
 
@@ -49,6 +50,24 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# ─── Global Exception Handler (ensures CORS headers on errors) ────
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    """Catch all unhandled exceptions and return proper JSON with CORS headers."""
+    logger.error(f"Unhandled error on {request.method} {request.url}: {exc}")
+    logger.error(traceback.format_exc())
+    return JSONResponse(
+        status_code=500,
+        content={"detail": str(exc)},
+        headers={
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "*",
+            "Access-Control-Allow-Headers": "*",
+        }
+    )
 
 
 # ─── Auth Routes ───────────────────────────────────────────
