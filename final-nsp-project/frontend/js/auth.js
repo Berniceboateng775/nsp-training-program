@@ -3,6 +3,19 @@
  * Handles login, registration, and guest mode.
  */
 
+// ─── Password Visibility Toggle ─────────────────────────
+
+function togglePassword() {
+    const pwd = document.getElementById('password');
+    const btn = document.getElementById('togglePwdBtn');
+    if (pwd.type === 'password') {
+        pwd.type = 'text';
+        btn.textContent = 'Hide';
+    } else {
+        pwd.type = 'password';
+        btn.textContent = 'Show';
+    }
+}
 // ─── Genre Toggle ────────────────────────────────────────
 
 function toggleGenre(el) {
