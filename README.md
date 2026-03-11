@@ -1,7 +1,10 @@
 # Emotion and Subtext Detection in Literary Dialogue Using Fine-Tuned GPT-2
 
 🔗 **Live App:** [https://vellichor-ai.vercel.app](https://vellichor-ai.vercel.app/)  
-🔗 **Backend API:** [https://vellichor-ai-backend.onrender.com/docs](https://vellichor-ai-backend.onrender.com/docs)
+🔗 **Backend API:** [https://vellichor-ai-backend.onrender.com/docs](https://vellichor-ai-backend.onrender.com/docs)  
+🎥 **Demo Video:**
+
+https://github.com/Berniceboateng775/nsp-training-program/raw/final-project/final-nsp-project/vellichor-ai.mp4
 
 ---
 
