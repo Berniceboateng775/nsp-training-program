@@ -49,11 +49,13 @@ async def send_message(body: ChatMessage, user: dict = Depends(get_current_user)
     if context_chunks:
         context_text = "\n\n---\n\n".join(context_chunks)
         enhanced_prompt = (
-            f"Based on the following relevant passages from the user's document:\n\n"
+            f"The user has uploaded a document. Here are some potentially relevant passages:\n\n"
             f"{context_text}\n\n"
             f"---\n\n"
             f"User question: {body.message}\n\n"
-            f"Please provide a helpful, detailed answer based on the document content above."
+            f"IMPORTANT: If the user's question is about a specific book, author, or general literary topic "
+            f"that is NOT related to the document passages above, answer from your own knowledge and IGNORE "
+            f"the passages entirely. Only reference the passages if the question is clearly about the uploaded document."
         )
         ai_reply = await query_model(enhanced_prompt)
     else:
