@@ -8,3 +8,13 @@ Screenshot 2025-12-29 114734.png
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Environment secrets
+.env
+
+# Large model files (hosted on HuggingFace Hub instead)
+emotion_detector_model/
+*.safetensors
+*.pt
+*.pth
+*.bin

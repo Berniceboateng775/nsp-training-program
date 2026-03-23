@@ -1,0 +1,321 @@
+/*
+ * VELLICHOR AI — Recommendations Page
+ * ═══════════════════════════════════════════════════════════
+ */
+
+.reco-toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+    flex-wrap: wrap;
+}
+
+.reco-search {
+    flex: 1;
+    min-width: 280px;
+    position: relative;
+}
+
+.reco-search svg {
+    position: absolute;
+    left: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+}
+
+.reco-search input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4) var(--space-3) calc(var(--space-4) + 26px);
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    color: var(--color-text-primary);
+    font-size: var(--text-sm);
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.reco-search input:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px var(--color-gold-glow);
+}
+
+.reco-filters {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.reco-books {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+.reco-mood-select {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.mood-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.mood-btn:hover {
+    border-color: var(--color-border-hover);
+    color: var(--color-text-primary);
+}
+
+.mood-btn.active {
+    background: var(--color-gold-glow);
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+
+/* ─── Book Cards with Real Covers ─────────────────────────── */
+
+.book-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.book-cover {
+    position: relative;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: var(--color-bg-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover-placeholder {
+    padding: var(--space-4);
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    font-style: italic;
+}
+
+.skeleton-cover {
+    aspect-ratio: 2/3;
+}
+
+
+/* ─── Book Detail Modal ───────────────────────────────────── */
+
+.book-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.book-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.book-modal {
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    max-width: 700px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+    animation: modalSlideUp 0.3s ease;
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: var(--color-bg-hover);
+    color: var(--color-text-primary);
+}
+
+.book-modal-body {
+    padding: var(--space-8);
+}
+
+.detail-header {
+    display: flex;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+}
+
+.detail-cover {
+    flex-shrink: 0;
+    width: 180px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.detail-cover-img {
+    width: 100%;
+    display: block;
+    border-radius: var(--radius-lg);
+}
+
+.detail-cover-placeholder {
+    width: 180px;
+    height: 270px;
+    background: var(--color-bg-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text-muted);
+    border-radius: var(--radius-lg);
+}
+
+.detail-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.detail-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.detail-author {
+    font-size: var(--text-md);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.detail-stats {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.detail-stat {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+}
+
+.detail-actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+
+.detail-description h3,
+.detail-subjects h3 {
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+}
+
+.detail-description p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.detail-subjects {
+    margin-top: var(--space-6);
+}
+
+.detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.detail-tag {
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-gold-glow);
+    border: 1px solid var(--color-border-gold);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    color: var(--color-gold);
+}
+
+
+/* ─── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+    .reco-books { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .reco-books { grid-template-columns: 1fr; }
+    .reco-toolbar { flex-direction: column; }
+    .detail-header { flex-direction: column; align-items: center; text-align: center; }
+    .detail-cover { width: 140px; }
+    .detail-actions { justify-content: center; }
+    .book-modal { margin: var(--space-4); }
+}

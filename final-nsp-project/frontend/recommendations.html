@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">`n    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Book Recommendations — Vellichor AI</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/recommendations.css">
+    <script>(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('vellichor_theme')||'dark');})()</script>
+</head>
+<body>
+
+    <div class="app-layout">
+        <div class="main-content" id="mainContent">
+            <header class="page-header">
+                <h1>Discover Books</h1>
+                <button class="btn btn-primary btn-sm" onclick="loadRecommendations()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    Get New Picks
+                </button>
+            </header>
+
+            <div class="page-body">
+                <!-- Mood Selector -->
+                <div class="reco-mood-select">
+                    <button class="mood-btn active" onclick="selectMood(this, null)">All Moods</button>
+                    <button class="mood-btn" onclick="selectMood(this, 'adventurous')">Adventurous</button>
+                    <button class="mood-btn" onclick="selectMood(this, 'contemplative')">Contemplative</button>
+                    <button class="mood-btn" onclick="selectMood(this, 'romantic')">Romantic</button>
+                    <button class="mood-btn" onclick="selectMood(this, 'thrilling')">Thrilling</button>
+                    <button class="mood-btn" onclick="selectMood(this, 'magical')">Magical</button>
+                </div>
+
+                <!-- Search & Filters -->
+                <div class="reco-toolbar">
+                    <div class="reco-search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        <input type="text" id="searchInput" placeholder="Search by title, author, or keyword..." oninput="handleSearch()">
+                    </div>
+                    <div class="reco-filters">
+                        <button class="tag active" data-genre="" onclick="toggleFilter(this)">All</button>
+                        <button class="tag" data-genre="Fantasy" onclick="toggleFilter(this)">Fantasy</button>
+                        <button class="tag" data-genre="Science Fiction" onclick="toggleFilter(this)">Sci-Fi</button>
+                        <button class="tag" data-genre="Historical Fiction" onclick="toggleFilter(this)">Historical</button>
+                        <button class="tag" data-genre="Literary Fiction" onclick="toggleFilter(this)">Literary</button>
+                        <button class="tag" data-genre="Horror" onclick="toggleFilter(this)">Horror</button>
+                        <button class="tag" data-genre="Mythology" onclick="toggleFilter(this)">Mythology</button>
+                    </div>
+                </div>
+
+                <!-- Books Grid -->
+                <div class="reco-books" id="booksGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/recommendations.js"></script>
+</body>
+</html>

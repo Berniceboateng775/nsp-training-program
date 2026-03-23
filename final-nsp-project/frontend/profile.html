@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">`n    <link rel="icon" type="image/png" href="favicon.png">
+    <title>My Profile — Vellichor AI</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <script>(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('vellichor_theme')||'dark');})()</script>
+</head>
+<body>
+
+    <div class="app-layout">
+        <div class="main-content" id="mainContent">
+            <header class="page-header">
+                <h1>My Profile</h1>
+            </header>
+
+            <div class="page-body">
+                <div class="profile-grid">
+                    <!-- Header Card -->
+                    <div class="profile-header-card animate-fade-in-up">
+                        <div class="profile-avatar" id="profileAvatar">?</div>
+                        <div class="profile-info">
+                            <h2 id="profileName">Reader</h2>
+                            <div class="profile-email" id="profileEmail">email@example.com</div>
+                            <div class="profile-date" id="profileDate">Member since —</div>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" onclick="api.logout()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                            Sign Out
+                        </button>
+                    </div>
+
+                    <!-- Preferences -->
+                    <div class="profile-section animate-fade-in-up stagger-1">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                            Reading Preferences
+                        </h3>
+                        <form class="preferences-form" id="preferencesForm" onsubmit="savePreferences(event)">
+                            <div class="preference-group">
+                                <label for="prefName">Display Name</label>
+                                <input type="text" id="prefName" class="input" placeholder="Your name">
+                            </div>
+                            <div class="preference-group">
+                                <label>Favorite Genres</label>
+                                <div class="genre-grid" id="profileGenres">
+                                    <div class="genre-chip" data-genre="Fantasy" onclick="toggleGenre(this)">Fantasy</div>
+                                    <div class="genre-chip" data-genre="Science Fiction" onclick="toggleGenre(this)">Sci-Fi</div>
+                                    <div class="genre-chip" data-genre="Romance" onclick="toggleGenre(this)">Romance</div>
+                                    <div class="genre-chip" data-genre="Mystery" onclick="toggleGenre(this)">Mystery</div>
+                                    <div class="genre-chip" data-genre="Thriller" onclick="toggleGenre(this)">Thriller</div>
+                                    <div class="genre-chip" data-genre="Historical Fiction" onclick="toggleGenre(this)">Historical</div>
+                                    <div class="genre-chip" data-genre="Literary Fiction" onclick="toggleGenre(this)">Literary</div>
+                                    <div class="genre-chip" data-genre="Horror" onclick="toggleGenre(this)">Horror</div>
+                                    <div class="genre-chip" data-genre="Non-Fiction" onclick="toggleGenre(this)">Non-Fiction</div>
+                                    <div class="genre-chip" data-genre="Poetry" onclick="toggleGenre(this)">Poetry</div>
+                                    <div class="genre-chip" data-genre="Mythology" onclick="toggleGenre(this)">Mythology</div>
+                                    <div class="genre-chip" data-genre="Biography" onclick="toggleGenre(this)">Biography</div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Save Preferences</button>
+                        </form>
+                    </div>
+
+                    <!-- Reading List -->
+                    <div class="profile-section animate-fade-in-up stagger-2">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><polyline points="10 2 10 10 13 7 16 10 16 2"/></svg>
+                            Reading List
+                        </h3>
+                        <div class="reading-list" id="readingList">
+                            <div class="empty-state" style="padding: var(--space-8);">
+                                <p style="color: var(--color-text-muted); font-size: var(--text-sm);">No books saved yet. Explore recommendations to add books to your list.</p>
+                                <a href="recommendations.html" class="btn btn-secondary btn-sm" style="margin-top: var(--space-4);">Browse Books</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Danger Zone -->
+                    <div class="danger-zone animate-fade-in-up stagger-3">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            Danger Zone
+                        </h3>
+                        <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4);">These actions are irreversible. Proceed with caution.</p>
+                        <div class="flex gap-3">
+                            <button class="btn btn-sm btn-secondary" onclick="clearReadingList()">Clear Reading List</button>
+                            <button class="btn btn-sm btn-rose" onclick="resetAccount()">Reset All Data</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
