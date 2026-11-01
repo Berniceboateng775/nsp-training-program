@@ -1,17 +1,22 @@
 /**
  * Vellichor AI — Chatbot Logic
- * Includes chat history (localStorage), guest limits, and file upload.
+ * Includes chat history (localStorage), conversation memory, guest limits,
+ * and document upload (PDF/TXT are indexed server-side for context).
  */
 
 let currentChatId = null;
-let uploadedFileContent = null;
+let attachedTextContent = null;   // TXT contents, sent inline with the next message
+let isSending = false;
+let lastFailedMessage = null;
 const GUEST_MSG_LIMIT = 1;
+const HISTORY_TURNS_SENT = 12;
 
 document.addEventListener('DOMContentLoaded', () => {
     if (!requireAuth()) return;
     renderSidebar('chatbot.html');
     renderChatHistory();
     document.getElementById('chatInput').focus();
+    wakeServer();
 
     // Check if we should load a specific chat from URL hash
     const hash = window.location.hash.replace('#', '');
@@ -19,6 +24,29 @@ document.addEventListener('DOMContentLoaded', () => {
         loadChat(hash);
     }
 });
+
+
+// ─── Server wake-up ──────────────────────────────────────
+// The backend sleeps on Render's free tier; ping it as soon as the page
+// opens so it's awake by the time the first message is sent.
+
+async function wakeServer() {
+    const status = document.getElementById('serverStatus');
+    const slowTimer = setTimeout(() => {
+        status.hidden = false;
+        status.textContent = 'Waking up the server…';
+    }, 2500);
+    try {
+        await api.health();
+        status.hidden = true;
+    } catch {
+        status.hidden = false;
+        status.textContent = "Can't reach the server right now";
+        status.classList.add('is-error');
+    } finally {
+        clearTimeout(slowTimer);
+    }
+}
 
 
 // ─── Chat History (localStorage) ─────────────────────────
@@ -45,7 +73,7 @@ function createNewChat(title) {
     const id = 'chat_' + Date.now();
     const chat = {
         id: id,
-        title: title || 'New Conversation',
+        title: (title || 'New chat').substring(0, 40),
         createdAt: new Date().toISOString(),
         messageCount: 0
     };
@@ -53,17 +81,6 @@ function createNewChat(title) {
     list.unshift(chat);
     saveChatList(list);
     return chat;
-}
-
-function updateChatTitle(chatId, newTitle) {
-    const list = getChatList();
-    const chat = list.find(c => c.id === chatId);
-    if (chat) {
-        chat.title = newTitle.length > 35 
-            ? newTitle.substring(0, 35) + '...' 
-            : newTitle;
-        saveChatList(list);
-    }
 }
 
 function deleteChat(chatId) {
@@ -87,15 +104,14 @@ function renderChatHistory() {
 
     const chats = getChatList();
     if (chats.length === 0) {
-        container.innerHTML = '<div class="chat-history-empty">No conversations yet</div>';
+        container.innerHTML = '<div class="chat-history-empty">Nothing yet. Say hi.</div>';
         return;
     }
 
     container.innerHTML = chats.map(chat => `
         <div class="chat-history-item ${chat.id === currentChatId ? 'active' : ''}" onclick="loadChat('${chat.id}')">
-            <span class="chat-history-icon">💬</span>
-            <span class="chat-history-title">${chat.title}</span>
-            <button class="chat-history-delete" onclick="event.stopPropagation(); deleteChat('${chat.id}')" title="Delete">✕</button>
+            <span class="chat-history-title">${escapeHTML(chat.title)}</span>
+            <button class="chat-history-delete" onclick="event.stopPropagation(); deleteChat('${chat.id}')" title="Delete" aria-label="Delete chat">✕</button>
         </div>
     `).join('');
 }
@@ -106,23 +122,22 @@ function renderChatHistory() {
 function loadChat(chatId) {
     currentChatId = chatId;
     const messages = getChatMessages(chatId);
-    
+
     const suggestions = document.getElementById('chatSuggestions');
     const messagesContainer = document.getElementById('chatMessages');
-    
+
     if (messages.length > 0) {
         suggestions.style.display = 'none';
         messagesContainer.style.display = 'flex';
         messagesContainer.innerHTML = '';
-        messages.forEach(msg => {
-            addMessageToDOM(msg.text, msg.role, msg.time);
-        });
+        messages.forEach(msg => addMessageToDOM(msg.text, msg.role, msg.time));
         scrollToBottom();
     } else {
         resetToSuggestions();
     }
-    
+
     renderChatHistory();
+    closeSidebar();
 }
 
 function startNewChat() {
@@ -131,6 +146,7 @@ function startNewChat() {
     document.getElementById('chatInput').value = '';
     document.getElementById('chatInput').focus();
     renderChatHistory();
+    closeSidebar();
 }
 
 function resetToSuggestions() {
@@ -172,7 +188,6 @@ function checkGuestLimit() {
 }
 
 function showGuestLimitModal() {
-    // Remove existing modal if any
     const existing = document.getElementById('guestLimitModal');
     if (existing) existing.remove();
 
@@ -181,12 +196,11 @@ function showGuestLimitModal() {
     modal.innerHTML = `
         <div class="modal-overlay" onclick="this.parentElement.remove()">
             <div class="modal-card" onclick="event.stopPropagation()">
-                <div class="modal-icon">🔒</div>
-                <h3>Guest Limit Reached</h3>
-                <p>You've used your free guest message. Create a free account to unlock unlimited conversations, book recommendations, and emotion analysis.</p>
+                <h3>Liking it so far?</h3>
+                <p>That was your free guest message. Make a free account to keep chatting, save your chats, and upload PDFs.</p>
                 <div class="modal-actions">
-                    <a href="register.html" class="btn btn-primary" style="width: 100%;">Create Free Account</a>
-                    <a href="login.html" class="btn btn-secondary" style="width: 100%;">Sign In</a>
+                    <a href="register.html" class="btn btn-primary btn-lg">Create a free account</a>
+                    <a href="login.html" class="btn btn-secondary btn-lg">Log in</a>
                 </div>
             </div>
         </div>
@@ -206,7 +220,7 @@ function handleKeyDown(event) {
 
 function autoResize(textarea) {
     textarea.style.height = 'auto';
-    textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+    textarea.style.height = Math.min(textarea.scrollHeight, 160) + 'px';
 }
 
 function sendSuggestion(text) {
@@ -216,31 +230,50 @@ function sendSuggestion(text) {
 
 
 // ─── File Upload ─────────────────────────────────────────
+// TXT is read in the browser and sent with the next message.
+// PDF is uploaded and indexed on the server, so every later question
+// in the chat can pull the relevant passages.
 
-function handleChatFileUpload(event) {
+async function handleChatFileUpload(event) {
     const file = event.target.files[0];
     if (!file) return;
 
     const ext = file.name.split('.').pop().toLowerCase();
-    const supported = ['txt', 'pdf', 'epub', 'docx', 'doc'];
-    if (!supported.includes(ext)) {
-        showToast('Unsupported file type. Please use PDF, EPUB, DOCX, or TXT.', 'error');
+    if (!['txt', 'pdf'].includes(ext)) {
+        showToast('Only PDF and TXT files work here.', 'error');
+        event.target.value = '';
         return;
     }
 
-    document.getElementById('chatFileInfo').style.display = 'flex';
-    document.getElementById('chatFileName').textContent = `📄 ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+    const info = document.getElementById('chatFileInfo');
+    const label = document.getElementById('chatFileName');
+    info.style.display = 'flex';
+    label.textContent = `${file.name} · ${(file.size / 1024).toFixed(0)} KB`;
 
     if (ext === 'txt') {
         const reader = new FileReader();
         reader.onload = (e) => {
-            uploadedFileContent = e.target.result;
-            showToast('Text file loaded — it will be included with your next message');
+            attachedTextContent = e.target.result;
+            showToast('Text attached. It goes with your next message.');
         };
         reader.readAsText(file);
-    } else {
-        uploadedFileContent = `[Uploaded file: ${file.name}]`;
-        showToast(`${ext.toUpperCase()} file attached. Send a message to ask about its content.`);
+        return;
+    }
+
+    if (isGuest()) {
+        showToast('Make a free account to upload PDFs.', 'warning');
+        clearChatFile();
+        return;
+    }
+
+    label.textContent = `Reading ${file.name}…`;
+    try {
+        const result = await api.uploadChatDocument(file);
+        label.textContent = `${file.name} · ready (${result.total_chunks} passages)`;
+        showToast('PDF ready. Ask me anything about it.');
+    } catch (error) {
+        showToast(error.message || 'Could not read that PDF.', 'error');
+        clearChatFile();
     }
 }
 
@@ -248,146 +281,197 @@ function clearChatFile() {
     document.getElementById('chatFileInput').value = '';
     document.getElementById('chatFileInfo').style.display = 'none';
     document.getElementById('chatFileName').textContent = '';
-    uploadedFileContent = null;
+    attachedTextContent = null;
 }
 
 
 // ─── Send Message ────────────────────────────────────────
 
-async function sendMessage() {
+async function sendMessage(retryText = null) {
+    if (isSending) return;
     const input = document.getElementById('chatInput');
-    let message = input.value.trim();
-    if (!message && !uploadedFileContent) return;
+    const typed = (retryText ?? input.value).trim();
+    if (!typed && !attachedTextContent) return;
 
-    // Guest limit check
     if (!checkGuestLimit()) return;
 
-    // Save original user input for chat title (before file content modifies it)
-    const originalInput = message;
-
-    // If there's uploaded file content, prepend it
-    if (uploadedFileContent) {
-        const fileContext = uploadedFileContent.length > 4000
-            ? uploadedFileContent.substring(0, 4000) + '\n... [text truncated for analysis]'
-            : uploadedFileContent;
-        message = message
-            ? `[Document content for analysis]:\n${fileContext}\n\n[User question]: ${message}`
-            : `Please analyze this document:\n${fileContext}`;
+    // Build the message actually sent to the model
+    let message = typed;
+    let displayMessage = typed;
+    if (attachedTextContent && !retryText) {
+        const fileContext = attachedTextContent.length > 6000
+            ? attachedTextContent.substring(0, 6000) + '\n…[truncated]'
+            : attachedTextContent;
+        message = typed
+            ? `Here is a document I'm reading:\n\n${fileContext}\n\nMy question: ${typed}`
+            : `Here is a document I'm reading. What's going on in it, and how does it feel?\n\n${fileContext}`;
+        displayMessage = typed ? `📎 ${typed}` : '📎 What\'s going on in this document?';
         clearChatFile();
     }
 
-    // Create chat with the user's original input as the title
     if (!currentChatId) {
-        const chatTitle = originalInput || 'Document Analysis';
-        const chat = createNewChat(chatTitle);
-        currentChatId = chat.id;
+        currentChatId = createNewChat(typed || 'Document chat').id;
     }
 
-    // Switch from suggestions to messages view
     const suggestions = document.getElementById('chatSuggestions');
     const messagesContainer = document.getElementById('chatMessages');
-    if (suggestions.style.display !== 'none') {
-        suggestions.style.display = 'none';
-        messagesContainer.style.display = 'flex';
-    }
+    suggestions.style.display = 'none';
+    messagesContainer.style.display = 'flex';
 
-    // Display message
-    const displayMessage = message.includes('[User question]:')
-        ? '📄 ' + message.split('[User question]: ')[1]
-        : message.includes('Please analyze this document')
-            ? '📄 Analyze uploaded document'
-            : message;
-    
-    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    addMessageToDOM(displayMessage, 'user', time);
-    
-    // Save to history
+    // Conversation memory: previous turns, oldest first (before this message)
     const chatMessages = getChatMessages(currentChatId);
-    chatMessages.push({ text: displayMessage, role: 'user', time: time });
-    saveChatMessages(currentChatId, chatMessages);
-    
-    // Update message count
-    const list = getChatList();
-    const chat = list.find(c => c.id === currentChatId);
-    if (chat) { chat.messageCount++; saveChatList(list); }
-    
-    renderChatHistory();
+    const history = chatMessages
+        .filter(m => m.role === 'user' || m.role === 'assistant')
+        .slice(-HISTORY_TURNS_SENT)
+        .map(m => ({ role: m.role, content: m.sent || m.text }));
+
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    if (!retryText) {
+        addMessageToDOM(displayMessage, 'user', time);
+        chatMessages.push({ text: displayMessage, sent: message, role: 'user', time });
+        saveChatMessages(currentChatId, chatMessages);
+        bumpChatCount();
+    }
+    removeErrorBubbles();
 
     input.value = '';
     autoResize(input);
 
-    // Show typing indicator
-    const typing = document.getElementById('typingIndicator');
-    typing.classList.add('show');
-    scrollToBottom();
-
+    const typing = showTyping();
     const sendBtn = document.getElementById('sendBtn');
     sendBtn.disabled = true;
+    isSending = true;
 
     try {
-        const data = await api.sendMessage(message, currentChatId);
-        typing.classList.remove('show');
+        const data = await api.sendMessage(message, currentChatId, history);
+        typing.remove();
         const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         addMessageToDOM(data.reply, 'assistant', replyTime);
-        
-        // Save assistant reply
-        chatMessages.push({ text: data.reply, role: 'assistant', time: replyTime });
-        saveChatMessages(currentChatId, chatMessages);
 
-        // Track AI conversations stat
+        const msgs = getChatMessages(currentChatId);
+        msgs.push({ text: data.reply, role: 'assistant', time: replyTime });
+        saveChatMessages(currentChatId, msgs);
+        lastFailedMessage = null;
+
+        if (isGuest()) incrementGuestUsage('messages');
         const stats = JSON.parse(localStorage.getItem('vellichor_stats') || '{}');
         stats.ai_conversations = (stats.ai_conversations || 0) + 1;
         localStorage.setItem('vellichor_stats', JSON.stringify(stats));
     } catch (error) {
-        typing.classList.remove('show');
-        const mockResponses = [
-            "Based on your question, I'd recommend exploring the themes of identity and belonging that pervade much of contemporary literature. Works like **The Invisible Life of Addie LaRue** by V.E. Schwab handle these with remarkable depth.",
-            "That's a fascinating literary question. The interplay between character motivation and narrative structure is what gives great novels their power. Consider how authors like Madeline Miller reinterpret classical narratives to speak to modern sensibilities.",
-            "I sense you're drawn to stories with emotional complexity. **The Midnight Library** by Matt Haig explores the infinite possibilities of life through a beautiful metaphor — a library between life and death where each book represents a different path.",
-            "The beauty of literature lies in its ability to make us feel deeply. The passage you're describing carries undertones of nostalgia and quiet resilience — common in works that explore the human condition through the lens of nature and time."
-        ];
-        const randomReply = mockResponses[Math.floor(Math.random() * mockResponses.length)];
-        const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        addMessageToDOM(randomReply, 'assistant', replyTime);
-        
-        // Save mock reply
-        const msgs = getChatMessages(currentChatId);
-        msgs.push({ text: randomReply, role: 'assistant', time: replyTime });
-        saveChatMessages(currentChatId, msgs);
+        typing.remove();
+        lastFailedMessage = message;
+        addErrorBubble(error);
     } finally {
         sendBtn.disabled = false;
+        isSending = false;
         input.focus();
     }
+}
 
-    // Track guest usage
-    if (isGuest()) {
-        incrementGuestUsage('messages');
-    }
+function bumpChatCount() {
+    const list = getChatList();
+    const chat = list.find(c => c.id === currentChatId);
+    if (chat) { chat.messageCount++; saveChatList(list); }
+    renderChatHistory();
+}
 
-    // Track stats
-    if (typeof incrementStat === 'function') {
-        incrementStat('ai_conversations');
-    }
+function retryLastMessage() {
+    if (lastFailedMessage) sendMessage(lastFailedMessage);
 }
 
 
 // ─── DOM Helpers ─────────────────────────────────────────
 
+/** Minimal, safe markdown: escapes HTML first, then bold/italic/code/lists/paragraphs. */
+function renderMarkdown(text) {
+    const safe = escapeHTML(text);
+    const inline = (s) => s
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g, '$1<em>$2</em>')
+        .replace(/`([^`]+)`/g, '<code>$1</code>');
+
+    const blocks = [];
+    let list = null;
+    for (const raw of safe.split('\n')) {
+        const line = raw.trimEnd();
+        const bullet = line.match(/^\s*(?:[-*•]|\d+[.)])\s+(.*)$/);
+        if (bullet) {
+            const ordered = /^\s*\d/.test(line);
+            if (!list || list.ordered !== ordered) {
+                if (list) blocks.push(list);
+                list = { ordered, items: [] };
+            }
+            list.items.push(inline(bullet[1]));
+            continue;
+        }
+        if (list) { blocks.push(list); list = null; }
+        if (line.trim() === '') { blocks.push(null); continue; }
+        const heading = line.match(/^#{1,4}\s+(.*)$/);
+        blocks.push(heading ? `<p><strong>${inline(heading[1])}</strong></p>` : inline(line));
+    }
+    if (list) blocks.push(list);
+
+    // Join consecutive text lines into paragraphs
+    let html = '';
+    let para = [];
+    const flush = () => { if (para.length) { html += `<p>${para.join('<br>')}</p>`; para = []; } };
+    for (const b of blocks) {
+        if (b === null) { flush(); continue; }
+        if (typeof b === 'object') {
+            flush();
+            const tag = b.ordered ? 'ol' : 'ul';
+            html += `<${tag}>${b.items.map(i => `<li>${i}</li>`).join('')}</${tag}>`;
+            continue;
+        }
+        if (b.startsWith('<p>')) { flush(); html += b; continue; }
+        para.push(b);
+    }
+    flush();
+    return html;
+}
+
 function addMessageToDOM(text, role, time) {
     const messagesContainer = document.getElementById('chatMessages');
-    const processedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    
-    const messageHTML = `
+    const content = role === 'assistant' ? renderMarkdown(text) : escapeHTML(text).replace(/\n/g, '<br>');
+
+    messagesContainer.insertAdjacentHTML('beforeend', `
         <div class="chat-message ${role}">
-            <div>
-                <div class="message-content">${processedText}</div>
-                <div class="message-time">${time}</div>
+            <div class="message-content">${content}</div>
+            <div class="message-time">${escapeHTML(time || '')}</div>
+        </div>
+    `);
+    scrollToBottom();
+}
+
+function showTyping() {
+    const messagesContainer = document.getElementById('chatMessages');
+    const el = document.createElement('div');
+    el.className = 'typing-indicator';
+    el.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+    messagesContainer.appendChild(el);
+    scrollToBottom();
+    return el;
+}
+
+function addErrorBubble(error) {
+    const messagesContainer = document.getElementById('chatMessages');
+    const offline = error instanceof TypeError; // fetch() network failure
+    const reason = offline
+        ? "I couldn't reach the server. It might still be waking up."
+        : (error.message || 'Something went wrong on my end.');
+    messagesContainer.insertAdjacentHTML('beforeend', `
+        <div class="chat-message assistant chat-error">
+            <div class="message-content">
+                <p>${escapeHTML(reason)}</p>
+                <button class="btn btn-secondary btn-sm" onclick="retryLastMessage()">Try again</button>
             </div>
         </div>
-    `;
-    
-    messagesContainer.insertAdjacentHTML('beforeend', messageHTML);
+    `);
     scrollToBottom();
+}
+
+function removeErrorBubbles() {
+    document.querySelectorAll('.chat-error').forEach(el => el.remove());
 }
 
 function scrollToBottom() {

@@ -16,7 +16,12 @@ logger = logging.getLogger(__name__)
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_MODEL = "llama-3.3-70b-versatile"
+# llama-3.3-70b-versatile was retired by Groq; override with GROQ_MODEL if this one goes too.
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+
+
+class ChatModelError(Exception):
+    """The chat model could not produce a reply (bad key, retired model, outage…)."""
 
 # Keep HF vars for backward compat (unused if Groq is configured)
 HF_API_TOKEN = os.getenv("HF_API_TOKEN", "")
@@ -41,8 +46,15 @@ STRICT RULES:
 You are helpful, literary, and genuine. You love books and want to share that passion."""
 
 
-async def query_model(prompt: str) -> str:
-    """Send a prompt to Groq (Llama 3.3) and return the response."""
+MAX_HISTORY_TURNS = 12
+
+
+async def query_model(prompt: str, history: list = None) -> str:
+    """
+    Send a prompt to Groq (Llama 3.3) and return the response.
+    `history` is a list of {"role", "content"} dicts (oldest first) so the
+    model can follow the conversation.
+    """
     if not GROQ_API_KEY:
         return await mock_chat_response(prompt)
 
@@ -54,26 +66,36 @@ async def query_model(prompt: str) -> str:
         "model": GROQ_MODEL,
         "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
+            *[
+                {"role": t["role"], "content": t["content"][:4000]}
+                for t in (history or [])[-MAX_HISTORY_TURNS:]
+                if t.get("role") in ("user", "assistant") and t.get("content")
+            ],
             {"role": "user", "content": prompt}
         ],
         "temperature": 0.7,
-        "max_tokens": 500,
+        "max_tokens": 1200,
         "top_p": 0.9
     }
+    if GROQ_MODEL.startswith("openai/gpt-oss"):
+        # Reasoning model: keep thinking short so the answer fits the token budget
+        payload["reasoning_effort"] = "low"
 
     try:
-        async with httpx.AsyncClient(timeout=30.0) as client:
+        async with httpx.AsyncClient(timeout=45.0) as client:
             response = await client.post(GROQ_API_URL, json=payload, headers=headers)
-
-            if response.status_code == 200:
-                result = response.json()
-                return result["choices"][0]["message"]["content"]
-            else:
-                logger.error(f"Groq API error: {response.status_code} — {response.text}")
-                return await mock_chat_response(prompt)
-    except Exception as e:
+    except httpx.HTTPError as e:
         logger.error(f"Groq request failed: {e}")
-        return await mock_chat_response(prompt)
+        raise ChatModelError("The chat model didn't respond. Please try again.") from e
+
+    if response.status_code != 200:
+        logger.error(f"Groq API error: {response.status_code} — {response.text}")
+        raise ChatModelError("The chat model is unavailable right now. Please try again in a bit.")
+
+    content = (response.json()["choices"][0]["message"].get("content") or "").strip()
+    if not content:
+        raise ChatModelError("The chat model returned an empty reply. Please try again.")
+    return content
 
 
 # ─── Mock Responses (fallback when Groq API is not configured) ──

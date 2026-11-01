@@ -2,22 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">`n    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <script>(function(){var t='dark';try{t=localStorage.getItem('vellichor_theme')||'dark'}catch(e){}document.documentElement.setAttribute('data-theme',t);})()</script>
+    <style>html{background:#100e0c;color-scheme:dark}html[data-theme="light"]{background:#f6f1e9;color-scheme:light}@view-transition{navigation:auto}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,400..700&display=swap">
+    <link rel="icon" type="image/png" href="favicon.png">
     <title>Book Recommendations — Vellichor AI</title>
     <link rel="stylesheet" href="css/design-system.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/recommendations.css">
-    <script>(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('vellichor_theme')||'dark');})()</script>
 </head>
 <body>
 
     <div class="app-layout">
         <div class="main-content" id="mainContent">
             <header class="page-header">
-                <h1>Discover Books</h1>
+                <h1>Discover</h1>
                 <button class="btn btn-primary btn-sm" onclick="loadRecommendations()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                    Get New Picks
+                    Shuffle picks
                 </button>
             </header>
 
@@ -36,7 +41,7 @@
                 <div class="reco-toolbar">
                     <div class="reco-search">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                        <input type="text" id="searchInput" placeholder="Search by title, author, or keyword..." oninput="handleSearch()">
+                        <input type="text" id="searchInput" placeholder="Search a title, author, or vibe…" oninput="handleSearch()">
                     </div>
                     <div class="reco-filters">
                         <button class="tag active" data-genre="" onclick="toggleFilter(this)">All</button>

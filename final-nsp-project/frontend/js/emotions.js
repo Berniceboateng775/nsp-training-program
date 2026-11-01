@@ -10,8 +10,7 @@ function showGuestLimitModal() {
     modal.innerHTML = `
         <div class="modal-overlay" onclick="this.parentElement.remove()">
             <div class="modal-card" onclick="event.stopPropagation()">
-                <div class="modal-icon">🔒</div>
-                <h3>Guest Limit Reached</h3>
+                                <h3>Guest Limit Reached</h3>
                 <p>You've used your free guest analysis. Create a free account to unlock unlimited conversations, analysis, and recommendations.</p>
                 <div class="modal-actions">
                     <a href="register.html" class="btn btn-primary" style="width: 100%;">Create Free Account</a>
@@ -30,20 +29,20 @@ let barChart = null;
 function getEmotionColors() {
     return {
         // Custom GPT-2 model labels — solid vivid colors
-        'Joy & Confidence': '#D4A853',
-        'Sadness': '#60A5FA',
-        'Anger': '#F87171',
-        'Fear & Tension': '#EF4444',
-        'Connection & Trust': '#F472B6',
-        'Vulnerability': '#A78BFA',
-        'Suspense & Reflection': '#4ADE80',
+        'Joy & Confidence': '#F6C35B',
+        'Sadness': '#7F9CF5',
+        'Anger': '#F0614F',
+        'Fear & Tension': '#EF8F4A',
+        'Connection & Trust': '#F08AA8',
+        'Vulnerability': '#C4A4F0',
+        'Suspense & Reflection': '#6CC7A4',
         // Fallback lowercase variants
-        'joy': '#D4A853',
-        'sadness': '#60A5FA',
-        'anger': '#F87171',
-        'fear': '#EF4444',
-        'surprise': '#A78BFA',
-        'love': '#F472B6'
+        'joy': '#F6C35B',
+        'sadness': '#7F9CF5',
+        'anger': '#F0614F',
+        'fear': '#EF8F4A',
+        'surprise': '#C4A4F0',
+        'love': '#F08AA8'
     };
 }
 

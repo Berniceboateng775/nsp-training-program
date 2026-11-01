@@ -25,6 +25,18 @@ JWT_EXPIRATION_MINUTES = int(os.getenv("JWT_EXPIRATION_MINUTES", "1440"))
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 security = HTTPBearer()
+optional_security = HTTPBearer(auto_error=False)
+
+# The frontend's "Continue as guest" stores this placeholder instead of a JWT.
+GUEST_TOKEN = "guest-token"
+GUEST_USER = {
+    "id": "guest",
+    "name": "Guest Reader",
+    "email": "",
+    "favorite_genres": [],
+    "created_at": "",
+    "is_guest": True,
+}
 
 
 # ─── Password Utilities ───────────────────────────────────
@@ -60,6 +72,15 @@ def decode_token(token: str) -> dict:
 
 
 # ─── Route Protection ─────────────────────────────────────
+
+async def get_user_or_guest(
+    credentials: Optional[HTTPAuthorizationCredentials] = Depends(optional_security),
+):
+    """Like get_current_user, but lets guest sessions through as GUEST_USER."""
+    if credentials is None or credentials.credentials == GUEST_TOKEN:
+        return GUEST_USER
+    return await get_current_user(credentials)
+
 
 async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)):
     """Dependency that extracts and validates the current user from JWT."""

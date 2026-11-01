@@ -3,7 +3,11 @@
  * Handles all communication with the FastAPI backend.
  */
 
-const API_BASE = "https://vellichor-ai-backend.onrender.com/api";
+// When the site is served locally, talk to the local backend (uvicorn on :8000).
+const IS_LOCAL = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+const API_BASE = IS_LOCAL
+  ? "http://localhost:8000/api"
+  : "https://vellichor-ai-backend.onrender.com/api";
 
 class VellichorAPI {
   constructor() {
@@ -55,10 +59,12 @@ class VellichorAPI {
 
     try {
       const response = await fetch(url, config);
-      const data = await response.json();
+      // Error pages (e.g. a sleeping host's 502) aren't always JSON
+      const data = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        throw new Error(data.detail || "Request failed");
+        const detail = typeof data.detail === "string" ? data.detail : null;
+        throw new Error(detail || `Request failed (${response.status})`);
       }
 
       return data;
@@ -102,12 +108,17 @@ class VellichorAPI {
 
   // ─── Chat ────────────────────────────────────────────
 
-  async sendMessage(message, conversationId = null) {
+  async health() {
+    return this.request("/health");
+  }
+
+  async sendMessage(message, conversationId = null, history = []) {
     return this.request("/chat", {
       method: "POST",
       body: JSON.stringify({
         message,
         conversation_id: conversationId,
+        history,
       }),
     });
   }

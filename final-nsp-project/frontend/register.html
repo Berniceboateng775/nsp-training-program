@@ -2,75 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">`n    <link rel="icon" type="image/png" href="favicon.png">
-    <title>Create Account — Vellichor AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <script>(function(){var t='dark';try{t=localStorage.getItem('vellichor_theme')||'dark'}catch(e){}document.documentElement.setAttribute('data-theme',t);})()</script>
+    <style>html{background:#100e0c;color-scheme:dark}html[data-theme="light"]{background:#f6f1e9;color-scheme:light}@view-transition{navigation:auto}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,400..700&display=swap">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Sign up — Vellichor</title>
     <link rel="stylesheet" href="css/design-system.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/auth.css">
-    <script>(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('vellichor_theme')||'dark');})()</script>
 </head>
 <body>
 
     <div class="auth-page">
-        <div class="auth-card">
-            <div class="auth-header">
-                <div class="auth-logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                </div>
-                <h1>Join Vellichor</h1>
-                <p>Create your account and start exploring</p>
+        <!-- Left: editorial panel -->
+        <aside class="auth-art" aria-hidden="true">
+            <img class="auth-art-photo" src="img/shelf-hand.jpg" alt="">
+            <a href="index.html" class="wordmark">vellichor<span class="wordmark-dot">.</span></a>
+            <div class="auth-art-quote">
+                <p>Your reading era<br><em>starts here.</em></p>
+                <span>Free forever. No credit card. Just books.</span>
             </div>
+            <ul class="auth-art-list">
+                <li>See the mood of any PDF or passage</li>
+                <li>Talk books with someone who's read them</li>
+                <li>Get picks based on how you want to feel</li>
+            </ul>
+        </aside>
 
-            <div class="auth-error" id="registerError"></div>
-
-            <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
-                <div class="input-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" class="input" placeholder="Your name" required>
+        <!-- Right: form -->
+        <main class="auth-main">
+            <a href="index.html" class="wordmark auth-mobile-mark">vellichor<span class="wordmark-dot">.</span></a>
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Make it <em>yours.</em></h1>
+                    <p>Takes about 20 seconds.</p>
                 </div>
 
-                <div class="input-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" class="input" placeholder="you@example.com" required>
-                </div>
+                <div class="auth-error" id="registerError" role="alert"></div>
 
-                <div class="input-group" style="position: relative;">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="input" placeholder="Create a strong password" required minlength="6" style="padding-right: 50px;">
-                    <button type="button" onclick="togglePassword()" id="togglePwdBtn" style="position:absolute; right:12px; top:36px; background:none; border:none; cursor:pointer; padding:4px; opacity:0.6; transition:opacity 0.2s;" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.6'">
-                        <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                        <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                    </button>
-                </div>
-
-                <div class="input-group">
-                    <label>Favorite Genres</label>
-                    <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: var(--space-2);">Select genres that interest you</p>
-                    <div class="genre-grid" id="genreGrid">
-                        <div class="genre-chip" data-genre="Fantasy" onclick="toggleGenre(this)">Fantasy</div>
-                        <div class="genre-chip" data-genre="Science Fiction" onclick="toggleGenre(this)">Sci-Fi</div>
-                        <div class="genre-chip" data-genre="Romance" onclick="toggleGenre(this)">Romance</div>
-                        <div class="genre-chip" data-genre="Mystery" onclick="toggleGenre(this)">Mystery</div>
-                        <div class="genre-chip" data-genre="Thriller" onclick="toggleGenre(this)">Thriller</div>
-                        <div class="genre-chip" data-genre="Historical Fiction" onclick="toggleGenre(this)">Historical</div>
-                        <div class="genre-chip" data-genre="Literary Fiction" onclick="toggleGenre(this)">Literary</div>
-                        <div class="genre-chip" data-genre="Horror" onclick="toggleGenre(this)">Horror</div>
-                        <div class="genre-chip" data-genre="Non-Fiction" onclick="toggleGenre(this)">Non-Fiction</div>
-                        <div class="genre-chip" data-genre="Poetry" onclick="toggleGenre(this)">Poetry</div>
-                        <div class="genre-chip" data-genre="Mythology" onclick="toggleGenre(this)">Mythology</div>
-                        <div class="genre-chip" data-genre="Biography" onclick="toggleGenre(this)">Biography</div>
+                <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+                    <div class="input-group">
+                        <label for="name">What should we call you?</label>
+                        <input type="text" id="name" class="input" placeholder="Your name" autocomplete="name" required>
                     </div>
+
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="input" placeholder="you@example.com" autocomplete="email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <div class="password-field">
+                            <input type="password" id="password" class="input" placeholder="At least 6 characters" autocomplete="new-password" required minlength="6">
+                            <button type="button" class="password-toggle" onclick="togglePassword()" id="togglePwdBtn" aria-label="Show password">
+                                <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>What do you like to read? <span class="label-hint">Pick a few</span></label>
+                        <div class="genre-grid" id="genreGrid">
+                            <div class="genre-chip" data-genre="Fantasy" onclick="toggleGenre(this)">Fantasy</div>
+                            <div class="genre-chip" data-genre="Science Fiction" onclick="toggleGenre(this)">Sci-Fi</div>
+                            <div class="genre-chip" data-genre="Romance" onclick="toggleGenre(this)">Romance</div>
+                            <div class="genre-chip" data-genre="Mystery" onclick="toggleGenre(this)">Mystery</div>
+                            <div class="genre-chip" data-genre="Thriller" onclick="toggleGenre(this)">Thriller</div>
+                            <div class="genre-chip" data-genre="Historical Fiction" onclick="toggleGenre(this)">Historical</div>
+                            <div class="genre-chip" data-genre="Literary Fiction" onclick="toggleGenre(this)">Literary</div>
+                            <div class="genre-chip" data-genre="Horror" onclick="toggleGenre(this)">Horror</div>
+                            <div class="genre-chip" data-genre="Non-Fiction" onclick="toggleGenre(this)">Non-Fiction</div>
+                            <div class="genre-chip" data-genre="Poetry" onclick="toggleGenre(this)">Poetry</div>
+                            <div class="genre-chip" data-genre="Mythology" onclick="toggleGenre(this)">Mythology</div>
+                            <div class="genre-chip" data-genre="Biography" onclick="toggleGenre(this)">Biography</div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg" id="registerBtn">Create account</button>
+                </form>
+
+                <div class="auth-footer">
+                    Already reading with us? <a href="login.html">Log in</a>
                 </div>
-
-                <button type="submit" class="btn btn-primary btn-lg" id="registerBtn" style="width: 100%;">
-                    Create Account
-                </button>
-            </form>
-
-            <div class="auth-footer">
-                Already have an account? <a href="login.html">Sign in</a>
             </div>
-        </div>
+        </main>
     </div>
 
     <script src="js/api.js"></script>
