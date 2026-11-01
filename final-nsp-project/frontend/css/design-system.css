@@ -1,50 +1,72 @@
 /*
  * VELLICHOR AI — Design System
  * ═══════════════════════════════════════════════════════════
- * Premium dark academia aesthetic. Deep, rich, intentional.
+ * Warm ink canvas, cream type, one coral accent.
+ * Plus Jakarta Sans throughout; photography carries the mood.
+ *
+ * Token names (gold / rose / pop) are kept for compatibility:
+ *   --color-gold / --color-pop → coral accent
+ *   --color-rose               → soft peach
  */
 
-/* ─── Google Fonts ──────────────────────────────────────── */
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap");
+/* Fonts are loaded via <link> in each page head (avoids a render-blocking @import). */
 
 /* ─── CSS Custom Properties (Design Tokens) ─────────────── */
 :root {
-  /* Core Palette */
-  --color-bg-deep: #0a0a14;
-  --color-bg-primary: #0f0e17;
-  --color-bg-surface: #1a1a2e;
-  --color-bg-elevated: #222240;
-  --color-bg-hover: #2a2a4a;
+  /* Core Palette — warm ink, like a reading lamp at night */
+  --color-bg-deep: #100e0c;
+  --color-bg-primary: #15120f;
+  --color-bg-surface: #1c1915;
+  --color-bg-elevated: #26221d;
+  --color-bg-hover: #2f2a24;
+  --color-glass: rgba(255, 244, 228, 0.03);
+  --color-glass-strong: rgba(255, 244, 228, 0.06);
 
-  /* Accent Colors */
-  --color-gold: #d4a853;
-  --color-gold-dim: #b8922e;
-  --color-gold-glow: rgba(212, 168, 83, 0.12);
-  --color-rose: #b8405e;
-  --color-rose-dim: #963350;
-  --color-rose-glow: rgba(184, 64, 94, 0.12);
+  /* Accent Colors
+   * gold → signature coral, rose → soft peach, pop → CTA (coral) */
+  --color-gold: #ff7a4d;
+  --color-gold-dim: #f2622f;
+  --color-gold-glow: rgba(255, 122, 77, 0.12);
+  --color-rose: #ffb08f;
+  --color-rose-dim: #ff9a72;
+  --color-rose-glow: rgba(255, 176, 143, 0.12);
+  --color-pop: #ff7a4d;
+  --color-pop-dim: #f2622f;
+  --color-pop-ink: #1a0f0a;
+  --color-cream: #f3ece1;
+  --color-butter: #f6d58b;
+
+  /* Emotion palette — warm-leaning, matched saturation */
+  --emo-joy: #f6c35b;
+  --emo-sadness: #7f9cf5;
+  --emo-anger: #f0614f;
+  --emo-fear: #ef8f4a;
+  --emo-vulnerability: #c4a4f0;
+  --emo-trust: #f08aa8;
+  --emo-suspense: #6cc7a4;
 
   /* Text */
-  --color-text-primary: #fffffe;
-  --color-text-secondary: #a7a9be;
-  --color-text-muted: #6b6d80;
-  --color-text-inverse: #0f0e17;
+  --color-text-primary: #f3ece1;
+  --color-text-secondary: #b3aa9d;
+  --color-text-muted: #7a7166;
+  --color-text-inverse: #100e0c;
 
   /* Semantic */
-  --color-success: #4ade80;
-  --color-warning: #fbbf24;
-  --color-error: #f87171;
-  --color-info: #60a5fa;
+  --color-success: #7fcf8e;
+  --color-warning: #f6c35b;
+  --color-error: #f0614f;
+  --color-info: #7f9cf5;
 
   /* Borders */
-  --color-border: rgba(167, 169, 190, 0.1);
-  --color-border-hover: rgba(167, 169, 190, 0.2);
-  --color-border-gold: rgba(212, 168, 83, 0.3);
+  --color-border: rgba(243, 236, 225, 0.08);
+  --color-border-hover: rgba(243, 236, 225, 0.16);
+  --color-border-gold: rgba(255, 122, 77, 0.4);
 
   /* Typography */
-  --font-serif: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-sans:
-    "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-display);
+  --font-sans: var(--font-display);
+  --font-accent: var(--font-display);
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -53,13 +75,15 @@
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
-  --text-5xl: 3rem;
-  --text-6xl: 3.75rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3.25rem;
+  --text-6xl: 4.25rem;
+  --text-7xl: 5.5rem;
 
-  --leading-tight: 1.2;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.65;
+  --leading-tight: 1.05;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
+  --tracking-tight: -0.025em;
 
   /* Spacing */
   --space-1: 0.25rem;
@@ -76,63 +100,75 @@
   --space-24: 6rem;
 
   /* Borders & Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
-  --shadow-gold: 0 4px 20px rgba(212, 168, 83, 0.15);
-  --shadow-rose: 0 4px 20px rgba(184, 64, 94, 0.15);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 20px 48px -16px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 32px 80px -24px rgba(0, 0, 0, 0.8);
+  --shadow-gold: 0 12px 36px -12px rgba(255, 122, 77, 0.55);
+  --shadow-rose: 0 12px 36px -12px rgba(255, 176, 143, 0.45);
+  --shadow-pop: 0 12px 36px -12px rgba(255, 122, 77, 0.55);
 
   /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-normal: 250ms ease;
-  --transition-slow: 400ms ease;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 150ms var(--ease-out);
+  --transition-normal: 250ms var(--ease-out);
+  --transition-slow: 450ms var(--ease-out);
+
+  /* Background texture */
+  --grain-opacity: 0.05;
 
   /* Layout */
-  --sidebar-width: 280px;
-  --header-height: 72px;
+  --sidebar-width: 272px;
+  --header-height: 76px;
   --content-max-width: 1200px;
 }
 
-/* ─── Light Mode ────────────────────────────────────────── */
+/* ─── Light Mode — cream paper ──────────────────────────── */
 
 [data-theme="light"] {
-  --color-bg-deep: #faf8f5;
-  --color-bg-primary: #f5f0eb;
-  --color-bg-surface: #ffffff;
-  --color-bg-elevated: #f0ebe4;
-  --color-bg-hover: #e8e2d9;
+  --color-bg-deep: #f6f1e9;
+  --color-bg-primary: #efe8dd;
+  --color-bg-surface: #fffcf7;
+  --color-bg-elevated: #f0e9de;
+  --color-bg-hover: #e8dfd2;
+  --color-glass: rgba(255, 252, 247, 0.7);
+  --color-glass-strong: rgba(30, 20, 10, 0.05);
 
-  --color-gold: #b8922e;
-  --color-gold-dim: #9a7a24;
-  --color-gold-glow: rgba(184, 146, 46, 0.15);
-  --color-rose: #963350;
-  --color-rose-dim: #7a2841;
-  --color-rose-glow: rgba(150, 51, 80, 0.15);
+  --color-gold: #e2552a;
+  --color-gold-dim: #c8461f;
+  --color-gold-glow: rgba(226, 85, 42, 0.1);
+  --color-rose: #c2703f;
+  --color-rose-dim: #a85e33;
+  --color-rose-glow: rgba(194, 112, 63, 0.1);
+  --color-pop: #e2552a;
+  --color-pop-dim: #c8461f;
+  --color-pop-ink: #fffcf7;
 
-  --color-text-primary: #1a1a2e;
-  --color-text-secondary: #4a4a5a;
-  --color-text-muted: #8a8a9a;
-  --color-text-inverse: #fffffe;
+  --color-text-primary: #1b1612;
+  --color-text-secondary: #5a5047;
+  --color-text-muted: #8d8276;
+  --color-text-inverse: #fffcf7;
 
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-border-hover: rgba(0, 0, 0, 0.15);
-  --color-border-gold: rgba(184, 146, 46, 0.3);
+  --color-border: rgba(27, 22, 18, 0.09);
+  --color-border-hover: rgba(27, 22, 18, 0.18);
+  --color-border-gold: rgba(226, 85, 42, 0.35);
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
-  --shadow-gold: 0 4px 20px rgba(184, 146, 46, 0.12);
-  --shadow-rose: 0 4px 20px rgba(150, 51, 80, 0.12);
+  --shadow-sm: 0 1px 2px rgba(40, 25, 10, 0.06);
+  --shadow-md: 0 8px 24px -10px rgba(40, 25, 10, 0.15);
+  --shadow-lg: 0 20px 48px -18px rgba(40, 25, 10, 0.2);
+  --shadow-xl: 0 32px 80px -24px rgba(40, 25, 10, 0.25);
+  --shadow-gold: 0 12px 32px -12px rgba(226, 85, 42, 0.45);
+  --shadow-pop: 0 12px 32px -12px rgba(226, 85, 42, 0.45);
+
+  --grain-opacity: 0.04;
 }
 
 /* ─── Reset & Base ──────────────────────────────────────── */
@@ -162,6 +198,17 @@ body {
   overflow-x: hidden;
 }
 
+/* Film grain — gives flat surfaces a printed, premium texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 a {
   color: var(--color-gold);
   text-decoration: none;
@@ -187,8 +234,8 @@ button {
 }
 
 ::selection {
-  background: var(--color-gold);
-  color: var(--color-text-inverse);
+  background: var(--color-pop);
+  color: var(--color-pop-ink);
 }
 
 ::-webkit-scrollbar {
@@ -225,10 +272,27 @@ h4,
 h5,
 h6,
 .heading {
-  font-family: var(--font-serif);
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 700;
   line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
+}
+
+/* Emphasis inside headings: <h1>read <em>between</em> the lines</h1> */
+h1 em,
+h2 em,
+h3 em,
+.accent-serif {
+  font-style: normal;
+  color: var(--color-gold);
+}
+
+.text-gradient {
+  background: var(--gradient-unused);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 h1,
@@ -261,6 +325,9 @@ h6,
 }
 .text-rose {
   color: var(--color-rose);
+}
+.text-pop {
+  color: var(--color-pop);
 }
 .text-muted {
   color: var(--color-text-muted);
@@ -369,6 +436,25 @@ h6,
   }
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-8px) rotate(var(--r, 0deg));
+  }
+}
+
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -379,7 +465,7 @@ h6,
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease forwards;
+  animation: fadeInUp 0.7s var(--ease-out) forwards;
 }
 
 .animate-fade-in {
@@ -388,6 +474,18 @@ h6,
 
 .animate-slide-in {
   animation: slideInLeft 0.5s ease forwards;
+}
+
+/* Scroll reveal — paired with js/reveal.js */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 .stagger-1 {
@@ -422,8 +520,20 @@ h6,
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
+    --text-7xl: 3.25rem;
+    --text-6xl: 3rem;
     --text-5xl: 2.25rem;
     --text-4xl: 1.875rem;
     --text-3xl: 1.5rem;

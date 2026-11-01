@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const user = api.getUser();
     const welcomeEl = document.getElementById('welcomeMsg');
     if (user && user.name) {
-        welcomeEl.textContent = `Welcome back, ${user.name}`;
+        welcomeEl.textContent = `Hey, ${user.name.split(' ')[0]}.`;
     }
 
     // Load dynamic stats
@@ -71,7 +71,7 @@ function createBookCard(book) {
         ? `<img src="${book.cover_url}" alt="${book.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentNode.innerHTML='<span style=\\'opacity:0.6;position:relative;z-index:1;\\'>${book.title.substring(0, 20)}</span>'">`
         : `<span style="opacity: 0.6; position: relative; z-index: 1;">${book.title.substring(0, 20)}</span>`;
 
-    const coverBg = book.cover_url ? '' : `background: rgba(212,168,83,0.15);`;
+    const coverBg = book.cover_url ? '' : `background: var(--color-gold-glow);`;
 
     // Clean genre — filter out messy Open Library metadata
     let genre = '';

@@ -51,7 +51,7 @@ function toggleTheme() {
     // Update button icon
     const btn = document.getElementById('themeToggleBtn');
     if (btn) {
-        btn.innerHTML = next === 'light' ? icons.moon + '<span>Dark Mode</span>' : icons.sun + '<span>Light Mode</span>';
+        btn.innerHTML = next === 'light' ? icons.moon + '<span>Dark mode</span>' : icons.sun + '<span>Light mode</span>';
     }
 }
 
@@ -62,11 +62,11 @@ initTheme();
 // ─── Navigation Items ────────────────────────────────────
 
 const navItems = [
-    { label: 'Dashboard',       href: 'dashboard.html',       icon: 'home' },
-    { label: 'AI Chatbot',      href: 'chatbot.html',         icon: 'messageCircle' },
-    { label: 'Recommendations', href: 'recommendations.html', icon: 'compass' },
-    { label: 'Emotion Analysis',href: 'emotions.html',        icon: 'heart' },
-    { label: 'My Profile',      href: 'profile.html',         icon: 'user' },
+    { label: 'Home',            href: 'dashboard.html',       icon: 'home' },
+    { label: 'Mood Reader',     href: 'emotions.html',        icon: 'heart' },
+    { label: 'Book Chat',       href: 'chatbot.html',         icon: 'messageCircle' },
+    { label: 'Discover',        href: 'recommendations.html', icon: 'compass' },
+    { label: 'Profile',         href: 'profile.html',         icon: 'user' },
 ];
 
 
@@ -77,17 +77,17 @@ function renderSidebar(activePage) {
     const initial = user ? user.name.charAt(0).toUpperCase() : '?';
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
     const themeIcon = currentTheme === 'light' ? icons.moon : icons.sun;
-    const themeLabel = currentTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+    const themeLabel = currentTheme === 'light' ? 'Dark mode' : 'Light mode';
     
     // Chat history section (only on chatbot page)
     const chatHistorySection = activePage === 'chatbot.html' ? `
         <div class="chat-history-section">
-            <button class="btn btn-primary btn-sm new-chat-btn" onclick="startNewChat()" style="width: 100%; margin-bottom: var(--space-3);">
-                ${icons.plus} <span>New Chat</span>
+            <button class="btn btn-secondary btn-sm new-chat-btn" onclick="startNewChat()" style="width: 100%; margin-bottom: var(--space-4);">
+                ${icons.plus} <span>New chat</span>
             </button>
-            <div class="chat-history-label">History</div>
+            <div class="chat-history-label">Recent</div>
             <div class="chat-history-list" id="chatHistoryList">
-                <div class="chat-history-empty">No conversations yet</div>
+                <div class="chat-history-empty">Nothing yet. Say hi.</div>
             </div>
         </div>
     ` : '';
@@ -98,10 +98,9 @@ function renderSidebar(activePage) {
             ${icons.menu}
         </button>
         <aside class="sidebar" id="sidebar">
-            <div class="sidebar-logo">
-                <div class="logo-icon">${icons.bookOpen}</div>
-                <h2>Vellichor</h2>
-            </div>
+            <a href="dashboard.html" class="sidebar-logo">
+                <span class="wordmark">vellichor<span class="wordmark-dot">.</span></span>
+            </a>
             <nav class="sidebar-nav">
                 ${navItems.map(item => `
                     <a href="${item.href}" class="nav-item ${activePage === item.href ? 'active' : ''}">
@@ -112,20 +111,20 @@ function renderSidebar(activePage) {
             </nav>
             ${chatHistorySection}
             <div class="sidebar-footer">
-                <button class="nav-item" id="themeToggleBtn" style="width: 100%; color: var(--color-text-muted);" onclick="toggleTheme()">
-                    ${themeIcon}
-                    <span>${themeLabel}</span>
-                </button>
                 <div class="sidebar-user">
                     <div class="user-avatar">${initial}</div>
                     <div class="user-info">
-                        <div class="user-name">${user ? user.name : 'Guest'}</div>
-                        <div class="user-email">${user ? user.email : ''}</div>
+                        <div class="user-name">${escapeHTML(user ? user.name : 'Guest')}</div>
+                        <div class="user-email">${escapeHTML(user ? user.email : '')}</div>
                     </div>
                 </div>
-                <button class="nav-item" style="margin-top: var(--space-2); width: 100%; color: var(--color-text-muted);" onclick="api.logout()">
+                <button class="nav-item" id="themeToggleBtn" style="width: 100%;" onclick="toggleTheme()">
+                    ${themeIcon}
+                    <span>${themeLabel}</span>
+                </button>
+                <button class="nav-item" style="width: 100%;" onclick="api.logout()">
                     ${icons.logOut}
-                    <span>Sign Out</span>
+                    <span>Log out</span>
                 </button>
             </div>
         </aside>
@@ -157,6 +156,18 @@ function requireAuth() {
         return false;
     }
     return true;
+}
+
+
+// ─── HTML Escaping ───────────────────────────────────────
+
+function escapeHTML(str) {
+    return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 }
 
 

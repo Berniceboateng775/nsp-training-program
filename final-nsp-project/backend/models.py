@@ -34,9 +34,14 @@ class TokenResponse(BaseModel):
 
 # ─── Chat Models ───────────────────────────────────────────
 
+class ChatTurn(BaseModel):
+    role: str  # "user" or "assistant"
+    content: str
+
 class ChatMessage(BaseModel):
     message: str
     conversation_id: Optional[str] = None
+    history: Optional[List[ChatTurn]] = None  # recent turns, oldest first
 
 class ChatResponse(BaseModel):
     reply: str

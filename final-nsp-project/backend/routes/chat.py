@@ -5,10 +5,10 @@ from datetime import datetime
 from bson import ObjectId
 import logging
 
-from auth import get_current_user
+from auth import get_current_user, get_user_or_guest
 from models import ChatMessage, ChatResponse, FileUploadResponse
 from database import conversations_collection
-from services.huggingface import query_model
+from services.huggingface import query_model, ChatModelError
 from services.pdf_processor import (
     process_document, retrieve_context, session_exists
 )
@@ -20,30 +20,26 @@ router = APIRouter(prefix="/api/chat", tags=["Chat"])
 
 
 @router.post("", response_model=ChatResponse)
-async def send_message(body: ChatMessage, user: dict = Depends(get_current_user)):
+async def send_message(body: ChatMessage, user: dict = Depends(get_user_or_guest)):
     """
     Send a message to the AI and get a response.
+    Recent turns from `body.history` give the model conversation memory.
     If the user has uploaded a document, retrieves relevant chunks
     from FAISS to provide context for the AI response.
+    Guests can chat, but nothing is saved for them.
     """
     user_id = user["id"]
-
-    # Get or create conversation
-    if body.conversation_id:
-        # Handle both ObjectId and frontend-generated string IDs
-        try:
-            query = {"_id": ObjectId(body.conversation_id), "user_id": user_id}
-        except Exception:
-            query = {"_id": body.conversation_id, "user_id": user_id}
-        conv = await conversations_collection.find_one(query)
-    else:
-        conv = None
+    is_guest = user.get("is_guest", False)
+    history = [t.model_dump() for t in (body.history or [])]
 
     # Check if user has a document indexed — retrieve relevant context
     context_chunks = []
-    if session_exists(user_id):
-        results = retrieve_context(user_id, body.message, top_k=3)
-        context_chunks = [r["chunk"] for r in results]
+    if not is_guest and session_exists(user_id):
+        try:
+            results = retrieve_context(user_id, body.message, top_k=3)
+            context_chunks = [r["chunk"] for r in results]
+        except Exception as e:
+            logger.warning(f"Context retrieval failed, answering without it: {e}")
 
     # Build the prompt with context if available
     if context_chunks:
@@ -57,9 +53,17 @@ async def send_message(body: ChatMessage, user: dict = Depends(get_current_user)
             f"that is NOT related to the document passages above, answer from your own knowledge and IGNORE "
             f"the passages entirely. Only reference the passages if the question is clearly about the uploaded document."
         )
-        ai_reply = await query_model(enhanced_prompt)
     else:
-        ai_reply = await query_model(body.message)
+        enhanced_prompt = body.message
+
+    try:
+        ai_reply = await query_model(enhanced_prompt, history)
+    except ChatModelError as e:
+        raise HTTPException(status_code=502, detail=str(e))
+
+    conv_id = body.conversation_id or ""
+    if is_guest:
+        return ChatResponse(reply=ai_reply, conversation_id=conv_id)
 
     # Optionally analyze sentiment of user message
     try:
@@ -74,15 +78,26 @@ async def send_message(body: ChatMessage, user: dict = Depends(get_current_user)
         "sentiment": msg_sentiment
     }
 
-    if conv:
-        # Append to existing conversation
+    # The frontend generates its own ids ("chat_<timestamp>"), so accept
+    # either an ObjectId or a plain string as the conversation key.
+    if body.conversation_id:
+        try:
+            conv_key = ObjectId(body.conversation_id)
+        except Exception:
+            conv_key = body.conversation_id
         await conversations_collection.update_one(
-            {"_id": ObjectId(body.conversation_id)},
-            {"$push": {"messages": message_pair}}
+            {"_id": conv_key, "user_id": user_id},
+            {
+                "$push": {"messages": message_pair},
+                "$setOnInsert": {
+                    "title": body.message[:60],
+                    "created_at": datetime.utcnow().isoformat(),
+                },
+            },
+            upsert=True,
         )
         conv_id = body.conversation_id
     else:
-        # Create new conversation
         new_conv = {
             "user_id": user_id,
             "title": body.message[:60],

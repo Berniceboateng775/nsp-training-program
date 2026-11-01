@@ -3,286 +3,212 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vellichor AI — Your Intelligent Reading Companion</title>
+    <meta name="color-scheme" content="dark light">
+    <script>(function(){var t='dark';try{t=localStorage.getItem('vellichor_theme')||'dark'}catch(e){}document.documentElement.setAttribute('data-theme',t);})()</script>
+    <style>html{background:#100e0c;color-scheme:dark}html[data-theme="light"]{background:#f6f1e9;color-scheme:light}@view-transition{navigation:auto}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,400..700&display=swap">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preload" as="image" href="img/reader-sunlight.jpg">
+    <title>Vellichor — Read the feeling behind every page</title>
     <meta
       name="description"
-      content="A GPT-powered reading companion with personalized book recommendations, conversational AI, and emotion-aware literary analysis."
+      content="Drop in a PDF or a passage and see what it feels like. Vellichor reads the emotion in books, talks books with you, and finds your next read."
     />
     <link rel="stylesheet" href="css/design-system.css" />
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/landing.css" />
-    <script>(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('vellichor_theme')||'dark');})()</script>
   </head>
   <body>
     <!-- ═══ Navigation ═══ -->
     <nav class="landing-nav">
-      <div class="nav-brand">
-        <div class="nav-brand-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-          </svg>
-        </div>
-        <h1>Vellichor</h1>
-      </div>
-      <div class="nav-links hide-mobile">
-        <a href="#features">Features</a>
-        <a href="#stats">Impact</a>
-        <a href="#cta">Get Started</a>
+      <a href="index.html" class="wordmark">vellichor<span class="wordmark-dot">.</span></a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#features">What you get</a>
+        <a href="#feelings">The 7 feelings</a>
       </div>
       <div class="nav-actions">
-        <button class="btn btn-ghost" id="landingThemeToggle" onclick="(function(){var c=document.documentElement.getAttribute('data-theme');var n=c==='light'?'dark':'light';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('vellichor_theme',n);document.getElementById('landingThemeToggle').textContent=n==='light'?'☽ Dark':'☀ Light';})()">
-          <script>document.write(localStorage.getItem('vellichor_theme')==='light'?'☽ Dark':'☀ Light');</script>
+        <button class="theme-switch" id="landingThemeToggle" aria-label="Toggle light and dark mode" onclick="(function(){var c=document.documentElement.getAttribute('data-theme');var n=c==='light'?'dark':'light';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('vellichor_theme',n)}catch(e){}})()">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <a href="login.html" class="btn btn-ghost">Sign In</a>
-        <a href="register.html" class="btn btn-primary">Get Started</a>
+        <a href="login.html" class="btn btn-ghost hide-mobile">Log in</a>
+        <a href="register.html" class="btn btn-primary">Get started</a>
       </div>
     </nav>
 
     <!-- ═══ Hero ═══ -->
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-badge animate-fade-in-up">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
-            />
-          </svg>
-          GPT-Powered Literary Intelligence
-        </div>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow animate-fade-in-up">For people who feel things when they read</p>
         <h1 class="animate-fade-in-up stagger-1">
-          Your AI-Powered<br />Reading Companion
+          Every book has a&nbsp;mood. <em>Now you can see&nbsp;it.</em>
         </h1>
         <p class="hero-subtitle animate-fade-in-up stagger-2">
-          Discover books that resonate with your soul. Get AI-driven
-          recommendations, understand complex narratives, and explore the
-          emotional depth of literature — all through intelligent conversation.
+          Drop in a PDF, a chapter, or one line that wrecked you. Vellichor maps
+          the feelings inside it, talks it through with you, and finds what to
+          read next.
         </p>
         <div class="hero-actions animate-fade-in-up stagger-3">
           <a href="register.html" class="btn btn-primary btn-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
-              />
-            </svg>
-            Start Reading Smarter
+            Start reading, it's free
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
           </a>
-          <a href="login.html" class="btn btn-secondary btn-lg">Sign In</a>
+          <a href="login.html" class="btn btn-secondary btn-lg">I have an account</a>
+        </div>
+        <div class="hero-proof animate-fade-in-up stagger-4">
+          <span class="proof-dot"></span>
+          <span>PDFs, chapters, or a single line. Any length works.</span>
+        </div>
+      </div>
+
+      <div class="hero-visual animate-fade-in-up stagger-2">
+        <div class="hero-photo">
+          <img src="img/reader-sunlight.jpg" alt="Someone reading a paperback in warm afternoon light" />
+        </div>
+
+        <!-- Sample reading floating over the photo -->
+        <figure class="specimen" aria-label="Example emotion reading">
+          <div class="specimen-head">
+            <span>Reading no. 027</span>
+            <span>p. 214</span>
+          </div>
+          <blockquote>
+            “I kept the letter for three years. I never opened it. Some part of me
+            already knew what it said.”
+          </blockquote>
+          <ul class="specimen-bars">
+            <li style="--v: 62%; --c: var(--emo-sadness)"><span>Sadness</span><i></i><b>62%</b></li>
+            <li style="--v: 21%; --c: var(--emo-vulnerability)"><span>Vulnerability</span><i></i><b>21%</b></li>
+            <li style="--v: 11%; --c: var(--emo-suspense)"><span>Suspense</span><i></i><b>11%</b></li>
+          </ul>
+        </figure>
+      </div>
+    </header>
+
+    <!-- ═══ How it works ═══ -->
+    <section class="how" id="how">
+      <div class="how-media reveal">
+        <img src="img/pages-wall.jpg" alt="A wall covered in loose book pages" loading="lazy" />
+      </div>
+      <div class="how-copy">
+        <h2 class="reveal">Three steps. <em>Zero homework.</em></h2>
+        <ol class="how-steps">
+          <li class="reveal">
+            <span class="step-num">01</span>
+            <div>
+              <h3>Drop it in</h3>
+              <p>Upload a PDF or TXT, or paste a scene and the dialogue that goes with it.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="step-num">02</span>
+            <div>
+              <h3>We read between the lines</h3>
+              <p>Our own fine-tuned model scores the passage across seven feelings, using the scene and the words together.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="step-num">03</span>
+            <div>
+              <h3>See the whole mood</h3>
+              <p>Get a breakdown, charts, and a plain-English read on what the writing is doing to you.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══ Features (bento) ═══ -->
+    <section class="features" id="features">
+      <h2 class="reveal">Everything a reader <em>actually</em> wants.</h2>
+
+      <div class="bento">
+        <a href="register.html" class="bento-card bento-emotion reveal">
+          <span class="bento-kicker">Mood mapping</span>
+          <h3>Find the feeling in any page.</h3>
+          <p>Whole PDFs, single chapters, one quote. Ask about one part, like “the funeral scene”, and we pull those passages out for you.</p>
+          <div class="mini-bars" aria-hidden="true">
+            <i style="--h: 72%; --c: var(--emo-joy)"></i>
+            <i style="--h: 38%; --c: var(--emo-sadness)"></i>
+            <i style="--h: 54%; --c: var(--emo-anger)"></i>
+            <i style="--h: 88%; --c: var(--emo-fear)"></i>
+            <i style="--h: 30%; --c: var(--emo-vulnerability)"></i>
+            <i style="--h: 46%; --c: var(--emo-trust)"></i>
+            <i style="--h: 64%; --c: var(--emo-suspense)"></i>
+          </div>
+        </a>
+
+        <a href="register.html" class="bento-card bento-photo reveal">
+          <img src="img/coffee-book.jpg" alt="An open book next to a latte and reading glasses" loading="lazy" />
+          <div class="bento-photo-caption">
+            <span class="bento-kicker">Book chat</span>
+            <h3>Talk books at 2am.</h3>
+          </div>
+        </a>
+
+        <a href="register.html" class="bento-card bento-chat reveal">
+          <span class="bento-kicker">Ask anything</span>
+          <div class="chat-demo" aria-hidden="true">
+            <p class="me">ok but was Gatsby actually in love or just obsessed</p>
+            <p class="them">Honestly? Obsessed with who he could be with her. Daisy was the dream, not the person.</p>
+            <p class="me">ugh. that's so real</p>
+          </div>
+        </a>
+
+        <a href="register.html" class="bento-card bento-photo bento-reco reveal">
+          <img src="img/spines.jpg" alt="Old cloth-bound book spines on a shelf" />
+          <div class="bento-photo-caption">
+            <span class="bento-kicker">Next reads</span>
+            <h3>Picks that match your mood, not just a genre.</h3>
+          </div>
+        </a>
+
+        <div class="bento-card bento-stat reveal">
+          <span class="big-num">7</span>
+          <p>feelings our model was trained to tell apart. It's a GPT-2 we fine-tuned ourselves, not an off-the-shelf model.</p>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Features ═══ -->
-    <section class="features-section" id="features">
-      <div class="section-header">
-        <div class="section-tag">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="12"
-            height="12"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-          </svg>
-          Core Capabilities
-        </div>
-        <h2>Intelligent Reading,<br />Reimagined</h2>
-        <p>
-          Three powerful AI modules designed to transform how you discover,
-          understand, and experience literature.
-        </p>
-      </div>
-
-      <div class="features-grid">
-        <!-- Feature 1: Recommendations -->
-        <div class="feature-card animate-fade-in-up stagger-1">
-          <div class="feature-icon gold">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <polygon
-                points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"
-              />
-            </svg>
-          </div>
-          <h3>Smart Recommendations</h3>
-          <p>
-            Receive deeply personalized book suggestions based on your reading
-            preferences, mood, and literary taste. Our AI explains why each book
-            was chosen for you.
-          </p>
-        </div>
-
-        <!-- Feature 2: Chatbot -->
-        <div class="feature-card animate-fade-in-up stagger-2">
-          <div class="feature-icon rose">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
-            </svg>
-          </div>
-          <h3>Reading Companion</h3>
-          <p>
-            Chat with an AI that understands literature. Get chapter summaries,
-            character analyses, plot explanations, and deep thematic discussions
-            in real time.
-          </p>
-        </div>
-
-        <!-- Feature 3: Emotion Analysis -->
-        <div class="feature-card animate-fade-in-up stagger-3">
-          <div class="feature-icon info">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
-              />
-            </svg>
-          </div>
-          <h3>Emotion & Theme Analysis</h3>
-          <p>
-            Uncover the emotional landscape of any text. Visualize joy, tension,
-            romance, and sadness through interactive charts and AI-generated
-            literary insights.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ Stats ═══ -->
-    <section class="stats-section" id="stats">
-      <div class="stats-grid">
-        <div class="stats-item animate-fade-in-up stagger-1">
-          <div class="stats-value">12K+</div>
-          <div class="stats-label">Books in Knowledge Base</div>
-        </div>
-        <div class="stats-item animate-fade-in-up stagger-2">
-          <div class="stats-value">7</div>
-          <div class="stats-label">Emotion Categories</div>
-        </div>
-        <div class="stats-item animate-fade-in-up stagger-3">
-          <div class="stats-value">RAG</div>
-          <div class="stats-label">Retrieval-Augmented AI</div>
-        </div>
-        <div class="stats-item animate-fade-in-up stagger-4">
-          <div class="stats-value">LLM</div>
-          <div class="stats-label">Fine-Tuned Language Model</div>
-        </div>
-      </div>
+    <!-- ═══ The seven feelings ═══ -->
+    <section class="feelings" id="feelings">
+      <h2 class="reveal">The seven feelings <em>we look for</em></h2>
+      <ul class="feeling-list">
+        <li class="reveal" style="--c: var(--emo-joy)"><b>Joy &amp; Confidence</b><span>the main-character moment</span></li>
+        <li class="reveal" style="--c: var(--emo-sadness)"><b>Sadness</b><span>the chapter you read twice</span></li>
+        <li class="reveal" style="--c: var(--emo-anger)"><b>Anger</b><span>throw-the-book energy</span></li>
+        <li class="reveal" style="--c: var(--emo-fear)"><b>Fear &amp; Tension</b><span>lights on, still reading</span></li>
+        <li class="reveal" style="--c: var(--emo-vulnerability)"><b>Vulnerability</b><span>the 3am confession</span></li>
+        <li class="reveal" style="--c: var(--emo-trust)"><b>Connection &amp; Trust</b><span>found family, basically</span></li>
+        <li class="reveal" style="--c: var(--emo-suspense)"><b>Suspense &amp; Reflection</b><span>staring at the wall after</span></li>
+      </ul>
     </section>
 
     <!-- ═══ CTA ═══ -->
-    <section class="cta-section" id="cta">
-      <div class="cta-card animate-fade-in-up">
-        <h2>Begin Your Literary Journey</h2>
-        <p>
-          Join Vellichor AI and experience literature through the lens of
-          artificial intelligence.
-        </p>
+    <section class="cta" id="cta">
+      <img class="cta-bg" src="img/library-round.jpg" alt="" />
+      <div class="cta-inner reveal">
+        <h2>Your next favorite book is <em>one mood away.</em></h2>
         <div class="hero-actions">
-          <a href="register.html" class="btn btn-primary btn-lg"
-            >Create Free Account</a
-          >
-          <a href="login.html" class="btn btn-secondary btn-lg"
-            >Try the Chatbot</a
-          >
+          <a href="register.html" class="btn btn-primary btn-lg">Create a free account</a>
+          <a href="login.html" class="btn btn-on-photo btn-lg">Log in</a>
         </div>
       </div>
     </section>
 
     <!-- ═══ Footer ═══ -->
     <footer class="landing-footer">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#d4a853"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-          </svg>
-          <h3>Vellichor AI</h3>
-        </div>
-        <div class="footer-links">
-          <a href="https://github.com/Berniceboateng775" target="_blank"
-            >GitHub</a
-          >
-          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-          <a href="https://huggingface.co" target="_blank">Hugging Face</a>
-        </div>
-        <div class="footer-copy">
-          &copy; 2026 Vellichor AI. Built with intelligence.
-        </div>
+      <span class="wordmark">vellichor<span class="wordmark-dot">.</span></span>
+      <div class="footer-links">
+        <a href="https://github.com/Berniceboateng775" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://huggingface.co/Bernice775/vellichor-emotion-detector" target="_blank" rel="noopener">The model</a>
       </div>
+      <span class="footer-copy">&copy; 2026 Vellichor. Made for readers. Photos via Unsplash.</span>
     </footer>
+
+    <script src="js/reveal.js"></script>
   </body>
 </html>
