@@ -19,7 +19,8 @@ def _ensure_dns_resolver():
     mongodb+srv:// URLs need a DNS lookup. dnspython derives its default
     domain from the machine hostname and crashes if that contains characters
     IDNA can't encode (e.g. an emoji in a Windows computer name). In that case
-    build the resolver against a plain hostname and public nameservers.
+    build the resolver while presenting a plain hostname, so it still uses the
+    system's nameservers (public ones are often blocked on managed networks).
     """
     try:
         import dns.resolver
@@ -32,10 +33,13 @@ def _ensure_dns_resolver():
         real_gethostname = socket.gethostname
         socket.gethostname = lambda: "localhost"
         try:
-            resolver = dns.resolver.Resolver(configure=False)
+            try:
+                resolver = dns.resolver.Resolver()
+            except Exception:
+                resolver = dns.resolver.Resolver(configure=False)
+                resolver.nameservers = ["8.8.8.8", "1.1.1.1"]
         finally:
             socket.gethostname = real_gethostname
-        resolver.nameservers = ["8.8.8.8", "1.1.1.1"]
         dns.resolver.default_resolver = resolver
 
 
